@@ -1,5 +1,6 @@
-import prisma from '../utils/prisma';
+import { PrismaClient } from '@prisma/client';
 import jwt from 'jsonwebtoken';
+import { CategoryStreakService } from './category-streak.service';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'arkok-family-secret';
 
@@ -8,6 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'arkok-family-secret';
  * 遵循技术宪法 V5.0 "一源多端"原则
  */
 export class ParentService {
+    constructor(private prisma: PrismaClient) { }
 
     // ==================== 认证相关 ====================
 
@@ -20,7 +22,7 @@ export class ParentService {
      */
     async login(phone: string, password: string, schoolId: string) {
         // 查找家长账户
-        let parent = await prisma.parents.findUnique({
+        let parent = await this.prisma.parents.findUnique({
             where: { schoolId_phone: { schoolId, phone } },
             include: {
                 parent_student_bindings: {
@@ -42,12 +44,15 @@ export class ParentService {
             throw new Error('密码错误');
         }
 
+        // ... continued login logic
+
+
         if (!parent.isActive) {
             throw new Error('账户已被禁用');
         }
 
         // 更新最后登录时间
-        await prisma.parents.update({
+        await this.prisma.parents.update({
             where: { id: parent.id },
             data: { lastLoginAt: new Date() }
         });
@@ -102,7 +107,7 @@ export class ParentService {
         }
 
         // 通过学生姓名和邀请码查找学生
-        const student = await prisma.students.findFirst({
+        const student = await this.prisma.students.findFirst({
             where: {
                 name: studentName,
                 schoolId,
@@ -120,7 +125,7 @@ export class ParentService {
 
         if (!student) {
             // 检查是否只是邀请码不匹配
-            const studentByName = await prisma.students.findFirst({
+            const studentByName = await this.prisma.students.findFirst({
                 where: { name: studentName, schoolId }
             });
 
@@ -137,12 +142,12 @@ export class ParentService {
         }
 
         // 查找或创建家长账户
-        let parent = await prisma.parents.findUnique({
+        let parent = await this.prisma.parents.findUnique({
             where: { schoolId_phone: { schoolId, phone } }
         });
 
         if (!parent) {
-            parent = await prisma.parents.create({
+            parent = await this.prisma.parents.create({
                 data: {
                     schoolId,
                     phone,
@@ -154,7 +159,7 @@ export class ParentService {
         }
 
         // 检查是否已绑定
-        const existingBinding = await prisma.parent_student_bindings.findUnique({
+        const existingBinding = await this.prisma.parent_student_bindings.findUnique({
             where: { parentId_studentId: { parentId: parent.id, studentId: student.id } }
         });
 
@@ -163,13 +168,13 @@ export class ParentService {
                 throw new Error('已绑定该学生');
             }
             // 重新激活绑定
-            await prisma.parent_student_bindings.update({
+            await this.prisma.parent_student_bindings.update({
                 where: { id: existingBinding.id },
                 data: { isActive: true }
             });
         } else {
             // 创建新绑定
-            await prisma.parent_student_bindings.create({
+            await this.prisma.parent_student_bindings.create({
                 data: {
                     parentId: parent.id,
                     studentId: student.id,
@@ -179,7 +184,7 @@ export class ParentService {
         }
 
         // 绑定成功后清除邀请码（一次性使用）
-        await prisma.students.update({
+        await this.prisma.students.update({
             where: { id: student.id },
             data: {
                 currentInviteCode: null,
@@ -218,7 +223,7 @@ export class ParentService {
         const tomorrow = new Date(`${todayStr}T23:59:59+08:00`);
 
         // 获取今日所有记录
-        const allRecords = await prisma.task_records.findMany({
+        const allRecords = await this.prisma.task_records.findMany({
             where: {
                 studentId,
                 createdAt: { gte: today, lt: tomorrow }
@@ -243,7 +248,7 @@ export class ParentService {
         const pendingRecords = allRecords.filter(r => r.status === 'PENDING');
 
         // 获取今日习惯打卡
-        const habitLogs = await prisma.habit_logs.findMany({
+        const habitLogs = await this.prisma.habit_logs.findMany({
             where: {
                 studentId,
                 checkedAt: { gte: today, lt: tomorrow }
@@ -255,7 +260,7 @@ export class ParentService {
         });
 
         // 🆕 获取每个习惯的累计打卡次数（与教师端保持一致）
-        const habitTotalCounts = await prisma.habit_logs.groupBy({
+        const habitTotalCounts = await this.prisma.habit_logs.groupBy({
             by: ['habitId'],
             where: { studentId },
             _count: { id: true }
@@ -269,7 +274,7 @@ export class ParentService {
         }));
 
         // 🆕 获取今日阅读记录
-        const readingLogs = await prisma.reading_logs.findMany({
+        const readingLogs = await this.prisma.reading_logs.findMany({
             where: {
                 studentId,
                 recordedAt: { gte: today, lt: tomorrow }
@@ -281,7 +286,7 @@ export class ParentService {
         });
 
         // 🆕 获取今日完成的家校计划项目
-        const completedPlanItems = await prisma.weekly_plan_items.findMany({
+        const completedPlanItems = await this.prisma.weekly_plan_items.findMany({
             where: {
                 isCompleted: true,
                 completedAt: { gte: today, lt: tomorrow },
@@ -294,7 +299,7 @@ export class ParentService {
         });
 
         // 获取今日PK记录
-        const pkMatches = await prisma.pk_matches.findMany({
+        const pkMatches = await this.prisma.pk_matches.findMany({
             where: {
                 OR: [{ studentA: studentId }, { studentB: studentId }],
                 createdAt: { gte: today, lt: tomorrow }
@@ -307,7 +312,7 @@ export class ParentService {
         });
 
         // 获取今日勋章
-        const badges = await prisma.student_badges.findMany({
+        const badges = await this.prisma.student_badges.findMany({
             where: {
                 studentId,
                 awardedAt: { gte: today, lt: tomorrow }
@@ -352,7 +357,7 @@ export class ParentService {
         ];
 
         // 🆕 获取学生最新的课程进度，用于回填“待过关”任务的具体标题
-        const studentProfile = await prisma.students.findUnique({
+        const studentProfile = await this.prisma.students.findUnique({
             where: { id: studentId },
             select: { currentUnit: true, currentLesson: true, currentLessonTitle: true }
         });
@@ -428,7 +433,7 @@ export class ParentService {
         }
 
         // 获取今日点赞和留言状态
-        const summary = await prisma.daily_summaries.findFirst({
+        const summary = await this.prisma.daily_summaries.findFirst({
             where: {
                 studentId,
                 parentId,
@@ -439,12 +444,19 @@ export class ParentService {
         // 计算今日积分 (仅计算已获得的 XP)
         const todayExp = completedRecords.reduce((sum, r) => sum + (r.expAwarded || 0), 0);
 
+        // 🆕 获取学生连胜火焰数据
+        const studentStats = await this.prisma.student_stats.findUnique({
+            where: { studentId },
+            select: { perfectStreak: true }
+        });
+
         return {
             date: todayStr,
             weekday: ['日', '一', '二', '三', '四', '五', '六'][beijingTime.getDay()],
             todayExp,
             parentLiked: !!summary?.parentLiked,
             parentComment: summary?.parentComment || null,
+            perfectStreak: studentStats?.perfectStreak || 0, // 🆕 返回连胜数据
             timeline
         };
     }
@@ -457,7 +469,7 @@ export class ParentService {
 
         const skip = (page - 1) * limit;
 
-        const records = await prisma.task_records.findMany({
+        const records = await this.prisma.task_records.findMany({
             where: { studentId },
             orderBy: { createdAt: 'desc' },
             skip,
@@ -488,7 +500,7 @@ export class ParentService {
 
         const today = new Date().toISOString().split('T')[0];
 
-        await prisma.daily_summaries.upsert({
+        await this.prisma.daily_summaries.upsert({
             where: {
                 studentId_parentId_date: { studentId, parentId, date: today }
             },
@@ -512,7 +524,7 @@ export class ParentService {
 
         const today = new Date().toISOString().split('T')[0];
 
-        await prisma.daily_summaries.upsert({
+        await this.prisma.daily_summaries.upsert({
             where: {
                 studentId_parentId_date: { studentId, parentId, date: today }
             },
@@ -534,7 +546,7 @@ export class ParentService {
      * 验证家长是否有权限访问该学生
      */
     async verifyParentAccess(parentId: string, studentId: string) {
-        const binding = await prisma.parent_student_bindings.findFirst({
+        const binding = await this.prisma.parent_student_bindings.findFirst({
             where: {
                 parentId,
                 studentId,
@@ -644,8 +656,11 @@ export class ParentService {
                 status: r.status,
                 exp: r.expAwarded || 0,
                 attempts: r.attempts || 0, // 🆕 返回尝试次数
+                streakUpdate: (r.content as any)?.streakUpdate, // 🆕 透传连胜更新数据
                 time: r.createdAt
             }));
+
+            // 如果是当天最新的一条记录，计算是否刚刚达成连胜里程碑（可选）
 
             timeline.push({
                 id: `qc-${groupKey}-${firstRecord.id}`,
@@ -1056,7 +1071,7 @@ export class ParentService {
      * 权限校验：仅限管理老师或管理员
      */
     async generateInviteCode(studentId: string, requesterId?: string, userRole?: string) {
-        const student = await prisma.students.findUnique({
+        const student = await this.prisma.students.findUnique({
             where: { id: studentId },
             select: { id: true, name: true, className: true, teacherId: true }
         });
@@ -1079,7 +1094,7 @@ export class ParentService {
         expiresAt.setHours(expiresAt.getHours() + 24);
 
         // 持久化存储邀请码
-        await prisma.students.update({
+        await this.prisma.students.update({
             where: { id: studentId },
             data: {
                 currentInviteCode: inviteCode,
@@ -1102,7 +1117,7 @@ export class ParentService {
      * 获取学生绑定的家长列表（教师端调用）
      */
     async getStudentParents(studentId: string) {
-        const bindings = await prisma.parent_student_bindings.findMany({
+        const bindings = await this.prisma.parent_student_bindings.findMany({
             where: { studentId, isActive: true },
             include: {
                 parents: {
@@ -1127,7 +1142,7 @@ export class ParentService {
      * 解除家长绑定（教师端调用）
      */
     async unbindParent(bindingId: string) {
-        const binding = await prisma.parent_student_bindings.findUnique({
+        const binding = await this.prisma.parent_student_bindings.findUnique({
             where: { id: bindingId },
             include: {
                 students: { select: { name: true } },
@@ -1140,7 +1155,7 @@ export class ParentService {
         }
 
         // 软删除：设置 isActive = false
-        await prisma.parent_student_bindings.update({
+        await this.prisma.parent_student_bindings.update({
             where: { id: bindingId },
             data: { isActive: false }
         });
@@ -1164,7 +1179,7 @@ export class ParentService {
             where.teacherRead = false;
         }
 
-        const summaries = await prisma.daily_summaries.findMany({
+        const summaries = await this.prisma.daily_summaries.findMany({
             where,
             orderBy: { updatedAt: 'desc' },
             take: 50,
@@ -1190,7 +1205,7 @@ export class ParentService {
      * 标记反馈为已读
      */
     async markFeedbackRead(feedbackId: string) {
-        await prisma.daily_summaries.update({
+        await this.prisma.daily_summaries.update({
             where: { id: feedbackId },
             data: { teacherRead: true }
         });
@@ -1202,7 +1217,7 @@ export class ParentService {
      * 批量标记已读
      */
     async markAllFeedbacksRead(schoolId: string) {
-        await prisma.daily_summaries.updateMany({
+        await this.prisma.daily_summaries.updateMany({
             where: {
                 teacherRead: false,
                 students: { schoolId }
@@ -1223,10 +1238,25 @@ export class ParentService {
         await this.verifyParentAccess(parentId, studentId);
 
         // 获取学生基本信息
-        const student = await prisma.students.findUnique({
+        const student = await this.prisma.students.findUnique({
             where: { id: studentId },
             select: { id: true, name: true, className: true, level: true, exp: true, points: true }
         });
+
+        // 获取连胜数据 (单独查询)
+        const stats = await this.prisma.student_stats.findUnique({
+            where: { studentId },
+            select: { perfectStreak: true, maxPerfectStreak: true }
+        });
+
+        // 注入连胜数据
+        const studentWithStats = student ? {
+            ...student,
+            stats: {
+                perfectStreak: stats?.perfectStreak || 0,
+                maxPerfectStreak: stats?.maxPerfectStreak || 0
+            }
+        } : null;
 
         // 并行获取各维度数据
         const [radarData, heatmapData, trendData, summary] = await Promise.all([
@@ -1237,7 +1267,7 @@ export class ParentService {
         ]);
 
         // 获取已解锁技能
-        const skills = await prisma.student_skills.findMany({
+        const skills = await this.prisma.student_skills.findMany({
             where: {
                 studentId,
                 level: { gt: 0 }
@@ -1270,7 +1300,7 @@ export class ParentService {
         }));
 
         return {
-            student,
+            student: studentWithStats,
             radarData,
             heatmapData,
             trendData,
@@ -1289,7 +1319,7 @@ export class ParentService {
 
         // 1. 自主力 (Autonomy)：自选任务完成数、主动申报任务数
         // 暂用 SPECIAL 类型任务 + 非强制任务完成率
-        const specialTasks = await prisma.task_records.count({
+        const specialTasks = await this.prisma.task_records.count({
             where: {
                 studentId,
                 task_category: 'SPECIAL',
@@ -1301,7 +1331,7 @@ export class ParentService {
 
         // 2. 规划力 (Planning)：周计划制定率、每日任务完成率
         // 暂用每日任务按时完成率
-        const monthlyTasks = await prisma.task_records.findMany({
+        const monthlyTasks = await this.prisma.task_records.findMany({
             where: {
                 studentId,
                 type: 'TASK',
@@ -1316,12 +1346,12 @@ export class ParentService {
         // 3. 复盘力 (Review)：错题订正数、归因填写率
         // 暂用 QC 完成率 + METHODOLOGY 类型任务完成数
         const [qcStats, methodologyCount] = await Promise.all([
-            prisma.task_records.groupBy({
+            this.prisma.task_records.groupBy({
                 by: ['status'],
                 where: { studentId, type: 'QC' },
                 _count: true
             }),
-            prisma.task_records.count({
+            this.prisma.task_records.count({
                 where: {
                     studentId,
                     task_category: 'METHODOLOGY',
@@ -1338,11 +1368,11 @@ export class ParentService {
         // 4. 思考力 (Thinking)：母题整理数、讲题视频数
         // 暂用挑战成功率 + PK胜率
         const [challenges, pkMatches] = await Promise.all([
-            prisma.challenge_participants.findMany({
+            this.prisma.challenge_participants.findMany({
                 where: { studentId },
                 select: { status: true, result: true }
             }),
-            prisma.pk_matches.findMany({
+            this.prisma.pk_matches.findMany({
                 where: { OR: [{ studentA: studentId }, { studentB: studentId }] },
                 select: { winnerId: true }
             })
@@ -1358,13 +1388,13 @@ export class ParentService {
         // 5. 坚持力 (Grit)：连胜天数、累计里程碑
         // 使用习惯打卡连续天数 + 勋章数量
         const [habitLogs, badgeCount] = await Promise.all([
-            prisma.habit_logs.findMany({
+            this.prisma.habit_logs.findMany({
                 where: { studentId },
                 select: { streakDays: true },
                 orderBy: { checkedAt: 'desc' },
                 take: 10
             }),
-            prisma.student_badges.count({ where: { studentId } })
+            this.prisma.student_badges.count({ where: { studentId } })
         ]);
         const maxStreak = habitLogs.length > 0
             ? Math.max(...habitLogs.map(h => h.streakDays))
@@ -1394,14 +1424,14 @@ export class ParentService {
 
         // 获取本月所有活动记录
         const [taskRecords, habitLogs] = await Promise.all([
-            prisma.task_records.findMany({
+            this.prisma.task_records.findMany({
                 where: {
                     studentId,
                     createdAt: { gte: monthStart, lte: monthEnd }
                 },
                 select: { createdAt: true }
             }),
-            prisma.habit_logs.findMany({
+            this.prisma.habit_logs.findMany({
                 where: {
                     studentId,
                     checkedAt: { gte: monthStart, lte: monthEnd }
@@ -1457,7 +1487,7 @@ export class ParentService {
         thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
         // 获取最近30天的任务记录
-        const records = await prisma.task_records.findMany({
+        const records = await this.prisma.task_records.findMany({
             where: {
                 studentId,
                 createdAt: { gte: thirtyDaysAgo }
@@ -1501,17 +1531,17 @@ export class ParentService {
      * 获取成长概要统计
      */
     private async getGrowthSummary(studentId: string) {
-        const student = await prisma.students.findUnique({
+        const student = await this.prisma.students.findUnique({
             where: { id: studentId },
             select: { createdAt: true }
         });
 
         const [totalTasks, totalQC, totalPK, totalHabits, totalBadges] = await Promise.all([
-            prisma.task_records.count({ where: { studentId, type: 'TASK', status: 'COMPLETED' } }),
-            prisma.task_records.count({ where: { studentId, type: 'QC', status: 'COMPLETED' } }),
-            prisma.pk_matches.count({ where: { OR: [{ studentA: studentId }, { studentB: studentId }] } }),
-            prisma.habit_logs.count({ where: { studentId } }),
-            prisma.student_badges.count({ where: { studentId } })
+            this.prisma.task_records.count({ where: { studentId, type: 'TASK', status: 'COMPLETED' } }),
+            this.prisma.task_records.count({ where: { studentId, type: 'QC', status: 'COMPLETED' } }),
+            this.prisma.pk_matches.count({ where: { OR: [{ studentA: studentId }, { studentB: studentId }] } }),
+            this.prisma.habit_logs.count({ where: { studentId } }),
+            this.prisma.student_badges.count({ where: { studentId } })
         ]);
 
         // 计算入学天数
@@ -1540,19 +1570,19 @@ export class ParentService {
         const weekStart = planData.weekStart || this.getThisWeekMonday();
 
         // 获取学生的 schoolId
-        const student = await prisma.students.findUnique({
+        const student = await this.prisma.students.findUnique({
             where: { id: studentId },
             select: { schoolId: true }
         });
         if (!student) throw new Error('学生不存在');
 
         // 删除该学生所有已有计划（最后一次发布覆盖前面所有）
-        await prisma.weekly_plans.deleteMany({
+        await this.prisma.weekly_plans.deleteMany({
             where: { studentId }
         });
 
         // 创建新的周计划
-        const plan = await prisma.weekly_plans.create({
+        const plan = await this.prisma.weekly_plans.create({
             data: {
                 studentId,
                 weekStart,
@@ -1599,7 +1629,7 @@ export class ParentService {
 
         // 批量创建项目
         if (items.length > 0) {
-            await prisma.weekly_plan_items.createMany({
+            await this.prisma.weekly_plan_items.createMany({
                 data: items.map(item => ({
                     planId: plan.id,
                     category: item.category,
@@ -1628,7 +1658,7 @@ export class ParentService {
     async getWeeklyPlan(studentId: string, weekStart?: string) {
         const targetWeek = weekStart || this.getNextWeekMonday();
 
-        const plan = await prisma.weekly_plans.findUnique({
+        const plan = await this.prisma.weekly_plans.findUnique({
             where: {
                 studentId_weekStart: { studentId, weekStart: targetWeek }
             },
@@ -1670,7 +1700,7 @@ export class ParentService {
      */
     async getCurrentWeekPlan(studentId: string) {
         // 查找最近的活跃计划（未完成的）
-        const plan = await prisma.weekly_plans.findFirst({
+        const plan = await this.prisma.weekly_plans.findFirst({
             where: {
                 studentId,
                 status: 'ACTIVE'
@@ -1699,7 +1729,7 @@ export class ParentService {
      * 返回完成详情，用于同步到家长端今日动态
      */
     async completeWeeklyPlanItem(itemId: string) {
-        const updatedItem = await prisma.weekly_plan_items.update({
+        const updatedItem = await this.prisma.weekly_plan_items.update({
             where: { id: itemId },
             data: {
                 isCompleted: true,
@@ -1750,7 +1780,12 @@ export class ParentService {
         monday.setDate(now.getDate() + daysToMonday);
         return monday.toISOString().split('T')[0];
     }
+    // 🆕 获取学生连胜记录 (供家长端使用)
+    async getStudentStreaks(studentId: string) {
+        const streakService = new CategoryStreakService(this.prisma);
+        return streakService.getAllStreaks(studentId);
+    }
 }
 
-export const parentService = new ParentService();
+
 

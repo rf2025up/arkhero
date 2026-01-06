@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useOutletContext, useParams, useNavigate } from 'react-router-dom';
 import {
     Bell, Award, Users, Calendar, ChevronRight,
     MessageCircle, Heart, Settings, HelpCircle, LogOut
@@ -25,11 +25,11 @@ interface Student {
 /**
  * 家校互联页
  * 功能：消息通知、勋章墙、绑定孩子、在线请假等
- * UI 参考: /parent/家长端3tab源码参考.html
  */
 const SchoolConnect: React.FC = () => {
     const { studentId } = useParams<{ studentId: string }>();
     const navigate = useNavigate();
+    const { setCurrentStudent } = useOutletContext<any>();
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [students, setStudents] = useState<Student[]>([]);
     const [badgeCount, setBadgeCount] = useState(0);
@@ -37,7 +37,6 @@ const SchoolConnect: React.FC = () => {
     const [parentInfo, setParentInfo] = useState<any>(null);
 
     useEffect(() => {
-        // 加载本地存储的信息
         const storedStudents = localStorage.getItem('parent_students');
         const storedParent = localStorage.getItem('parent_info');
 
@@ -48,13 +47,11 @@ const SchoolConnect: React.FC = () => {
             setParentInfo(JSON.parse(storedParent));
         }
 
-        // 模拟加载通知数据（实际应从API获取）
         loadNotifications();
         loadBadgeCount();
     }, [studentId]);
 
     const loadNotifications = async () => {
-        // TODO: 实际从后端获取通知
         setNotifications([
             {
                 id: '1',
@@ -77,7 +74,6 @@ const SchoolConnect: React.FC = () => {
     };
 
     const loadBadgeCount = async () => {
-        // 从成长档案API获取勋章数
         const token = localStorage.getItem('parent_token');
         if (!token || !studentId) return;
 
@@ -94,7 +90,10 @@ const SchoolConnect: React.FC = () => {
         }
     };
 
-    // 退出登录
+    const handleSwitchStudent = (student: Student) => {
+        setCurrentStudent(student);
+    };
+
     const handleLogout = () => {
         if (window.confirm('确定要退出登录吗？')) {
             localStorage.removeItem('parent_token');
@@ -104,7 +103,6 @@ const SchoolConnect: React.FC = () => {
         }
     };
 
-    // 菜单项
     const menuItems = [
         {
             icon: Bell,
@@ -144,7 +142,6 @@ const SchoolConnect: React.FC = () => {
         }
     ];
 
-    // 设置项
     const settingsItems = [
         {
             icon: Settings,
@@ -165,147 +162,160 @@ const SchoolConnect: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-24">
-            {/* 顶部标题 */}
-            <div className="px-5 py-4 pt-14 bg-white shadow-sm">
-                <h1 className="font-bold text-lg text-gray-800">家校互联</h1>
-            </div>
+        <div className="min-h-screen bg-gray-100 pb-24">
+            {/* 用户信息卡 - 铺满顶部样式 */}
+            <div className="bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 pt-12 pb-8 px-6 text-white shadow-lg overflow-hidden relative rounded-b-[40px]">
+                {/* 页面大标题 */}
+                <div className="relative z-10 mb-6 flex justify-between items-center">
+                    <h1 className="text-lg font-black tracking-widest opacity-90">家校互联</h1>
+                    <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/10">
+                        <Settings size={16} />
+                    </div>
+                </div>
 
-            {/* 用户信息卡 */}
-            <div className="mx-4 mt-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl p-4 text-white shadow-lg">
-                <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl">
+                <div className="flex items-center gap-4 relative z-10">
+                    <div className="w-16 h-16 bg-white/20 rounded-2xl backdrop-blur-md flex items-center justify-center text-3xl border border-white/30 shadow-inner">
                         👤
                     </div>
                     <div className="flex-1">
-                        <div className="font-bold text-lg">
+                        <div className="font-black text-xl tracking-tight">
                             {parentInfo?.name || '家长用户'}
                         </div>
-                        <div className="text-xs text-white/70">
-                            {parentInfo?.phone ? parentInfo.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2') : '未设置手机号'}
+                        <div className="text-xs text-white/80 mt-0.5 font-bold">
+                            {parentInfo?.phone ? parentInfo.phone.replace(/(\d{3})\d{4}(\d{2})/, '$1****$2') : '未设置手机号'}
                         </div>
                     </div>
                 </div>
 
                 {/* 绑定的孩子列表 */}
                 {students.length > 0 && (
-                    <div className="flex gap-2 mt-3 overflow-x-auto no-scrollbar">
+                    <div className="flex gap-2 mt-5 overflow-x-auto no-scrollbar relative z-10">
                         {students.map(s => (
-                            <div
+                            <button
                                 key={s.id}
-                                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium ${s.id === studentId
-                                        ? 'bg-white text-orange-500'
-                                        : 'bg-white/20 text-white'
+                                onClick={() => handleSwitchStudent(s)}
+                                className={`flex-shrink-0 px-5 py-2 rounded-full text-xs font-black transition-all active:scale-95 border ${s.id === studentId
+                                        ? 'bg-white text-orange-600 shadow-lg border-white'
+                                        : 'bg-white/10 text-white border-white/20 hover:bg-white/20'
                                     }`}
                             >
                                 {s.name}
-                            </div>
+                            </button>
                         ))}
                     </div>
                 )}
-            </div>
 
-            {/* 功能菜单 */}
-            <div className="p-4 space-y-3">
-                {menuItems.map((item, i) => (
-                    <button
-                        key={i}
-                        onClick={item.onClick}
-                        className="w-full bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4 active:bg-gray-50 transition-colors text-left"
-                    >
-                        <div className={`w-10 h-10 rounded-full ${item.iconBg} ${item.iconColor} flex items-center justify-center`}>
-                            <item.icon size={20} />
-                        </div>
-                        <div className="flex-1">
-                            <p className="font-bold text-gray-800">{item.title}</p>
-                            <p className="text-xs text-gray-400">{item.subtitle}</p>
-                        </div>
-                        {item.badge && (
-                            <span className="w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                                {item.badge}
-                            </span>
-                        )}
-                        {item.arrow && (
-                            <ChevronRight size={18} className="text-gray-300" />
-                        )}
-                    </button>
-                ))}
-            </div>
-
-            {/* 最近消息预览 */}
-            {notifications.length > 0 && (
-                <div className="px-4 mb-4">
-                    <h3 className="text-sm font-bold text-gray-600 mb-2 px-1">最近消息</h3>
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                        {notifications.slice(0, 2).map((notif, i) => (
-                            <div
-                                key={notif.id}
-                                className={`p-4 flex items-start gap-3 ${i < notifications.slice(0, 2).length - 1 ? 'border-b border-gray-50' : ''
-                                    } ${!notif.read ? 'bg-orange-50/50' : ''}`}
-                            >
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${notif.type === 'comment' ? 'bg-blue-100 text-blue-500' :
-                                        notif.type === 'like' ? 'bg-red-100 text-red-500' :
-                                            'bg-gray-100 text-gray-500'
-                                    }`}>
-                                    {notif.type === 'comment' ? <MessageCircle size={14} /> :
-                                        notif.type === 'like' ? <Heart size={14} /> :
-                                            <Bell size={14} />}
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex justify-between items-start">
-                                        <span className="font-medium text-sm text-gray-800">{notif.title}</span>
-                                        <span className="text-[10px] text-gray-400 flex-shrink-0">{notif.time}</span>
-                                    </div>
-                                    <p className="text-xs text-gray-500 mt-0.5 truncate">{notif.content}</p>
-                                </div>
-                                {!notif.read && (
-                                    <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-2" />
-                                )}
-                            </div>
-                        ))}
-                    </div>
+                {/* 背景装饰图 */}
+                <div className="absolute right-[-30px] top-[-30px] opacity-10 pointer-events-none">
+                    <Heart size={160} />
                 </div>
-            )}
+            </div>
 
-            {/* 设置菜单 */}
-            <div className="px-4">
-                <h3 className="text-sm font-bold text-gray-600 mb-2 px-1">设置</h3>
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    {settingsItems.map((item, i) => (
+            {/* 内容区 */}
+            <div className="p-4 space-y-4">
+                {/* 功能菜单 */}
+                <div className="space-y-4">
+                    {menuItems.map((item, i) => (
                         <button
                             key={i}
-                            className={`w-full p-4 flex items-center gap-4 active:bg-gray-50 transition-colors text-left ${i < settingsItems.length - 1 ? 'border-b border-gray-50' : ''
-                                }`}
+                            onClick={item.onClick}
+                            className="w-full bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4 active:bg-gray-50 transition-all text-left group"
                         >
-                            <div className={`w-10 h-10 rounded-full ${item.iconBg} ${item.iconColor} flex items-center justify-center`}>
-                                <item.icon size={20} />
+                            <div className={`w-12 h-12 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center transition-transform group-active:scale-90`}>
+                                <item.icon size={22} />
                             </div>
                             <div className="flex-1">
-                                <p className="font-bold text-gray-800">{item.title}</p>
-                                <p className="text-xs text-gray-400">{item.subtitle}</p>
+                                <p className="font-black text-gray-800 text-sm tracking-tight">{item.title}</p>
+                                <p className="text-[10px] text-gray-400 font-bold mt-0.5">{item.subtitle}</p>
                             </div>
+                            {item.badge && (
+                                <span className="min-w-[20px] h-5 px-1 bg-red-500 text-white text-[10px] font-black rounded-full flex items-center justify-center">
+                                    {item.badge}
+                                </span>
+                            )}
                             {item.arrow && (
-                                <ChevronRight size={18} className="text-gray-300" />
+                                <ChevronRight size={18} className="text-gray-300 group-hover:translate-x-1 transition-transform" />
                             )}
                         </button>
                     ))}
                 </div>
-            </div>
 
-            {/* 退出登录 */}
-            <div className="px-4 mt-6">
-                <button
-                    onClick={handleLogout}
-                    className="w-full bg-white text-red-500 font-medium py-3.5 rounded-xl border border-gray-100 flex items-center justify-center gap-2 active:bg-red-50 transition-colors"
-                >
-                    <LogOut size={18} />
-                    退出登录
-                </button>
-            </div>
+                {/* 最近消息预览 */}
+                {notifications.length > 0 && (
+                    <div className="mt-6">
+                        <div className="flex justify-between items-center mb-3 px-1">
+                            <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest">最近消息</h3>
+                        </div>
+                        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden divide-y divide-gray-50">
+                            {notifications.slice(0, 2).map((notif, i) => (
+                                <div
+                                    key={notif.id}
+                                    className={`p-4 flex items-start gap-4 active:bg-gray-50 transition-colors ${!notif.read ? 'bg-orange-50/30' : ''}`}
+                                >
+                                    <div className={`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center ${notif.type === 'comment' ? 'bg-blue-50 text-blue-500' :
+                                            notif.type === 'like' ? 'bg-red-50 text-red-500' :
+                                                'bg-gray-50 text-gray-500'
+                                        }`}>
+                                        {notif.type === 'comment' ? <MessageCircle size={16} /> :
+                                            notif.type === 'like' ? <Heart size={16} /> :
+                                                <Bell size={16} />}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex justify-between items-start">
+                                            <span className="font-bold text-sm text-gray-800">{notif.title}</span>
+                                            <span className="text-[10px] text-gray-400 font-bold">{notif.time}</span>
+                                        </div>
+                                        <p className="text-xs text-gray-500 mt-1 truncate font-medium">{notif.content}</p>
+                                    </div>
+                                    {!notif.read && (
+                                        <div className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-2 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
-            {/* 版本信息 */}
-            <div className="text-center text-[10px] text-gray-300 mt-8 mb-4">
-                ArkOK Family v2.0
+                {/* 设置菜单 */}
+                <div className="mt-6">
+                    <div className="flex justify-between items-center mb-3 px-1">
+                        <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest">账号设置</h3>
+                    </div>
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden divide-y divide-gray-50">
+                        {settingsItems.map((item, i) => (
+                            <button
+                                key={i}
+                                className="w-full p-4 flex items-center gap-4 active:bg-gray-50 transition-all text-left group"
+                            >
+                                <div className={`w-10 h-10 rounded-xl ${item.iconBg} ${item.iconColor} flex items-center justify-center`}>
+                                    <item.icon size={20} />
+                                </div>
+                                <div className="flex-1">
+                                    <p className="font-bold text-gray-800 text-sm">{item.title}</p>
+                                    <p className="text-[10px] text-gray-400 font-bold mt-0.5">{item.subtitle}</p>
+                                </div>
+                                {item.arrow && (
+                                    <ChevronRight size={18} className="text-gray-200 group-hover:translate-x-1 transition-transform" />
+                                )}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 退出登录 */}
+                <div className="mt-8">
+                    <button
+                        onClick={handleLogout}
+                        className="w-full bg-white text-red-500 font-black py-4 rounded-2xl border border-gray-100 flex items-center justify-center gap-2 active:bg-red-50 active:scale-[0.98] transition-all shadow-sm"
+                    >
+                        <LogOut size={18} />
+                        退出账号
+                    </button>
+                </div>
+
+                <div className="text-center text-[10px] font-black text-gray-300 mt-10 mb-4 uppercase tracking-[0.2em]">
+                    ArkOK Family Edition
+                </div>
             </div>
         </div>
     );

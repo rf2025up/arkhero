@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { usePlatformAuth } from '../../context/PlatformAuthContext';
 import { Shield, Lock, User, ArrowRight, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -8,7 +8,7 @@ export const PlatformLogin: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const { login } = useAuth();
+    const { login } = usePlatformAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {

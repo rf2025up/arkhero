@@ -13,6 +13,7 @@ import StudentService from './services/student.service';
 import { LMSService } from './services/lms.service';
 import SocketService from './services/socket.service';
 import HabitService from './services/habit.service';
+import CheckinService from './services/checkin.service'; // Added
 import ChallengeService from './services/challenge.service';
 import PKMatchService from './services/pkmatch.service';
 import BadgeService from './services/badge.service';
@@ -23,6 +24,8 @@ import { PersonalizedTutoringService } from './services/personalized-tutoring.se
 import PlatformService from './services/platform.service';
 import { RewardService } from './services/reward.service';
 import { skillService } from './services/skill.service';
+import { ReadingService } from './services/reading.service';
+import { ParentService } from './services/parent.service';
 
 // Routes
 import AuthRoutes from './routes/auth.routes';
@@ -40,12 +43,13 @@ import SchoolRoutes from './routes/school.routes';
 import DashboardRoutes from './routes/dashboard.routes';
 import { PersonalizedTutoringRoutes } from './routes/personalized-tutoring.routes';
 import { healthRoutes } from './routes/health.routes';
-import ParentRoutes from './routes/parent.routes';
+import { ParentRoutes } from './routes/parent.routes';
 import CheckinRoutes from './routes/checkin.routes';
 import PlatformRoutes from './routes/platform.routes';
 import rewardRoutes from './routes/reward.routes';
 import ReadingRoutes from './routes/reading.routes';  // 🆕 阅读计划路由
 import SkillRoutes from './routes/skill.routes';  // 🆕 五维内功技能路由
+import { StreakRoutes } from './routes/streak.routes';  // 🆕 连胜系统路由
 
 // Middleware & Utils
 import { errorHandler } from './middleware/errorHandler';
@@ -65,6 +69,7 @@ export class App {
   public studentService: StudentService;
   public socketService: SocketService;
   public habitService: HabitService;
+  public checkinService: CheckinService;
   public challengeService: ChallengeService;
   public pkMatchService: PKMatchService;
   public badgeService: BadgeService;
@@ -75,7 +80,8 @@ export class App {
   public tutoringService: PersonalizedTutoringService;
   public platformService: PlatformService;
   public rewardService: RewardService;
-
+  public readingService: ReadingService;
+  public parentService: ParentService;
   constructor() {
     this.app = express();
     this.server = createServer(this.app);
@@ -96,6 +102,7 @@ export class App {
     this.studentService = new StudentService(this.prisma, this.io);
     this.socketService = new SocketService(this.io, this.authService);
     this.habitService = new HabitService(this.prisma, this.io);
+    this.checkinService = new CheckinService(this.prisma);
     this.challengeService = new ChallengeService(this.prisma, this.io);
     this.pkMatchService = new PKMatchService(this.prisma, this.io);
     this.badgeService = new BadgeService(this.prisma, this.io);
@@ -105,6 +112,8 @@ export class App {
     this.schoolService = new SchoolService(this.prisma);
     this.dashboardService = new DashboardService(this.prisma);
     this.tutoringService = new PersonalizedTutoringService(this.prisma);
+    this.readingService = new ReadingService(this.prisma);
+    this.parentService = new ParentService(this.prisma);
     this.platformService = new PlatformService(this.prisma);
 
     this.initializeMiddlewares();
@@ -156,19 +165,22 @@ export class App {
     this.app.use('/api/personalized-tutoring', new PersonalizedTutoringRoutes(this.tutoringService, this.authService).getRoutes());
 
     // 家长端路由
-    this.app.use('/api/parent', ParentRoutes);
+    this.app.use('/api/parent', new ParentRoutes(this.parentService).getRoutes());
 
     // 积分经验配置路由
     this.app.use('/api/reward', rewardRoutes);
 
     // 签到路由
-    this.app.use('/api/checkins', new CheckinRoutes(this.authService).getRoutes());
+    this.app.use('/api/checkins', new CheckinRoutes(this.checkinService, this.authService).getRoutes());
 
     // 🆕 阅读计划路由
-    this.app.use('/api/reading', new ReadingRoutes(this.authService).getRoutes());
+    this.app.use('/api/reading', new ReadingRoutes(this.readingService, this.authService).getRoutes());
 
     // 🆕 五维内功技能路由
     this.app.use('/api/skill', new SkillRoutes(this.authService).getRoutes());
+
+    // 🆕 连胜系统路由
+    this.app.use('/api/streaks', new StreakRoutes(this.prisma).getRouter());
 
     // 静态文件与前端路由
     const clientPath = path.resolve(__dirname, '../../client/dist');

@@ -26,8 +26,7 @@ export interface BattleData {
 }
 
 interface StarshipBattleViewProps {
-  battleData?: BattleData
-  isActive?: boolean
+  activeBattles: BattleData[]
 }
 
 // 粒子背景组件
@@ -336,10 +335,9 @@ const BattleTopic: React.FC<{ topic?: string; rewardPoints?: number; rewardExp?:
 }
 
 const StarshipBattleView: React.FC<StarshipBattleViewProps> = ({
-  battleData,
-  isActive = true
+  activeBattles
 }) => {
-  if (!battleData || !isActive) {
+  if (!activeBattles || activeBattles.length === 0) {
     return (
       <div className="w-full h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800">
         <StarfieldBackground />
@@ -365,9 +363,9 @@ const StarshipBattleView: React.FC<StarshipBattleViewProps> = ({
     <div className="w-full h-screen relative overflow-hidden bg-slate-900">
       <StarfieldBackground />
 
-      <div className="relative z-10 h-full flex flex-col p-8 overflow-y-auto">
+      <div className="relative z-10 h-full flex flex-col pt-[10vh] px-8 pb-8 overflow-y-auto">
         {/* 单场 PK 特效模式 */}
-        {battleData.type === 'pk' ? (
+        {activeBattles.length === 1 && activeBattles[0].type === 'pk' ? (
           <div className="h-full flex flex-col">
             <motion.div
               initial={{ opacity: 0, y: -50 }}
@@ -386,68 +384,89 @@ const StarshipBattleView: React.FC<StarshipBattleViewProps> = ({
               />
             </motion.div>
 
-            {battleData.topic && <BattleTopic
-              topic={battleData.topic}
-              rewardPoints={battleData.rewardPoints}
-              rewardExp={battleData.rewardExp}
+            {activeBattles[0].topic && <BattleTopic
+              topic={activeBattles[0].topic}
+              rewardPoints={activeBattles[0].rewardPoints}
+              rewardExp={activeBattles[0].rewardExp}
             />}
 
             <div className="flex-1 flex items-center justify-center">
               <div className="flex items-center justify-center gap-8 w-full max-w-7xl">
                 <BattleCard
-                  student={battleData.studentA!}
+                  student={activeBattles[0].studentA!}
                   position="left"
-                  isWinner={battleData.winner_id === battleData.studentA?.id}
-                  isActive={battleData.status === 'active'}
+                  isWinner={activeBattles[0].winner_id === activeBattles[0].studentA?.id}
+                  isActive={activeBattles[0].status === 'active'}
                 />
-                <VSIndicator isAnimating={battleData.status === 'active'} />
+                <VSIndicator isAnimating={activeBattles[0].status === 'active'} />
                 <BattleCard
-                  student={battleData.studentB!}
+                  student={activeBattles[0].studentB!}
                   position="right"
-                  isWinner={battleData.winner_id === battleData.studentB?.id}
-                  isActive={battleData.status === 'active'}
+                  isWinner={activeBattles[0].winner_id === activeBattles[0].studentB?.id}
+                  isActive={activeBattles[0].status === 'active'}
                 />
               </div>
             </div>
           </div>
         ) : (
-          /* 挑战或胜利模式 */
+          /* 多场 PK 平铺模式 */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              key={battleData.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="glass-card rounded-3xl p-6 border-2 border-cyan-400/30 flex flex-col gap-4 relative overflow-hidden"
-            >
-              <div className="text-center">
-                <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-bold uppercase tracking-tighter">
-                  {battleData.type === 'victory' ? '🎉 胜利时刻' : '⚡ 挑战动态'}
-                </span>
-                <h3 className="text-lg font-bold text-white mt-2 truncate">{battleData.topic}</h3>
-              </div>
-
-              {battleData.type === 'victory' && (
-                <div className="flex-1 flex items-center justify-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", duration: 0.5 }}
-                    className="text-8xl"
-                  >
-                    🏆
-                  </motion.div>
-                </div>
-              )}
-
-              <div className="text-center mt-2">
-                <div className="flex items-center justify-center gap-2">
-                  <div className={`w-1.5 h-1.5 rounded-full ${battleData.status === 'active' ? 'bg-green-400 animate-pulse' : 'bg-slate-500'}`} />
-                  <span className="text-[10px] text-slate-400 font-bold uppercase">
-                    {battleData.status === 'active' ? '进行中' : battleData.status === 'starting' ? '准备中' : '已结束'}
+            {activeBattles.map(battle => (
+              <motion.div
+                key={battle.id}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="glass-card rounded-3xl p-6 border-2 border-cyan-400/30 flex flex-col gap-4 relative overflow-hidden"
+              >
+                <div className="text-center">
+                  <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-bold uppercase tracking-tighter">
+                    {battle.type === 'pk' ? 'PK 实时对战' : '挑战动态'}
                   </span>
+                  <h3 className="text-lg font-bold text-white mt-2 truncate">{battle.topic}</h3>
                 </div>
-              </div>
-            </motion.div>
+
+                <div className="flex items-center justify-between gap-2">
+                  {/* A */}
+                  <div className="flex-1 flex flex-col items-center">
+                    <div className={`w-16 h-16 rounded-full border-2 p-1 ${battle.winner_id === battle.studentA?.id ? 'border-green-400 shadow-lg shadow-green-500/50' : 'border-slate-500'}`}>
+                      <img src={battle.studentA?.avatar_url || '/avatar.jpg'} className="w-full h-full rounded-full object-cover" />
+                    </div>
+                    <span className="text-sm font-bold mt-2 truncate max-w-full">{battle.studentA?.name}</span>
+                    <div className="text-xs text-yellow-400 font-mono mt-1">{battle.studentA?.score?.toLocaleString()}</div>
+                  </div>
+
+                  <div className="text-2xl font-black italic bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">VS</div>
+
+                  {/* B */}
+                  {battle.studentB ? (
+                    <div className="flex-1 flex flex-col items-center">
+                      <div className={`w-16 h-16 rounded-full border-2 p-1 ${battle.winner_id === battle.studentB?.id ? 'border-green-400 shadow-lg shadow-green-500/50' : 'border-slate-500'}`}>
+                        <img src={battle.studentB?.avatar_url || '/avatar.jpg'} className="w-full h-full rounded-full object-cover" />
+                      </div>
+                      <span className="text-sm font-bold mt-2 truncate max-w-full">{battle.studentB?.name}</span>
+                      <div className="text-xs text-yellow-400 font-mono mt-1">{battle.studentB?.score?.toLocaleString()}</div>
+                    </div>
+                  ) : (
+                    <div className="flex-1 flex flex-col items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-slate-800/50 flex items-center justify-center">
+                        <span className="text-2xl">⚡</span>
+                      </div>
+                      <span className="text-xs text-slate-500 mt-2">单人挑战</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 状态 */}
+                <div className="text-center mt-2">
+                  <div className="flex items-center justify-center gap-2">
+                    <div className={`w-1.5 h-1.5 rounded-full ${battle.status === 'active' ? 'bg-green-400 animate-pulse' : 'bg-slate-500'}`} />
+                    <span className="text-[10px] text-slate-400 font-bold uppercase">
+                      {battle.status === 'active' ? '进行中' : battle.status === 'starting' ? '准备中' : '已结束'}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         )}
       </div>

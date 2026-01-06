@@ -38,12 +38,25 @@ export class ApiService {
       (config) => {
         // 移动端存储兼容性检查 - 修复Token键名不匹配问题
         let token = null;
+
+        // 🆕 判断是否为平台管理API请求
+        const isPlatformRequest = config.url?.includes('/platform');
+
         try {
-          // 🔥 修复：首先查找正确的token键名 'auth_token'
-          token = localStorage.getItem('auth_token');
-          if (!token) {
-            // 兼容旧版本，查找 'token' 键名
-            token = localStorage.getItem('token');
+          if (isPlatformRequest) {
+            // 🆕 平台请求优先使用 platform_auth_token
+            token = localStorage.getItem('platform_auth_token');
+            if (!token) {
+              // 兼容：如果没有平台token，尝试普通token
+              token = localStorage.getItem('auth_token');
+            }
+          } else {
+            // 普通请求使用 auth_token
+            token = localStorage.getItem('auth_token');
+            if (!token) {
+              // 兼容旧版本，查找 'token' 键名
+              token = localStorage.getItem('token');
+            }
           }
         } catch (e) {
           console.warn('[MOBILE FIX] localStorage访问失败，尝试sessionStorage:', e);
@@ -447,6 +460,10 @@ export const API = {
       studentIds: string[];
       targetTeacherId: string;
     }) => apiService.post<any>('/students/transfer', data),
+
+    // 🆕 获取学科连胜排行榜 (风云榜)
+    getSubjectLeaderboard: (schoolId: string, subject: string, limit: number = 10) =>
+      apiService.get<any>(`/streaks/leaderboard/subject/${subject}`, { schoolId, limit }),
   },
 
   // LMS教学计划相关

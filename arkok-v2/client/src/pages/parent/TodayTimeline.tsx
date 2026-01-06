@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import socketService from '../../services/socket.service';
 
+
+
 const API_BASE = '/api/parent';
 
 interface TimelineItem {
@@ -22,6 +24,7 @@ interface TimelineData {
     todayExp: number;
     parentLiked?: boolean;
     parentComment?: string | null;
+    perfectStreak?: number; // 🆕 连胜火焰数据
     timeline: TimelineItem[];
 }
 
@@ -155,6 +158,20 @@ const TodayTimeline: React.FC = () => {
 
         // 获取分类配置（颜色、图标、背景装饰）
         const getCategoryConfig = () => {
+            // 🆕 连胜荣耀特殊样式（通过 title 或 content.isStreak 判断）
+            if (item.title === '连胜荣耀' || item.content?.isStreak) {
+                return {
+                    nodeColor: 'border-orange-500 bg-orange-100',
+                    nodeShadow: 'rgba(249,115,22,0.25)',
+                    titleColor: 'text-orange-700',
+                    timeColor: 'text-orange-600 bg-orange-100',
+                    cardBg: 'bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200',
+                    decorIcon: '🏆',
+                    decorColor: 'text-orange-500/10',
+                    nodeIcon: '🔥' // 特殊节点图标
+                };
+            }
+
             switch (item.type) {
                 case 'QC_GROUP':
                     // 基础过关统一使用绿色主题
@@ -325,6 +342,17 @@ const TodayTimeline: React.FC = () => {
                         decorIcon: '🎯',
                         decorColor: 'text-blue-500/5'
                     };
+                // 🆕 连胜记录卡片
+                case 'STREAK':
+                    return {
+                        nodeColor: 'border-orange-500 bg-orange-50',
+                        nodeShadow: 'rgba(249,115,22,0.2)',
+                        titleColor: 'text-orange-700',
+                        timeColor: 'text-orange-600 bg-orange-100',
+                        cardBg: 'bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200',
+                        decorIcon: '🔥',
+                        decorColor: 'text-orange-500/10'
+                    };
                 default:
                     return {
                         nodeColor: 'border-gray-500 bg-gray-50',
@@ -342,6 +370,32 @@ const TodayTimeline: React.FC = () => {
 
         // 渲染卡片内容
         const renderCardContent = () => {
+            // 🆕 连胜荣耀面板特殊渲染
+            if (item.content?.isStreak && item.content?.items?.length > 0) {
+                const items = item.content.items;
+                return (
+                    <div className="space-y-2">
+                        {items.map((streakItem: any, idx: number) => (
+                            <div key={idx} className="flex items-center justify-between p-2 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg border border-orange-100">
+                                <div className="flex items-center gap-2">
+                                    <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${streakItem.subject === '语文' ? 'bg-red-100 text-red-600' :
+                                        streakItem.subject === '数学' ? 'bg-blue-100 text-blue-600' :
+                                            streakItem.subject === '英语' ? 'bg-purple-100 text-purple-600' :
+                                                'bg-gray-100 text-gray-600'
+                                        }`}>
+                                        {streakItem.subject}
+                                    </span>
+                                    <span className="text-sm font-bold text-gray-700">{streakItem.label}</span>
+                                </div>
+                                <span className="text-orange-600 font-black text-lg">
+                                    🔥 x{streakItem.currentStreak}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                );
+            }
+
             // 获取科目显示名称和颜色
             const getSubjectInfo = () => {
                 const subject = item.content?.subject || item.content?.category || '';
@@ -423,9 +477,13 @@ const TodayTimeline: React.FC = () => {
                                         {task.attempts > 0 && (
                                             <span className="text-[10px] text-orange-500 font-bold bg-orange-50 px-1.5 py-0.5 rounded border border-orange-100 italic">X{task.attempts}</span>
                                         )}
-                                        {task.exp > 0 && (
-                                            <span className="text-xs text-orange-500 font-bold">+{task.exp}</span>
+                                        {task.streakUpdate && task.streakUpdate.currentStreak > 0 && (
+                                            <span className="text-[10px] text-red-500 font-bold bg-red-50 px-1.5 py-0.5 rounded border border-red-100 flex items-center gap-0.5">
+                                                <span className="scale-75">🔥</span>
+                                                {task.streakUpdate.currentStreak}
+                                            </span>
                                         )}
+                                        {/* Row-level exp removed */}
                                     </div>
                                 ))}
                             </div>
@@ -456,9 +514,7 @@ const TodayTimeline: React.FC = () => {
                                         <span className={`flex-1 text-sm ${task.status === 'COMPLETED' ? 'text-gray-800' : 'text-gray-400'}`}>
                                             {task.name}
                                         </span>
-                                        {task.exp > 0 && (
-                                            <span className="text-xs text-orange-500 font-bold">+{task.exp}</span>
-                                        )}
+                                        {/* Row-level exp removed */}
                                     </div>
                                 ))}
                             </div>
@@ -487,9 +543,7 @@ const TodayTimeline: React.FC = () => {
                                         <span className={`flex-1 text-sm ${task.status === 'COMPLETED' ? 'text-gray-800' : 'text-gray-400'}`}>
                                             {task.name}
                                         </span>
-                                        {task.exp > 0 && (
-                                            <span className="text-xs text-indigo-500 font-bold">+{task.exp}</span>
-                                        )}
+                                        {/* Row-level exp removed */}
                                     </div>
                                 ))}
                             </div>
@@ -518,9 +572,7 @@ const TodayTimeline: React.FC = () => {
                                         <span className={`flex-1 text-sm ${task.status === 'COMPLETED' ? 'text-gray-800' : 'text-gray-400'}`}>
                                             {task.name}
                                         </span>
-                                        {task.exp > 0 && (
-                                            <span className="text-xs text-purple-500 font-bold">+{task.exp}</span>
-                                        )}
+                                        {/* Row-level exp removed */}
                                     </div>
                                 ))}
                             </div>
@@ -789,16 +841,25 @@ const TodayTimeline: React.FC = () => {
         return (
             <div key={item.id} className="relative pl-10 mb-6">
                 {/* 时间轴节点 */}
-                <div
-                    className={`absolute left-[14px] top-1 w-5 h-5 rounded-full border-4 ${config.nodeColor} bg-white z-10`}
-                    style={{ boxShadow: `0 0 0 4px ${config.nodeShadow}` }}
-                />
+                {config.nodeIcon ? (
+                    <div
+                        className={`absolute left-[10px] top-0 w-7 h-7 rounded-full flex items-center justify-center text-lg ${config.nodeColor} z-10`}
+                        style={{ boxShadow: `0 0 0 4px ${config.nodeShadow}` }}
+                    >
+                        {config.nodeIcon}
+                    </div>
+                ) : (
+                    <div
+                        className={`absolute left-[14px] top-1 w-5 h-5 rounded-full border-4 ${config.nodeColor} bg-white z-10`}
+                        style={{ boxShadow: `0 0 0 4px ${config.nodeShadow}` }}
+                    />
+                )}
 
 
                 {/* 大标题行 */}
                 <div className="flex items-baseline justify-between mb-2">
                     <span className={`text-sm font-bold ${config.titleColor} flex items-center gap-1.5`}>
-                        {item.icon} {item.category === 'SKILL' ? '技能修炼' : item.category}
+                        {!item.content?.isStreak && item.icon} {item.content?.isStreak ? '连胜荣耀' : (item.category === 'SKILL' ? '技能修炼' : item.category)}
                         {/* QC_GROUP 类型在大标题后显示科目标签 */}
                         {item.type === 'QC_GROUP' && item.content?.subject && (
                             <span className={`ml-1 text-xs px-2 py-0.5 rounded-full font-bold ${item.content.subject === '语文' ? 'bg-red-100 text-red-600' :
@@ -835,7 +896,7 @@ const TodayTimeline: React.FC = () => {
                         {/* 标题 */}
                         <div className="flex justify-between items-start mb-2">
                             <h3 className="text-sm font-bold text-gray-800">{item.title}</h3>
-                            {item.exp && item.exp > 0 && item.type !== 'PK' && (
+                            {item.exp && item.exp > 0 && item.type !== 'PK' && !item.content?.isStreak && !item.type.includes('_GROUP') && (
                                 <span className="text-orange-500 font-bold text-xs font-mono">+{item.exp} 经验</span>
                             )}
                         </div>
@@ -876,10 +937,11 @@ const TodayTimeline: React.FC = () => {
                         </h1>
                         <div className="flex items-center gap-1 mt-1">
                             <div className="w-2 h-2 rounded-full bg-white/80" />
-                            <p className="text-xs text-white/80">
-                                今日状态：<span className="text-white font-bold">
+                            <p className="text-xs text-white/80 flex items-center">
+                                今日状态：<span className="text-white font-bold mr-2">
                                     {(data?.timeline?.length || 0) > 5 ? '充实' : (data?.timeline?.length || 0) > 2 ? '良好' : '平静'}
                                 </span>
+
                             </p>
                         </div>
                     </div>

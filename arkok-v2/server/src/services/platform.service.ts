@@ -87,18 +87,32 @@ export class PlatformService {
     }
 
     /**
-     * 更新校区信息（名称、套餐、到期时间）
+     * 更新校区信息（名称、套餐、到期时间、管理员姓名）
      */
-    async updateCampus(schoolId: string, data: { name?: string; planType?: string; expiredAt?: Date }) {
+    async updateCampus(schoolId: string, data: { name?: string; planType?: string; expiredAt?: Date; adminName?: string }) {
         const updateData: any = {};
         if (data.name !== undefined) updateData.name = data.name;
         if (data.planType !== undefined) updateData.planType = data.planType;
         if (data.expiredAt !== undefined) updateData.expiredAt = data.expiredAt;
 
-        return this.prisma.schools.update({
+        // 更新校区信息
+        const updatedSchool = await this.prisma.schools.update({
             where: { id: schoolId },
             data: updateData
         });
+
+        // 🆕 如果提供了 adminName，更新该校区的管理员姓名
+        if (data.adminName !== undefined) {
+            await this.prisma.teachers.updateMany({
+                where: {
+                    schoolId: schoolId,
+                    role: 'ADMIN'
+                },
+                data: { name: data.adminName }
+            });
+        }
+
+        return updatedSchool;
     }
 
     /**

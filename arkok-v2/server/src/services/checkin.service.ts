@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
-
 export interface CheckinResult {
     studentId: string;
     success: boolean;
@@ -9,6 +7,8 @@ export interface CheckinResult {
 }
 
 export class CheckinService {
+    constructor(private prisma: PrismaClient) { }
+
     /**
      * 批量签到
      */
@@ -30,7 +30,7 @@ export class CheckinService {
         for (const studentId of studentIds) {
             try {
                 // 检查今天是否已签到
-                const existing = await prisma.student_checkins.findUnique({
+                const existing = await this.prisma.student_checkins.findUnique({
                     where: {
                         studentId_checkinDate: {
                             studentId,
@@ -49,7 +49,7 @@ export class CheckinService {
                 }
 
                 // 创建签到记录
-                await prisma.student_checkins.create({
+                await this.prisma.student_checkins.create({
                     data: {
                         studentId,
                         schoolId,
@@ -88,7 +88,7 @@ export class CheckinService {
         const firstDay = `${year}-${String(month + 1).padStart(2, '0')}-01`;
         const lastDay = `${year}-${String(month + 1).padStart(2, '0')}-31`;
 
-        const count = await prisma.student_checkins.count({
+        const count = await this.prisma.student_checkins.count({
             where: {
                 studentId,
                 checkinDate: {
@@ -109,7 +109,7 @@ export class CheckinService {
         today.setHours(today.getHours() + 8);
         const checkinDate = today.toISOString().split('T')[0];
 
-        const checkin = await prisma.student_checkins.findUnique({
+        const checkin = await this.prisma.student_checkins.findUnique({
             where: {
                 studentId_checkinDate: {
                     studentId,
@@ -122,4 +122,4 @@ export class CheckinService {
     }
 }
 
-export default new CheckinService();
+export default CheckinService;

@@ -130,17 +130,18 @@ export class PlatformRoutes {
 
         /**
          * PATCH /api/platform/campuses/:schoolId
-         * 更新校区信息（名称、套餐、到期时间）
+         * 更新校区信息（名称、套餐、到期时间、管理员姓名）
          */
         router.patch('/campuses/:schoolId', async (req, res) => {
             try {
                 const { schoolId } = req.params;
-                const { name, planType, expiredAt } = req.body;
+                const { name, planType, expiredAt, adminName } = req.body;
 
-                const updateData: { name?: string; planType?: string; expiredAt?: Date } = {};
+                const updateData: { name?: string; planType?: string; expiredAt?: Date; adminName?: string } = {};
                 if (name) updateData.name = name;
                 if (planType) updateData.planType = planType;
                 if (expiredAt) updateData.expiredAt = new Date(expiredAt);
+                if (adminName) updateData.adminName = adminName;
 
                 const updated = await this.platformService.updateCampus(schoolId, updateData);
                 res.json({

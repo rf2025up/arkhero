@@ -69,40 +69,11 @@ const ParentLayout: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col relative">
-            {/* 顶部学生选择器（多孩子时显示） */}
-            {students.length > 1 && (
-                <div className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-30 px-4 py-2 flex items-center justify-center border-b border-gray-100">
-                    <button
-                        onClick={() => setShowStudentPicker(!showStudentPicker)}
-                        className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 text-orange-600 text-sm font-medium"
-                    >
-                        <span>{currentStudent?.name || '选择孩子'}</span>
-                        <span className="text-xs">▼</span>
-                    </button>
-
-                    {showStudentPicker && (
-                        <div className="absolute top-full mt-1 bg-white shadow-xl rounded-xl border border-gray-100 overflow-hidden min-w-[120px]">
-                            {students.map(s => (
-                                <button
-                                    key={s.id}
-                                    onClick={() => {
-                                        setCurrentStudent(s);
-                                        setShowStudentPicker(false);
-                                    }}
-                                    className={`w-full px-4 py-2.5 text-sm text-left hover:bg-orange-50 transition-colors ${currentStudent?.id === s.id ? 'bg-orange-50 text-orange-600 font-bold' : 'text-gray-700'
-                                        }`}
-                                >
-                                    {s.name}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </div>
-            )}
+            {/* 顶部学生选择器已移除 - 切换孩子现在只在成长档案页面进行 */}
 
             {/* 主内容区 */}
-            <div className={`flex-1 ${students.length > 1 ? 'pt-10' : ''}`}>
-                <Outlet context={{ student: currentStudent }} />
+            <div className="flex-1">
+                <Outlet context={{ student: currentStudent, students, setCurrentStudent }} />
             </div>
 
             {/* 底部 Tab 导航 - 基于教师端 UI 设计语言 */}

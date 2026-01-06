@@ -1,16 +1,17 @@
-import prisma from '../utils/prisma';
+import { PrismaClient } from '@prisma/client';
 
 /**
  * 阅读计划服务
  * 管理学生的阅读书籍和阅读记录
  */
 export class ReadingService {
+    constructor(private prisma: PrismaClient) { }
 
     /**
      * 获取学生的阅读书籍列表（含最新进度）
      */
     async getStudentBooks(studentId: string, schoolId: string) {
-        const books = await prisma.reading_books.findMany({
+        const books = await this.prisma.reading_books.findMany({
             where: {
                 studentId,
                 schoolId,
@@ -46,7 +47,7 @@ export class ReadingService {
     async addBook(data: { studentId: string; schoolId: string; bookName: string; totalPages?: number }) {
         const { studentId, schoolId, bookName, totalPages } = data;
 
-        const book = await prisma.reading_books.create({
+        const book = await this.prisma.reading_books.create({
             data: {
                 studentId,
                 schoolId,
@@ -62,7 +63,7 @@ export class ReadingService {
      * 删除书籍（软删除）
      */
     async deleteBook(bookId: string, schoolId: string) {
-        await prisma.reading_books.update({
+        await this.prisma.reading_books.update({
             where: { id: bookId },
             data: { isActive: false }
         });
@@ -81,7 +82,7 @@ export class ReadingService {
     }) {
         const { bookId, studentId, schoolId, currentPage, duration, recordedBy } = data;
 
-        const log = await prisma.reading_logs.create({
+        const log = await this.prisma.reading_logs.create({
             data: {
                 bookId,
                 studentId,
@@ -112,7 +113,7 @@ export class ReadingService {
      */
     async getStudentReadingStats(studentId: string, schoolId: string) {
         // 获取所有阅读记录
-        const logs = await prisma.reading_logs.findMany({
+        const logs = await this.prisma.reading_logs.findMany({
             where: { studentId, schoolId },
             select: {
                 currentPage: true,
@@ -173,7 +174,7 @@ export class ReadingService {
         const today = new Date(`${todayStr}T00:00:00+08:00`);
         const tomorrow = new Date(`${todayStr}T23:59:59+08:00`);
 
-        const logs = await prisma.reading_logs.findMany({
+        const logs = await this.prisma.reading_logs.findMany({
             where: {
                 studentId,
                 schoolId,
@@ -201,7 +202,7 @@ export class ReadingService {
      * 获取学生最近选择的书籍（用于默认显示）
      */
     async getLastSelectedBook(studentId: string, schoolId: string) {
-        const lastLog = await prisma.reading_logs.findFirst({
+        const lastLog = await this.prisma.reading_logs.findFirst({
             where: { studentId, schoolId },
             orderBy: { recordedAt: 'desc' },
             include: {
@@ -222,4 +223,3 @@ export class ReadingService {
     }
 }
 
-export const readingService = new ReadingService();

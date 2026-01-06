@@ -108,7 +108,8 @@ export function CampusManagement() {
     const [editForm, setEditForm] = useState({
         name: '',
         planType: 'FREE',
-        expiredAt: ''
+        expiredAt: '',
+        adminName: ''  // 🆕 管理员姓名
     });
 
     // 🆕 删除校区弹窗状态
@@ -151,7 +152,8 @@ export function CampusManagement() {
         setEditForm({
             name: campus.name,
             planType: campus.planType,
-            expiredAt: campus.expiredAt ? campus.expiredAt.split('T')[0] : ''
+            expiredAt: campus.expiredAt ? campus.expiredAt.split('T')[0] : '',
+            adminName: ''  // 🆕 管理员姓名需单独获取或保留空
         });
         setIsEditModalOpen(true);
     };
@@ -164,11 +166,17 @@ export function CampusManagement() {
 
         setIsEditing(true);
         try {
-            const response = await apiService.platform.updateCampus(editingCampus.id, {
+            const updatePayload: any = {
                 name: editForm.name,
                 planType: editForm.planType,
                 expiredAt: editForm.expiredAt || undefined
-            });
+            };
+            // 🆕 如果填写了管理员姓名，则一并更新
+            if (editForm.adminName.trim()) {
+                updatePayload.adminName = editForm.adminName.trim();
+            }
+
+            const response = await apiService.platform.updateCampus(editingCampus.id, updatePayload);
             if (response.success) {
                 toast.success(`校区「${editForm.name}」更新成功！`);
                 setIsEditModalOpen(false);
@@ -448,6 +456,19 @@ export function CampusManagement() {
                                     className="w-full bg-gray-50 border-none rounded-2xl px-4 py-3.5 text-sm font-medium focus:ring-2 focus:ring-blue-500/30 outline-none"
                                 />
                                 <p className="text-xs text-gray-400">留空表示永久有效</p>
+                            </div>
+
+                            {/* 🆕 管理员姓名编辑 */}
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold text-gray-500 uppercase tracking-widest">管理员姓名</label>
+                                <input
+                                    type="text"
+                                    value={editForm.adminName}
+                                    onChange={e => setEditForm({ ...editForm, adminName: e.target.value })}
+                                    placeholder="如需修改请填写新姓名"
+                                    className="w-full bg-gray-50 border-none rounded-2xl px-4 py-3.5 text-sm font-medium focus:ring-2 focus:ring-blue-500/30 outline-none"
+                                />
+                                <p className="text-xs text-gray-400">留空表示不修改</p>
                             </div>
                         </div>
 

@@ -1,7 +1,7 @@
 // VERSION: 2025-12-27-1915
 import React, { useState, useEffect, useMemo } from 'react';
 import { toast } from 'sonner';
-import { X, Check, Search, Settings, Trash2, Plus, ChevronRight, User, Shield, Award, Calendar, BookOpen, Zap, Star, Leaf, ArrowRight, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { X, Check, Search, Settings, Trash2, Plus, ChevronRight, User, Shield, Award, Calendar, BookOpen, Zap, Star, Leaf, ArrowRight, ChevronDown, CheckCircle2, Flame } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useClass } from '../context/ClassContext';
 import ProtectedRoute from '../components/ProtectedRoute';
@@ -11,6 +11,8 @@ import { getSkillByTaskName } from '../config/taskSkillMapping'; // 🆕 引入�
 import { FIXED_QC_ITEMS } from '../config/taskCategories';
 import ReadingSection from '../components/ReadingSection';  // 🆕 阅读记录组件
 import FamilyPlanPanel from '../components/FamilyPlanPanel';  // 🆕 家校计划面板
+import StreakCategorySheet from '../components/StreakCategorySheet'; // 🆕 连胜记录面板
+
 
 // --- 类型定义 ---
 
@@ -47,6 +49,7 @@ interface Task {
   settledAt?: string | null; // 🆕 结算时间戳，null 表示未结算
   unit?: string; // 🆕 任务关联的单元号（用于按进度过滤）
   lesson?: string; // 🆕 任务关联的课程号（用于按进度过滤）
+  isPerfect?: boolean; // 🆕 完美完成标记 (Combo Flame)
 }
 
 interface Lesson {
@@ -161,6 +164,14 @@ const QCView: React.FC = () => {
   const [customTaskLibrary, setCustomTaskLibrary] = useState<TaskLibraryItem[]>([]);
   const [activeBasicQCItems, setActiveBasicQCItems] = useState<string[]>([]);
   const [isBasicQCDrawerOpen, setIsBasicQCDrawerOpen] = useState(false);
+
+  // 状态管理
+  const [isQCDrawerOpen, setIsQCDrawerOpen] = useState(false);
+  const [isStreakSheetOpen, setIsStreakSheetOpen] = useState(false); // 🆕 连胜面板开关
+  const [isPerfectMode, setIsPerfectMode] = useState(false); // Deprecated: 已废弃，保留变量名防止报错，默认false
+
+  // 🆕 完美过关模式 (Combo Flame)
+
 
   // 🆕 加载任务库 (动态 4 大类 + 基础过关)
   const fetchTaskLibrary = async () => {
@@ -894,7 +905,7 @@ const QCView: React.FC = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedStudentId]); // 🆕 只依赖 selectedStudentId，移除 qcStudents
-  const [isQCDrawerOpen, setIsQCDrawerOpen] = useState(false);
+
   const [isCMSDrawerOpen, setIsCMSDrawerOpen] = useState(false);
 
   //CMS 状态已移除 (整合到激励库)
@@ -1155,7 +1166,8 @@ const QCView: React.FC = () => {
       if (isAlreadyPassed) {
         // 将状态改回 PENDING
         const rollbackRes = await apiService.patch(`lms/records/${task.recordId}/status`, {
-          status: 'PENDING'
+          status: 'PENDING',
+          // 回滚时不需要 isPerfect，或者可以重置
         });
         if (rollbackRes.success) {
           setQcStudents(prev => prev.map(s => {
@@ -1176,7 +1188,8 @@ const QCView: React.FC = () => {
       const targetUrl = `lms/records/${task.recordId}/status`;
       const response = await apiService.patch(targetUrl, {
         status: newStatus,
-        courseInfo: courseInfo
+        courseInfo: courseInfo,
+        isPerfect: isPerfectMode // 🆕 传递完美标记
       });
 
       if (response.success) {
@@ -1188,7 +1201,7 @@ const QCView: React.FC = () => {
             ...s,
             tasks: s.tasks.map(t => {
               if (t.id !== taskId) return t;
-              return { ...t, status: newStatus === 'COMPLETED' ? 'PASSED' : 'PENDING' };
+              return { ...t, status: newStatus === 'COMPLETED' ? 'PASSED' : 'PENDING', isPerfect: isPerfectMode };
             })
           };
         }));
@@ -1247,9 +1260,9 @@ const QCView: React.FC = () => {
           category: targetCategory,
           date: new Date().toISOString().split('T')[0],
           courseInfo: courseInfo,
-          unit: currentSubjectProgress?.unit || '1',
           lesson: currentSubjectProgress?.lesson || '1',
-          expAwarded: 5 // 默认分值
+          expAwarded: 5, // 默认分值
+          isPerfect: isPerfectMode // 🆕 传递完美标记
         });
 
         if (response.success) {
@@ -1276,7 +1289,8 @@ const QCView: React.FC = () => {
                 attempts: 0, // 初始尝试次数为 0
                 isAuto: false,
                 unit: cp?.unit || '1',
-                lesson: cp?.lesson || '1'
+                lesson: cp?.lesson || '1',
+                isPerfect: isPerfectMode
               }]
             };
           }));
@@ -1414,6 +1428,33 @@ const QCView: React.FC = () => {
     } catch (error) {
       console.error('[QCView] 切换辅导状态状态失败:', error);
       alert('更新失败，请重试');
+    }
+  };
+
+  // 🆕 处理临时连胜记录
+  const handleAdHocStreak = async (code: string, name: string) => {
+    if (!selectedStudentId) return;
+
+    try {
+      // 1. 调用连胜更新API
+      const response = await apiService.post('/streaks/update', {
+        studentId: selectedStudentId,
+        category: code,
+        isPerfect: true
+      });
+
+      if (response.success) {
+        toast.success(`已记录一次 "${name}" 连胜！`, {
+          icon: '🔥',
+          duration: 2000
+        });
+        if (navigator.vibrate) navigator.vibrate([50, 50, 50]);
+      } else {
+        toast.error('记录失败');
+      }
+    } catch (error) {
+      console.error('Streak update error:', error);
+      toast.error('记录失败');
     }
   };
 
@@ -1668,6 +1709,18 @@ const QCView: React.FC = () => {
                 <header className="px-5 py-4 bg-white/85 backdrop-blur-xl border-b border-slate-100 flex justify-between items-center sticky top-0 z-50">
                   <div className="flex items-center gap-3">
                     <span className="text-xl font-bold text-slate-900">{getSelectedStudent()?.name}</span>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    {/* 🆕 连胜记录按钮 (替代原完美模式) */}
+                    <button
+                      onClick={() => setIsStreakSheetOpen(true)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 shadow-sm active:scale-95 transition-all hover:bg-orange-100"
+                    >
+                      <Flame size={14} fill="currentColor" />
+                      <span className="text-xs font-bold">连胜</span>
+                    </button>
+
                     <button onClick={() => setIsQCDrawerOpen(false)} className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors">
                       <X size={18} />
                     </button>
@@ -2747,6 +2800,14 @@ const QCView: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* 🆕 连胜记录面板 */}
+        <StreakCategorySheet
+          isOpen={isStreakSheetOpen}
+          onClose={() => setIsStreakSheetOpen(false)}
+          onSelect={handleAdHocStreak}
+          studentName={getSelectedStudent()?.name || ''}
+        />
 
       </div >
     </ProtectedRoute >

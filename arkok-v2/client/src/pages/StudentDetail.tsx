@@ -257,6 +257,10 @@ const StudentDetail: React.FC = () => {
   const [skillStats, setSkillStats] = useState<SkillStats | null>(null);
   // 🆕 已解锁技能列表
   const [unlockedSkills, setUnlockedSkills] = useState<Skill[]>([]);
+  const [skillPage, setSkillPage] = useState(0); // 🆕 技能分页
+  // 🆕 连胜记录列表
+  const [streakRecords, setStreakRecords] = useState<Array<{ category: string; categoryLabel: string; currentStreak: number; maxStreak: number }>>([]);
+  const [streakPage, setStreakPage] = useState(0); // 🆕 连胜分页
 
   // --- 3. 派生状态 (SSOT) ---
   const student = studentProfile?.student;
@@ -412,6 +416,14 @@ const StudentDetail: React.FC = () => {
           setUnlockedSkills(skills);
         }
       }).catch(err => console.error('Failed to fetch skills', err));
+
+      // 🆕 获取连胜记录
+      apiService.get(`/streaks/student/${studentId}`).then(res => {
+        if (res.success && res.data) {
+          // 🆕 显示所有连胜项目 (包括数据为 0 的)
+          setStreakRecords(res.data as any[]);
+        }
+      }).catch(err => console.error('Failed to fetch streak records', err));
     }
   }, [studentId]);
 
@@ -1186,40 +1198,181 @@ const StudentDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* 🆕 已点亮技能名牌 */}
-              {unlockedSkills.length > 0 && (
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                  <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
-                    <Medal className="w-4 h-4 text-emerald-500" /> 已点亮技能
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {unlockedSkills.map(skill => (
-                      <div key={skill.code} className="flex items-center gap-3 p-3 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group">
-                        {/* 装饰背景字 */}
-                        <div className="absolute -right-2 -bottom-4 text-4xl text-slate-100 font-black opacity-50 z-0 pointer-events-none select-none italic">
-                          {skill.name.slice(0, 2)}
-                        </div>
+              {/* 🆕 连胜记录 - 始终显示 */}
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                  <span className="text-lg">🔥</span> 连胜纪录
+                  <span className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full ml-auto">
+                    共 {streakRecords.length} 项
+                  </span>
+                </h3>
 
-                        <div className="w-10 h-10 rounded-lg bg-white border border-slate-100 shadow-sm flex items-center justify-center text-xl z-10 shrink-0">
-                          {/* 根据名称简单映射Emoji，或默认 */}
-                          {skill.name.includes('禅') ? '🧘' :
-                            skill.name.includes('炼') ? '🔥' :
-                              skill.name.includes('薪') ? '🕯️' :
-                                skill.name.includes('水') ? '💧' :
-                                  skill.name.includes('内') ? '🧠' : '✨'}
+                {/* 连胜分页控制 (仅当连胜数 > 9 时显示) */}
+                {streakRecords.length > 9 && (
+                  <div className="flex justify-between items-center mb-3 px-1">
+                    <button
+                      onClick={() => setStreakPage(Math.max(0, streakPage - 1))}
+                      disabled={streakPage === 0}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${streakPage === 0
+                        ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                        : 'bg-orange-100 text-orange-600 hover:bg-orange-200 active:scale-95'
+                        }`}
+                    >
+                      ←
+                    </button>
+
+                    <span className="text-xs text-gray-500 font-medium">
+                      第 {streakPage + 1} 页
+                    </span>
+
+                    <button
+                      onClick={() => setStreakPage(streakPage + 1)}
+                      disabled={(streakPage + 1) * 9 >= streakRecords.length}
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${(streakPage + 1) * 9 >= streakRecords.length
+                        ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                        : 'bg-orange-100 text-orange-600 hover:bg-orange-200 active:scale-95'
+                        }`}
+                    >
+                      →
+                    </button>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-3 gap-2">
+                  {streakRecords
+                    .slice(streakPage * 9, (streakPage + 1) * 9)
+                    .map(record => (
+                      <div key={record.category} className="flex flex-col items-center justify-center p-2 bg-gradient-to-b from-orange-50 to-amber-50 rounded-xl border border-orange-100 relative overflow-hidden h-24">
+                        <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 mb-0.5 leading-none">
+                          {record.currentStreak}
                         </div>
-                        <div className="z-10 min-w-0">
-                          <div className="text-sm font-black text-slate-700 truncate">{skill.name}</div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold">Lv.{skill.level}</span>
-                            <span className="text-[10px] text-slate-400 font-mono">{skill.exp} EXP</span>
-                          </div>
+                        <div className="text-[11px] font-bold text-slate-700 truncate w-full text-center px-1">
+                          {record.categoryLabel}
+                        </div>
+                        <div className="text-[9px] text-slate-400 mt-0.5 scale-90">
+                          最高 {record.maxStreak}
                         </div>
                       </div>
                     ))}
-                  </div>
                 </div>
-              )}
+
+                {/* 页面指示器 */}
+                {streakRecords.length > 9 && (
+                  <div className="flex justify-center items-center gap-1.5 mt-3">
+                    {Array.from({
+                      length: Math.ceil(streakRecords.length / 9)
+                    }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setStreakPage(index)}
+                        className={`w-2 h-2 rounded-full transition-colors ${index === streakPage
+                          ? 'bg-orange-500'
+                          : 'bg-gray-200 hover:bg-gray-300'
+                          }`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 🆕 已点亮技能名牌 - 始终显示 */}
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                  <Medal className="w-4 h-4 text-emerald-500" /> 已点亮技能
+                  <span className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full ml-auto">
+                    共 {unlockedSkills.length} 个
+                  </span>
+                </h3>
+
+                {unlockedSkills.length > 0 ? (
+                  <>
+                    {/* 分页控制 (仅当技能数 > 6 时显示) */}
+                    {unlockedSkills.length > 6 && (
+                      <div className="flex justify-between items-center mb-3 px-1">
+                        <button
+                          onClick={() => setSkillPage(Math.max(0, skillPage - 1))}
+                          disabled={skillPage === 0}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${skillPage === 0
+                            ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                            : 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200 active:scale-95'
+                            }`}
+                        >
+                          ←
+                        </button>
+
+                        <span className="text-xs text-gray-500 font-medium">
+                          第 {skillPage + 1} 页
+                        </span>
+
+                        <button
+                          onClick={() => setSkillPage(skillPage + 1)}
+                          disabled={(skillPage + 1) * 6 >= unlockedSkills.length}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${(skillPage + 1) * 6 >= unlockedSkills.length
+                            ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                            : 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200 active:scale-95'
+                            }`}
+                        >
+                          →
+                        </button>
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-2 gap-2">
+                      {unlockedSkills
+                        .slice(skillPage * 6, (skillPage + 1) * 6)
+                        .map(skill => (
+                          <div key={skill.code} className="flex items-center gap-3 p-3 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-100 shadow-sm relative overflow-hidden group">
+                            {/* 装饰背景字 */}
+                            <div className="absolute -right-2 -bottom-4 text-4xl text-slate-100 font-black opacity-50 z-0 pointer-events-none select-none italic">
+                              {skill.name.slice(0, 2)}
+                            </div>
+
+                            <div className="w-10 h-10 rounded-lg bg-white border border-slate-100 shadow-sm flex items-center justify-center text-xl z-10 shrink-0">
+                              {/* 根据名称简单映射Emoji，或默认 */}
+                              {skill.name.includes('禅') ? '🧘' :
+                                skill.name.includes('炼') ? '🔥' :
+                                  skill.name.includes('薪') ? '🕯️' :
+                                    skill.name.includes('水') ? '💧' :
+                                      skill.name.includes('内') ? '🧠' : '✨'}
+                            </div>
+                            <div className="z-10 min-w-0">
+                              <div className="text-sm font-black text-slate-700 truncate">{skill.name}</div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-[10px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold">Lv.{skill.level}</span>
+                                <span className="text-[10px] text-slate-400 font-mono">{skill.exp} EXP</span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+
+                    {/* 页面指示器 */}
+                    {unlockedSkills.length > 6 && (
+                      <div className="flex justify-center items-center gap-1.5 mt-3">
+                        {Array.from({
+                          length: Math.ceil(unlockedSkills.length / 6)
+                        }).map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setSkillPage(index)}
+                            className={`w-2 h-2 rounded-full transition-colors ${index === skillPage
+                              ? 'bg-emerald-500'
+                              : 'bg-gray-200 hover:bg-gray-300'
+                              }`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  /* 空状态提示 */
+                  <div className="flex flex-col items-center justify-center py-8 text-slate-300">
+                    <Medal className="w-10 h-10 mb-2 opacity-50" />
+                    <p className="text-sm font-medium">暂无已点亮技能</p>
+                    <p className="text-xs mt-1">完成任务可解锁新技能</p>
+                  </div>
+                )}
+              </div>
 
               {/* 所获勋章 */}
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">

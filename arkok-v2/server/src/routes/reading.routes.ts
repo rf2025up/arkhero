@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { readingService } from '../services/reading.service';
+import { ReadingService } from '../services/reading.service';
 import { authenticateToken, AuthRequest } from '../middleware/auth.middleware';
 import { AuthService } from '../services/auth.service';
 
@@ -8,11 +8,12 @@ import { AuthService } from '../services/auth.service';
  */
 export class ReadingRoutes {
     private router: Router;
-    private authService: AuthService;
 
-    constructor(authService: AuthService) {
+    constructor(
+        private readingService: ReadingService,
+        private authService: AuthService
+    ) {
         this.router = Router();
-        this.authService = authService;
         this.initializeRoutes();
     }
 
@@ -47,7 +48,7 @@ export class ReadingRoutes {
             const { studentId } = req.params;
             const schoolId = req.schoolId!;
 
-            const books = await readingService.getStudentBooks(studentId, schoolId);
+            const books = await this.readingService.getStudentBooks(studentId, schoolId);
 
             res.status(200).json({
                 success: true,
@@ -78,7 +79,7 @@ export class ReadingRoutes {
                 return;
             }
 
-            const book = await readingService.addBook({
+            const book = await this.readingService.addBook({
                 studentId,
                 schoolId,
                 bookName,
@@ -107,7 +108,7 @@ export class ReadingRoutes {
             const { bookId } = req.params;
             const schoolId = req.schoolId!;
 
-            await readingService.deleteBook(bookId, schoolId);
+            await this.readingService.deleteBook(bookId, schoolId);
 
             res.status(200).json({
                 success: true,
@@ -139,7 +140,7 @@ export class ReadingRoutes {
                 return;
             }
 
-            const log = await readingService.addReadingLog({
+            const log = await this.readingService.addReadingLog({
                 bookId,
                 studentId,
                 schoolId,
@@ -170,7 +171,7 @@ export class ReadingRoutes {
             const { studentId } = req.params;
             const schoolId = req.schoolId!;
 
-            const stats = await readingService.getStudentReadingStats(studentId, schoolId);
+            const stats = await this.readingService.getStudentReadingStats(studentId, schoolId);
 
             res.status(200).json({
                 success: true,
@@ -193,7 +194,7 @@ export class ReadingRoutes {
             const { studentId } = req.params;
             const schoolId = req.schoolId!;
 
-            const lastBook = await readingService.getLastSelectedBook(studentId, schoolId);
+            const lastBook = await this.readingService.getLastSelectedBook(studentId, schoolId);
 
             res.status(200).json({
                 success: true,

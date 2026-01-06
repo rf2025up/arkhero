@@ -119,12 +119,20 @@ export class SocketService {
    * 设置 Socket 事件处理器
    */
   private setupSocketEventHandlers(socket: AuthenticatedSocket): void {
-    // 加入学校房间
+    // 加入学校房间 (原始事件名)
     (socket as any).on('JOIN_SCHOOL', (data: any) => {
       if (socket.schoolId && data.schoolId === socket.schoolId) {
         this.joinSchoolRoom(socket, data.schoolId);
       } else {
         (socket as any).emit('ERROR', { message: '无权加入指定学校房间' });
+      }
+    });
+
+    // 加入学校房间 (BigScreen 使用的事件名)
+    (socket as any).on('JOIN_SCHOOL_ROOM', (data: any) => {
+      if (data.schoolId) {
+        this.joinSchoolRoom(socket, data.schoolId);
+        console.log(`🏠 BigScreen 加入学校房间: school_${data.schoolId}`);
       }
     });
 

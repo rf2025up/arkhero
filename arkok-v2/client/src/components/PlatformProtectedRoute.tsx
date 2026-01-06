@@ -1,11 +1,11 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { usePlatformAuth } from '../context/PlatformAuthContext';
 import { ShieldAlert, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const PlatformProtectedRoute: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-    const { user, isAuthenticated, isLoading } = useAuth();
+    const { user, isAuthenticated, isLoading } = usePlatformAuth();
 
     if (isLoading) {
         return (

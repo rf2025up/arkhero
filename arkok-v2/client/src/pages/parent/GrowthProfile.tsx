@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Share2, Trophy, CheckCircle, Swords, Flame, Award, Compass, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
 const API_BASE = '/api/parent';
 
 interface RadarDimension {
@@ -32,6 +33,10 @@ interface GrowthData {
         level: number;
         exp: number;
         points: number;
+        stats?: {
+            perfectStreak: number;
+            maxPerfectStreak: number;
+        };
     };
     radarData: {
         dimensions: RadarDimension[];
@@ -85,6 +90,15 @@ const GrowthProfile: React.FC = () => {
     const [data, setData] = useState<GrowthData | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedDimension, setSelectedDimension] = useState<string | null>(null);
+    // 🆕 连胜数据
+    const [streakRecords, setStreakRecords] = useState<Array<{ category: string; categoryLabel: string; currentStreak: number; maxStreak: number }>>([]);
+    const [streakPage, setStreakPage] = useState(0);
+    const [skillPage, setSkillPage] = useState(0); // 🆕 技能分页状态
+
+    // 切换维度时重置页码
+    useEffect(() => {
+        setSkillPage(0);
+    }, [selectedDimension]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -111,6 +125,15 @@ const GrowthProfile: React.FC = () => {
                 }
 
                 setData(result);
+
+                // 🆕 获取连胜数据
+                const streakRes = await fetch(`${API_BASE}/streaks/${studentId}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const streakResult = await streakRes.json();
+                if (streakResult.success) {
+                    setStreakRecords(streakResult.data);
+                }
             } catch (err) {
                 console.error(err);
             } finally {
@@ -237,13 +260,16 @@ const GrowthProfile: React.FC = () => {
 
             {/* 学生信息卡 */}
             <div className="relative z-10 px-6 mt-4 flex items-center gap-4 text-white">
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="w-14 h-14 rounded-full border-2 border-white/40 shadow-lg bg-orange-100 flex items-center justify-center text-xl font-bold text-orange-600"
-                >
-                    {data?.student?.name?.charAt(0)}
-                </motion.div>
+                <div className="relative">
+                    <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="w-14 h-14 rounded-full border-2 border-white/40 shadow-lg bg-orange-100 flex items-center justify-center text-xl font-bold text-orange-600 relative z-10"
+                    >
+                        {data?.student?.name?.charAt(0)}
+                    </motion.div>
+
+                </div>
                 <div>
                     <h1 className="text-xl font-bold tracking-tight">{data?.student?.name}</h1>
                     <div className="flex items-center gap-2 mt-0.5 text-xs text-white/80">
@@ -287,6 +313,83 @@ const GrowthProfile: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
+            {/* 🆕 连胜纪录面板 (兼容V5宪法) - 始终显示 */}
+            <div className="relative z-10 px-4 mt-4">
+                <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.15 }}
+                    className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100"
+                >
+                    <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                        <Flame className="w-5 h-5 text-orange-500 fill-orange-500" />
+                        <span>连胜纪录 (Debug)</span>
+                        <span className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full ml-auto">
+                            共 {streakRecords.length} 项
+                        </span>
+                    </h3>
+
+                    {/* 连胜分页控制 */}
+                    {streakRecords.length > 9 && (
+                        <div className="flex justify-between items-center mb-3 px-1">
+                            <button
+                                onClick={() => setStreakPage(Math.max(0, streakPage - 1))}
+                                disabled={streakPage === 0}
+                                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all active:scale-95 ${streakPage === 0
+                                    ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                    : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
+                                    }`}
+                            >
+                                ←
+                            </button>
+                            <span className="text-xs text-gray-500 font-medium">第 {streakPage + 1} 页</span>
+                            <button
+                                onClick={() => setStreakPage(streakPage + 1)}
+                                disabled={(streakPage + 1) * 9 >= streakRecords.length}
+                                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all active:scale-95 ${(streakPage + 1) * 9 >= streakRecords.length
+                                    ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                    : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
+                                    }`}
+                            >
+                                →
+                            </button>
+                        </div>
+                    )}
+
+                    <div className="grid grid-cols-3 gap-2">
+                        {streakRecords
+                            .slice(streakPage * 9, (streakPage + 1) * 9)
+                            .map(record => (
+                                <div key={record.category} className="flex flex-col items-center justify-center p-2 bg-gradient-to-b from-orange-50 to-amber-50 rounded-xl border border-orange-100 relative overflow-hidden h-24 hover:scale-[1.02] transition-transform duration-200">
+                                    <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-red-500 mb-0.5 leading-none">
+                                        {record.currentStreak}
+                                    </div>
+                                    <div className="text-[10px] font-bold text-slate-700 truncate w-full text-center px-1">
+                                        {record.categoryLabel}
+                                    </div>
+                                    <div className="text-[9px] text-slate-400 mt-0.5 scale-90">
+                                        最高 {record.maxStreak}
+                                    </div>
+                                </div>
+                            ))}
+                    </div>
+
+                    {/* 页面指示器 */}
+                    {streakRecords.length > 9 && (
+                        <div className="flex justify-center items-center gap-1.5 mt-3">
+                            {Array.from({ length: Math.ceil(streakRecords.length / 9) }).map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setStreakPage(index)}
+                                    className={`w-1.5 h-1.5 rounded-full transition-colors ${index === streakPage ? 'bg-orange-500' : 'bg-gray-200'}`}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </motion.div>
+            </div>
+
+
 
             {/* 技能成就列表 - 卡片式网格布局 (3列) */}
             <div className="px-4 mt-6">
@@ -298,14 +401,43 @@ const GrowthProfile: React.FC = () => {
                     <span className="text-xs font-bold text-slate-400 bg-white px-2.5 py-1 rounded-full border border-slate-100 shadow-sm">{filteredSkills?.length || 0} 个</span>
                 </div>
 
+                {/* 技能分页控制 */}
+                {filteredSkills && filteredSkills.length > 9 && (
+                    <div className="flex justify-end items-center mb-3 px-1 gap-2">
+                        <button
+                            onClick={() => setSkillPage(Math.max(0, skillPage - 1))}
+                            disabled={skillPage === 0}
+                            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all active:scale-95 ${skillPage === 0
+                                ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                : 'bg-amber-100 text-amber-600 hover:bg-amber-200'
+                                }`}
+                        >
+                            ←
+                        </button>
+                        <span className="text-[10px] text-gray-500 font-medium">
+                            {skillPage + 1}/{Math.ceil(filteredSkills.length / 9)}
+                        </span>
+                        <button
+                            onClick={() => setSkillPage(skillPage + 1)}
+                            disabled={(skillPage + 1) * 9 >= filteredSkills.length}
+                            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all active:scale-95 ${(skillPage + 1) * 9 >= filteredSkills.length
+                                ? 'bg-gray-100 text-gray-300 cursor-not-allowed'
+                                : 'bg-amber-100 text-amber-600 hover:bg-amber-200'
+                                }`}
+                        >
+                            →
+                        </button>
+                    </div>
+                )}
+
                 <div className="min-h-[100px]">
                     <motion.div
                         layout
-                        className="grid grid-cols-3 gap-3"
+                        className="grid grid-cols-3 gap-2"
                     >
                         <AnimatePresence mode='popLayout'>
                             {filteredSkills && filteredSkills.length > 0 ? (
-                                filteredSkills.map((skill) => {
+                                filteredSkills.slice(skillPage * 9, (skillPage + 1) * 9).map((skill) => {
                                     const attrKey = ATTRIBUTE_MAP[skill.attribute] || 'grit';
 
                                     // 动态样式映射

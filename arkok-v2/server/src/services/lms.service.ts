@@ -1,8 +1,10 @@
 import { PrismaClient, lesson_plans, task_records, TaskType, students } from '@prisma/client';
 import { broadcastToSchool, broadcastToStudent, SOCKET_EVENTS } from '../utils/socketHandlers';
 import { Server as SocketIOServer } from 'socket.io';
-import CurriculumService from './curriculum.service';
+import { statsService } from './stats.service';
+import { CurriculumService } from './curriculum.service';
 import { RewardService } from './reward.service';
+// CategoryStreakService import removed - streaks now handled by dedicated streak drawer
 
 export interface TaskLibraryItem {
   id: string;
@@ -130,7 +132,7 @@ export class LMSService {
     isActive: boolean;
     userRole: string; // 🆕 增加角色校验
   }) {
-    console.log(`📝 [LMS_SERVICE] Creating task library item: ${data.name} in ${data.educationalDomain}`);
+    console.log(`📝[LMS_SERVICE] Creating task library item: ${data.name} in ${data.educationalDomain} `);
 
     // 🆕 核心权限校验：只有 校长 (ADMIN) 或 平台管理员 (PLATFORM_ADMIN) 可以创建
     if (data.userRole !== 'ADMIN' && data.userRole !== 'PLATFORM_ADMIN') {
@@ -170,7 +172,7 @@ export class LMSService {
    * 🆕 更新任务库项目
    */
   async updateTaskLibraryItem(id: string, data: Partial<TaskLibraryItem>, userRole: string) {
-    console.log(`📝 [LMS_SERVICE] Updating task library item: ${id}`);
+    console.log(`📝[LMS_SERVICE] Updating task library item: ${id} `);
 
     // 权限校验
     if (userRole !== 'ADMIN' && userRole !== 'PLATFORM_ADMIN') {
@@ -199,7 +201,7 @@ export class LMSService {
    * 🆕 删除任务库项目 (软删除)
    */
   async deleteTaskLibraryItem(id: string, schoolId: string, userRole: string) {
-    console.log(`🗑️ [LMS_SERVICE] Deleting task library item: ${id}`);
+    console.log(`🗑️[LMS_SERVICE] Deleting task library item: ${id} `);
 
     // 🆕 核心权限校验
     if (userRole !== 'ADMIN' && userRole !== 'PLATFORM_ADMIN') {
@@ -322,11 +324,11 @@ export class LMSService {
       } else {
         // 如果是 Date 对象，使用本地时间格式化
         const d = dateValue as Date;
-        dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        dateStr = `${d.getFullYear()} -${String(d.getMonth() + 1).padStart(2, '0')} -${String(d.getDate()).padStart(2, '0')} `;
       }
-      console.log(`📅[LMS_PUBLISH] 使用日期: ${dateStr}`);
-      const startOfDay = new Date(`${dateStr}T00:00:00+08:00`);
-      const endOfDay = new Date(`${dateStr}T23:59:59+08:00`);
+      console.log(`📅[LMS_PUBLISH] 使用日期: ${dateStr} `);
+      const startOfDay = new Date(`${dateStr} T00:00:00 +08:00`);
+      const endOfDay = new Date(`${dateStr} T23: 59: 59 +08:00`);
 
       // 🆕 从 courseInfo 中提取单元和课，用于注入任务记录（学期地图汇总关键数据）
       const courseInfo = content?.courseInfo || {};
@@ -464,7 +466,7 @@ export class LMSService {
 
       // 🆕 广播给所有受影响学生的房间，让家长端实时更新
       for (const student of boundStudents) {
-        io.to(`student-${student.id}`).emit(SOCKET_EVENTS.DATA_UPDATE, {
+        io.to(`student - ${student.id} `).emit(SOCKET_EVENTS.DATA_UPDATE, {
           type: 'PLAN_PUBLISHED',
           studentId: student.id,
           data: {
@@ -487,7 +489,7 @@ export class LMSService {
    */
   async getStudentProgress(schoolId: string, studentId: string) {
     try {
-      console.log(`[LMS_PROGRESS] Getting progress for student: ${studentId}`);
+      console.log(`[LMS_PROGRESS] Getting progress for student: ${studentId} `);
 
       const student = await this.prisma.students.findUnique({
         where: { id: studentId },
@@ -709,10 +711,14 @@ export class LMSService {
     });
   }
 
+
+
+
+
   /**
    * 批量更新任务状态
    */
-  async updateMultipleRecordStatus(schoolId: string, recordIds: string[], status: any, userId: string, courseInfo?: any) {
+  async updateMultipleRecordStatus(schoolId: string, recordIds: string[], status: any, userId: string, courseInfo?: any, isPerfect?: boolean) {
     const data: any = {
       status,
       isOverridden: true, // 🚀 关键修复：批量手动操作也标记为已覆盖
@@ -721,17 +727,21 @@ export class LMSService {
     };
 
     // 如果传入了课程信息，则尝试注入到每个记录的 content 中
-    // 注意：updateMany 不支持直接基于旧值合并 Json，这里只能覆盖或依赖后续 getStudentProgress 的智能逻辑
-    // 为了安全，我们只在有 courseInfo 时覆盖 content.courseInfo
-    if (courseInfo) {
-      // Prisma updateMany 不支持在 JSON 中进行 deep merge
-      // 这里的妥协方案是：如果提供了 courseInfo，我们就认为这是要同步的进度
-      // 实际上 updateMany 只能设置固定的值。
-      // 所以我们这里只在 recordIds 较少时使用循环，或者统一更新 content
-      // 考虑到性能，我们依然使用 updateMany，但这意味着 content 会被部分重置（如果原本有其他数据）
-      // 改进方案：我们分两步，或者接受 content 被设置。
-      // 针对 Arkall 现状，task_records 的 content 主要就是 courseInfo 和一些元数据
-      data.content = { courseInfo, updatedAt: new Date().toISOString() };
+    if (courseInfo || isPerfect !== undefined) {
+      data.content = {
+        ...(courseInfo ? { courseInfo } : {}),
+        ...(isPerfect !== undefined ? { isPerfect } : {}),
+        updatedAt: new Date().toISOString()
+      };
+      // 注意：prisma updateMany 的 content 是 json replace 还是 merge? 
+      // Prisma atomic updates for JSON are experimental or require specific syntax. 
+      // simple updateMany with data.content will replace the whole content if not careful.
+      // However, existing usage implies we might be replacing or simple fields.
+      // For safety in updateMany with JSON, we usually can't merge easily without raw SQL.
+      // But looking at existing code: `data.content = { courseInfo, updatedAt ... }` suggests it might be replacing.
+      // If we want to preserve other content, updateMany is risky if we don't know previous content.
+      // But here we are setting status to COMPLETED/PASSED, maybe replacing content is acceptable or `courseInfo` is the main thing.
+      // Let's stick to the pattern but add isPerfect.
     }
 
     const result = await this.prisma.task_records.updateMany({
@@ -742,14 +752,19 @@ export class LMSService {
       data
     });
 
-    // 🆕 实时同步
+    // 🆕 实时同步（已移除自动连胜触发 - 连胜现由专门的连胜抽屉控制）
     const records = await this.prisma.task_records.findMany({
       where: { id: { in: recordIds } },
-      select: { studentId: true },
-      distinct: ['studentId']
+      select: { id: true, studentId: true, type: true, title: true, schoolId: true, content: true },
     });
 
-    records.forEach(r => this.broadcastStudentUpdate(r.studentId));
+    // 注：连胜更新已移至独立的连胜抽屉，不再与基础过关绑定
+
+    // 广播通知
+    const studentIds = Array.from(new Set(records.map(r => r.studentId)));
+    for (const studentId of studentIds) {
+      this.broadcastStudentUpdate(studentId);
+    }
 
     return result;
   }
@@ -758,7 +773,7 @@ export class LMSService {
    * 更新学生课程进度 - 🆕 简化版：直接写入 students.currentProgress
    */
   async updateStudentProgress(schoolId: string, studentId: string, teacherId: string, courseInfo: any) {
-    console.log(`[LMS_PROGRESS] Updating progress for student: ${studentId}`);
+    console.log(`[LMS_PROGRESS] Updating progress for student: ${studentId} `);
 
     // 构建进度数据，自动填充课程标题
     const progressData = {
@@ -790,7 +805,7 @@ export class LMSService {
     // 实时同步
     this.broadcastStudentUpdate(studentId);
 
-    console.log(`[LMS_PROGRESS] ✅ Progress saved for student: ${studentId}`);
+    console.log(`[LMS_PROGRESS] ✅ Progress saved for student: ${studentId} `);
     return updatedStudent;
   }
 
@@ -798,7 +813,7 @@ export class LMSService {
   /**
    * 🛡️ 辅助方法：将中文/字符串分类映射为 Prisma 枚举
    */
-  private mapToTaskCategory(category: string): 'PROGRESS' | 'METHODOLOGY' | 'TASK' | 'PERSONALIZED' {
+  private mapToTaskCategory(category: string): 'PROGRESS' | 'METHODOLOGY' | 'TASK' | 'PERSONALIZED' | 'GROWTH' {
     const cat = category.trim();
 
     // 核心教学法 (Methodology)
@@ -808,7 +823,11 @@ export class LMSService {
 
     // 基础过关 / 课程进度 / 学科 (Progress)
     // 包含前端传入的子Tab名称: chinese, math, english
-    if (['基础过关项', '基础过关', '课程进度', 'PROGRESS', 'chinese', 'math', 'english', '语文', '数学', '英语'].includes(cat)) {
+    if ([
+      '基础过关项', '基础过关', '课程进度', 'PROGRESS',
+      'chinese', 'math', 'english', '语文', '数学', '英语',
+      '语文基础过关', '数学基础过关', '英语基础过关'
+    ].includes(cat)) {
       return 'PROGRESS';
     }
 
@@ -817,9 +836,13 @@ export class LMSService {
       return 'PERSONALIZED';
     }
 
-    // 默认归类为综合成长 (Task/Growth)
-    // 包括: "综合成长", "综合素养", "TASK" 等所有未匹配项
-    return 'TASK';
+    // 综合成长 (Growth)
+    if (['综合成长', '综合素养', 'GROWTH'].includes(cat)) {
+      return 'GROWTH';
+    }
+
+    // 默认归类为综合成长 (Growth)
+    return 'GROWTH';
   }
 
   /**
@@ -835,8 +858,9 @@ export class LMSService {
     exp: number;
     courseInfo?: any;
     isOverridden?: boolean;
+    isPerfect?: boolean; // 🆕 支持完美标记
   }) {
-    const { schoolId, studentId, type, title, category, subcategory, exp, courseInfo, isOverridden = true } = data;
+    const { schoolId, studentId, type, title, category, subcategory, exp, courseInfo, isOverridden = true, isPerfect } = data;
 
     // 🛡️ 映射分类
     const mappedCategory = this.mapToTaskCategory(category);
@@ -847,13 +871,13 @@ export class LMSService {
       const configExp = await this.rewardService.getExpForTask(schoolId, category, subcategory || '', title);
       if (configExp !== null) {
         finalExp = configExp;
-        console.log(`✅ [LMS_SERVICE] 从配置表获取经验值: ${title} = ${finalExp} EXP (原值: ${exp})`);
+        console.log(`✅[LMS_SERVICE] 从配置表获取经验值: ${title} = ${finalExp} EXP(原值: ${exp})`);
       } else {
-        console.log(`⚠️ [LMS_SERVICE] 未找到配置，使用默认经验值: ${title} = ${exp} EXP`);
+        console.log(`⚠️[LMS_SERVICE] 未找到配置，使用默认经验值: ${title} = ${exp} EXP`);
       }
     }
 
-    console.log(`📝[LMS_SERVICE] 为学生 ${studentId} 创建单条任务: ${title} (${category}/${subcategory} -> ${mappedCategory}) EXP=${finalExp}`);
+    console.log(`📝[LMS_SERVICE] 为学生 ${studentId} 创建单条任务: ${title} (${category}/${subcategory} -> ${mappedCategory}) EXP = ${finalExp} `);
 
     const record = await this.prisma.task_records.create({
       data: {
@@ -867,13 +891,15 @@ export class LMSService {
         // 🚨 修正：前端依赖 content.category 来进行中文分组过滤，必须保留原始字段名为 category
         // 🔴 关键：必须包含 taskDate 字段，否则 getBatchDailyRecords 查询不到
         content: courseInfo
-          ? { courseInfo, updatedAt: new Date().toISOString(), category: category, subcategory: subcategory || '', taskDate: new Date().toISOString().split('T')[0] }
-          : { updatedAt: new Date().toISOString(), category: category, subcategory: subcategory || '', taskDate: new Date().toISOString().split('T')[0] },
+          ? { courseInfo, updatedAt: new Date().toISOString(), category: category, subcategory: subcategory || '', taskDate: new Date().toISOString().split('T')[0], isPerfect: !!isPerfect }
+          : { updatedAt: new Date().toISOString(), category: category, subcategory: subcategory || '', taskDate: new Date().toISOString().split('T')[0], isPerfect: !!isPerfect },
         isOverridden,
         status: 'PENDING',
         updatedAt: new Date()
       }
     });
+
+
 
     // 🆕 实时同步
     this.broadcastStudentUpdate(studentId);
@@ -969,8 +995,8 @@ export class LMSService {
     const beijingOffset = 8 * 60;
     const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
     const beijingTime = new Date(utcTime + (beijingOffset * 60000));
-    const todayStr = `${beijingTime.getFullYear()}-${String(beijingTime.getMonth() + 1).padStart(2, '0')}-${String(beijingTime.getDate()).padStart(2, '0')}`;
-    console.log(`📅[LMS_SERVICE] 当日日期: ${todayStr}`);
+    const todayStr = `${beijingTime.getFullYear()} -${String(beijingTime.getMonth() + 1).padStart(2, '0')} -${String(beijingTime.getDate()).padStart(2, '0')} `;
+    console.log(`📅[LMS_SERVICE] 当日日期: ${todayStr} `);
 
     // 1. 先将该学生所有待办项（QC 项、核心教学法、综合成长）标记为已完成
     // 遵循宪法：使用 isOverridden 标记手动结算

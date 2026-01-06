@@ -17,9 +17,10 @@ interface PKArenaProps {
     topic: string;
     createdAt: string;
   };
+  onComplete?: () => void;
 }
 
-export function PKArena({ match }: PKArenaProps) {
+export function PKArena({ match, onComplete }: PKArenaProps) {
   const [countdown, setCountdown] = useState(3);
   const [battlePhase, setBattlePhase] = useState<'countdown' | 'battle' | 'result'>('countdown');
   const controls = useAnimation();
@@ -50,6 +51,17 @@ export function PKArena({ match }: PKArenaProps) {
       return () => clearTimeout(battleTimer);
     }
   }, [battlePhase]);
+
+  useEffect(() => {
+    // 结果展示阶段
+    if (battlePhase === 'result') {
+      const resultTimer = setTimeout(() => {
+        if (onComplete) onComplete();
+      }, 6000); // 结果展示6秒
+
+      return () => clearTimeout(resultTimer);
+    }
+  }, [battlePhase, onComplete]);
 
   useEffect(() => {
     // 启动动画序列

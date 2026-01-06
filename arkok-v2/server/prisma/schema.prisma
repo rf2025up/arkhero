@@ -183,6 +183,7 @@ model schools {
   teachers                    teachers[]
   reading_books               reading_books[]               // 🆕 阅读书籍
   reading_logs                reading_logs[]                // 🆕 阅读记录
+  streak_category_items       streak_category_items[]       // 🆕 连胜分类定义
 }
 
 model student_badges {
@@ -238,6 +239,8 @@ model students {
   reading_books               reading_books[]               // 🆕 阅读书籍
   reading_logs                reading_logs[]                // 🆕 阅读记录
   weekly_plans                weekly_plans[]                // 🆕 周计划
+  student_stats               student_stats?
+  category_streaks            category_streaks[]
 
   @@unique([schoolId, name])
 }
@@ -616,10 +619,46 @@ model student_stats {
   grit        Int      @default(0)  // 毅力值
   streak      Int      @default(0)  // 当前连胜天数
   maxStreak   Int      @default(0)  // 历史最高连胜
+  perfectStreak Int    @default(0)  // 🆕 连捷圣火(Perfect)连胜
+  maxPerfectStreak Int @default(0)  // 🆕 连捷圣火最高纪录
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   
+  students    students @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
   @@index([studentId])
+}
+
+// 🆕 分类连胜记录表
+model category_streaks {
+  id            String   @id @default(uuid())
+  studentId     String
+  category      String   // e.g. "math_calculation", "cn_dictation"
+  currentStreak Int      @default(0)
+  maxStreak     Int      @default(0)
+  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now())
+
+  student       students @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, category])
+  @@index([category, currentStreak(sort: Desc)])
+}
+
+// 🆕 连胜分类定义表（支持自定义）
+model streak_category_items {
+  id         String   @id @default(cuid())
+  schoolId   String
+  subject    String   // chinese | math | english
+  name       String   // 显示名称
+  code       String   // 唯一代码
+  isDefault  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  school     schools  @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+
+  @@unique([schoolId, code])
+  @@index([schoolId, subject])
 }
 
 // 🆕 技能定义表（预置数据）

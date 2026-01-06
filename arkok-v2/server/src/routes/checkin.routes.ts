@@ -1,12 +1,15 @@
 import { Router, Request, Response } from 'express';
 import { authenticateToken, AuthRequest, validateUser } from '../middleware/auth.middleware';
 import { AuthService } from '../services/auth.service';
-import checkinService from '../services/checkin.service';
+import CheckinService from '../services/checkin.service';
 
 export class CheckinRoutes {
     private router: Router;
 
-    constructor(private authService: AuthService) {
+    constructor(
+        private checkinService: CheckinService,
+        private authService: AuthService
+    ) {
         this.router = Router();
         this.initializeRoutes();
     }
@@ -46,7 +49,7 @@ export class CheckinRoutes {
                 return;
             }
 
-            const result = await checkinService.batchCheckin({
+            const result = await this.checkinService.batchCheckin({
                 studentIds,
                 schoolId,
                 checkedBy: checkedBy || ''
@@ -73,7 +76,7 @@ export class CheckinRoutes {
         try {
             const { studentId } = req.params;
 
-            const count = await checkinService.getMonthlyCheckinCount(studentId);
+            const count = await this.checkinService.getMonthlyCheckinCount(studentId);
 
             res.status(200).json({
                 success: true,
@@ -95,7 +98,7 @@ export class CheckinRoutes {
         try {
             const { studentId } = req.params;
 
-            const isCheckedIn = await checkinService.isTodayCheckedIn(studentId);
+            const isCheckedIn = await this.checkinService.isTodayCheckedIn(studentId);
 
             res.status(200).json({
                 success: true,

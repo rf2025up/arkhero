@@ -61,7 +61,32 @@ export function saveGrowthCategories(categories: CategoryItem[]): void {
 
 // 基础过关标签（固定）
 export const FIXED_QC_ITEMS = {
-    chinese: ['生字听写', '课文背诵', '古诗/日积月累默写', '课文理解问答'],
-    math: ['口算计时', '竖式/脱式', '概念/公式背默'],
+    chinese: ['课文背诵', '生字组词', '默写课文', '听写词语', '朗读课文'],
+    math: ['口算练习', '计算练习', '应用题', '错题订正'],
     english: ['单词默写', '中英互译', '句型背诵', '课文背诵']
+};
+
+export const STREAK_CATEGORIES_CONFIG = {
+    chinese: [
+        { name: '校内作业', code: 'cn_homework' },
+        { name: '课文背诵', code: 'cn_recitation' },
+        { name: '生字组词', code: 'cn_vocabulary' },
+        { name: '默写课文', code: 'cn_dictation_writing' },
+        { name: '听写词语', code: 'cn_dictation' },
+        { name: '朗读课文', code: 'cn_reading' }
+    ],
+    math: [
+        { name: '校内作业', code: 'math_homework' },
+        { name: '口算练习', code: 'math_calculation' },
+        { name: '计算练习', code: 'math_calculation_2' },
+        { name: '应用题', code: 'math_word_problem' },
+        { name: '错题订正', code: 'math_mistakes' }
+    ],
+    english: [
+        { name: '校内作业', code: 'en_homework' },
+        { name: '单词默写', code: 'en_dictation' },
+        { name: '中英互译', code: 'en_translation' },
+        { name: '句型背诵', code: 'en_sentences' },
+        { name: '课文背诵', code: 'en_recitation' }
+    ]
 };

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星途成长 - 中间核心区重构</title>
+    <style>
+        :root {
+            /* 全局配色变量 - 提取自你的原图 */
+            --bg-dark: #0F1219; /* 深空黑底色 */
+            --card-bg: rgba(30, 35, 50, 0.45); /* 玻璃态背景 */
+            --border-color: rgba(255, 255, 255, 0.08);
+            
+            --primary-gold: #FFD700;
+            --primary-blue: #3B82F6;
+            --primary-red: #FF5E57;
+            
+            --text-main: #FFFFFF;
+            --text-sub: #94A3B8;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: var(--bg-dark);
+            /* 模拟原图的背景渐变 */
+            background-image: radial-gradient(circle at 50% 0%, #2a2d3e 0%, #0F1219 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* 模拟中间列的容器宽度 */
+        .center-column {
+            width: 100%;
+            max-width: 600px; /* 原图中中间列的大致宽度 */
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* --- 通用面板样式 --- */
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 标题栏通用样式 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-header i {
+            margin-right: 6px;
+        }
+
+        /* --- 第一部分：巅峰对决 (PK) --- */
+        .pk-section {
+            height: 200px; /* 保持原图高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* 氛围背景光 - 关键：代替原来的大红实色块 */
+        .pk-bg-glow {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 94, 87, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 40%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .pk-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        /* VS 视觉符号 */
+        .vs-logo {
+            font-size: 48px;
+            font-weight: 900;
+            font-style: italic;
+            background: linear-gradient(135deg, #FF5E57 0%, #FFFFFF 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .pk-status {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+        }
+
+        /* 寻找对手按钮 */
+        .btn-match {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-match:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        /* 呼吸灯效果 */
+        .dot-blink {
+            width: 6px; height: 6px; background: #4ADE80; border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink { 0% {opacity: 1;} 50% {opacity: 0.3;} 100% {opacity: 1;} }
+
+
+        /* --- 第二部分：本周悬赏令 --- */
+        .bounty-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* 任务卡片 - 代替原来的粗框盒子 */
+        .task-card {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 左侧装饰条 */
+        .task-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--text-sub);
+            opacity: 0.5;
+        }
+        /* 金色任务高亮 */
+        .task-card.gold::before { background: var(--primary-gold); opacity: 1; box-shadow: 2px 0 10px rgba(255, 215, 0, 0.3); }
+        .task-card.gold { background: linear-gradient(90deg, rgba(255, 215, 0, 0.05) 0%, rgba(0,0,0,0) 100%); border-color: rgba(255, 215, 0, 0.1); }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* 任务内容布局 */
+        .task-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .task-icon-box {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .task-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .task-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        /* 进度条 */
+        .progress-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+        .progress-track {
+            width: 80px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%; background: var(--primary-gold); width: 0%;
+            transition: width 1s ease;
+        }
+
+        /* 右侧奖励区 */
+        .task-rewards {
+            display: flex;
+            gap: 8px;
+        }
+
+        .reward-tag {
+            font-family: 'DIN Alternate', sans-serif; /* 假设有这种数字字体 */
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: flex; align-items: center; gap: 4px;
+        }
+        
+        .reward-gold {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); /* 微辉光 */
+        }
+        
+        .reward-exp {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60A5FA;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="center-column">
+
+        <!-- 1. 巅峰对决区域 (PK) -->
+        <div class="glass-panel pk-section">
+            <!-- 氛围背景 -->
+            <div class="pk-bg-glow"></div>
+
+            <div class="section-header">
+                <span>⚔️ 巅峰对决</span>
+                <span style="font-size: 12px; opacity: 0.6; font-weight: 400;">今日 0 场</span>
+            </div>
+
+            <div class="pk-content">
+                <!-- 视觉符号：VS -->
+                <div class="vs-logo">VS</div>
+                <div class="pk-status">暂无 PK 记录</div>
+                
+                <!-- 增加交互按钮，让死板的区域活起来 -->
+                <button class="btn-match">
+                    <span class="dot-blink"></span>
+                    寻找实力相当的对手
+                </button>
+            </div>
+        </div>
+
+        <!-- 2. 本周悬赏令区域 -->
+        <div class="glass-panel">
+            <div class="section-header">
+                <span>🎯 本周悬赏令</span>
+            </div>
+
+            <div class="bounty-list">
+                
+                <!-- 任务卡片 1 (高亮/进行中) -->
+                <div class="task-card gold">
+                    <div class="task-left">
+                        <!-- 图标 -->
+                        <div class="task-icon-box">🏆</div>
+                        <!-- 信息 -->
+                        <div class="task-info">
+                            <div class="task-title">连续 5 天作业全对</div>
+                            <div class="progress-wrapper">
+                                <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+                                <span>1/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 奖励 -->
+                    <div class="task-rewards">
+                        <div class="reward-tag reward-gold">⚡ +100 积分</div>
+                        <div class="reward-tag reward-exp">⬆ +50 经验</div>
+                    </div>
+                </div>
+
+                <!-- 任务卡片 2 (未开始) -->
+                <div class="task-card">
+                    <div class="task-left">
+                        <div class="task-icon-box" style="filter: grayscale(1); opacity: 0.7;">🧩</div>
+                        <div class="task-info">
+                            <div class="task-title">2 天学会思维链解体</div>
+                            <div class="progress-wrapper">
+                                <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                                <span>0/2</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-rewards">
+                        <div class="reward-tag reward-gold">⚡ +1000 积分</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

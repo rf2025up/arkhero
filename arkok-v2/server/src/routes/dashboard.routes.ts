@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { DashboardService } from '../services/dashboard.service';
+import DashboardService from '../services/dashboard.service';
 import { AuthService } from '../services/auth.service';
 import { authenticateToken, validateUser } from '../middleware/auth.middleware';
 
@@ -48,28 +48,17 @@ export class DashboardRoutes {
       }
     });
 
-    // 获取大屏专用数据 (公开接口，无需认证)
+    // 获取大屏专用数据 (严格按 schoolId 隔离，确保数据安全)
     router.get('/bigscreen', async (req, res) => {
       try {
-        // 支持通过 URL 参数传递 schoolId，如果没有则自动查找第一个可用学校
-        let schoolId = req.query.schoolId as string;
+        // 🔐 强制要求提供 schoolId，确保校区数据隔离
+        const schoolId = req.query.schoolId as string;
 
         if (!schoolId) {
-          // 如果没有提供 schoolId，查找第一个有学生的学校
-          const { PrismaClient } = require('@prisma/client');
-          const prisma = new PrismaClient();
-          const school = await prisma.schools.findFirst({
-            where: { isActive: true, students: { some: { isActive: true } } },
-            select: { id: true }
-          });
-          await prisma.$disconnect();
-          schoolId = school?.id;
-        }
-
-        if (!schoolId) {
+          console.warn('⚠️ [BIGSCREEN] 拒绝无 schoolId 的请求');
           return res.status(400).json({
             success: false,
-            message: 'No active school found'
+            message: 'schoolId is required for data isolation'
           });
         }
 

@@ -61,14 +61,16 @@ export class RecordsRoutes {
     this.router.patch('/:recordId/status', async (req, res) => {
       try {
         const { recordId } = req.params;
-        const { status } = req.body;
+        const { status, isPerfect } = req.body; // 🆕 获取完美标记
         const user = (req as any).user;
 
         const result = await this.lmsService.updateMultipleRecordStatus(
           user.schoolId,
           [recordId],
           status,
-          user.userId
+          user.userId,
+          undefined, // courseInfo
+          isPerfect  // 🆕 传递完美标记
         );
 
         res.json({ success: result.count > 0, data: result });

@@ -1,14 +1,17 @@
 import { AppRouter } from './routes';
 import { AuthProvider } from './context/AuthContext';
 import { ClassProvider } from './context/ClassContext';
+import { PlatformAuthProvider } from './context/PlatformAuthContext';
 import './App.css';
 
 function App() {
   return (
     <AuthProvider>
-      <ClassProvider>
-        <AppRouter />
-      </ClassProvider>
+      <PlatformAuthProvider>
+        <ClassProvider>
+          <AppRouter />
+        </ClassProvider>
+      </PlatformAuthProvider>
     </AuthProvider>
   );
 }
