@@ -322,7 +322,7 @@ const BigScreen: React.FC = () => {
     <div className="w-screen h-screen bg-black text-white overflow-hidden relative font-sans">
 
       {/* 顶部全局导航栏 */}
-      <header className="absolute top-0 left-0 right-0 h-[6vh] z-50 flex items-center justify-between px-[1.5vw] bg-slate-900/10 backdrop-blur-sm border-b border-white/5">
+      <header className="absolute top-0 left-0 right-0 h-[6vh] z-50 flex items-center px-[1.5vw] bg-slate-900/10 backdrop-blur-sm border-b border-white/5">
         {/* 左侧：校区标识 */}
         <div className="flex items-center gap-[0.8vw]">
           <div className="w-[3.2vh] h-[3.2vh] rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
@@ -333,8 +333,8 @@ const BigScreen: React.FC = () => {
           </h1>
         </div>
 
-        {/* 中间：屏幕切换按钮 - 进一步缩小 */}
-        <div className="flex bg-slate-900/60 backdrop-blur-md rounded-xl p-0.5 border border-white/10 shadow-2xl">
+        {/* 中间：屏幕切换按钮 - 绝对居中 */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex bg-slate-900/60 backdrop-blur-md rounded-xl p-0.5 border border-white/10 shadow-2xl">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -361,7 +361,7 @@ const BigScreen: React.FC = () => {
         </div>
 
         {/* 右侧：时间日期 */}
-        <div className="flex items-center gap-4">
+        <div className="ml-auto flex items-center gap-4">
           <div className="glass-card px-[1vw] py-[0.5vh] rounded-lg border border-white/10 flex items-center gap-3">
             <Clock size={12} className="text-blue-400" />
             <span className="text-[1.4vh] font-black font-mono text-white leading-none">

@@ -545,44 +545,46 @@ const DataDashboard: React.FC = () => {
 
                 {/* 右侧：实时动态 */}
                 <div className="col-span-3 flex flex-col gap-[2vh] min-h-0">
-                    {/* 动态列表 */}
-                    <div className="flex-[6.5] glass-card rounded-[2vh] p-[2vh] flex flex-col min-h-0">
-                        <div className="flex justify-between items-center mb-[2vh]">
-                            <h2 className="text-[2vh] font-bold flex items-center gap-2 text-white">
-                                <Zap className="text-purple-400 w-[2.5vh] h-[2.5vh]" /> 实时动态
+                    {/* 实时动态 - 新版极简风格 */}
+                    <div className="flex-[6] glass-card rounded-[2vh] p-[1.5vh] flex flex-col min-h-0 border-t border-cyan-500/30 bg-gradient-to-br from-slate-900/80 to-slate-800/50">
+                        <div className="flex justify-between items-center mb-[1.5vh]">
+                            <h2 className="text-[2vh] font-bold flex items-center gap-2 text-yellow-400">
+                                <Zap className="w-[2.2vh] h-[2.2vh]" /> 实时动态
                             </h2>
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-purple-500 animate-ping" />
-                                <span className="text-[1vh] text-slate-500 font-black tracking-widest uppercase">LIVE</span>
-                            </div>
                         </div>
                         <div className="flex-1 overflow-hidden relative">
-                            <div className="absolute inset-0 overflow-y-auto pr-2 custom-scrollbar space-y-[1vh]">
+                            <div className="absolute inset-0 overflow-y-auto pr-2 custom-scrollbar space-y-[1.2vh]">
                                 {(data?.activities || [])
                                     .filter(a => ['habit', 'methodology', 'growth', 'progress', 'challenge'].includes(a.type))
                                     .slice(0, LIMITS.ACTIVITIES)
                                     .map(activity => {
-                                        const typeConfig: Record<string, any> = {
-                                            habit: { icon: <CheckCircle2 className="w-[1.8vh] h-[1.8vh]" />, color: 'text-yellow-400', bg: 'bg-yellow-500/20' },
-                                            methodology: { icon: <Zap className="w-[1.8vh] h-[1.8vh]" />, color: 'text-red-400', bg: 'bg-red-500/20' },
-                                            growth: { icon: <TrendingUp className="w-[1.8vh] h-[1.8vh]" />, color: 'text-blue-400', bg: 'bg-blue-500/20' },
-                                            progress: { icon: <CheckCircle2 className="w-[1.8vh] h-[1.8vh]" />, color: 'text-green-400', bg: 'bg-green-500/20' },
-                                            challenge: { icon: <Target className="w-[1.8vh] h-[1.8vh]" />, color: 'text-purple-400', bg: 'bg-purple-500/20' },
-                                        };
-                                        const config = typeConfig[activity.type] || { icon: <CheckCircle2 className="w-[1.8vh] h-[1.8vh]" />, color: 'text-slate-400', bg: 'bg-slate-500/20' };
+                                        // 根据类型生成动态文案
+                                        let actionText = '完成';
+                                        let suffix = '';
+
+                                        if (activity.type === 'methodology' || activity.content?.includes('点亮')) {
+                                            actionText = '点亮';
+                                            suffix = ' 成就';
+                                        } else if (activity.type === 'challenge' || activity.content?.includes('PK') || activity.content?.includes('获胜')) {
+                                            actionText = '在';
+                                            suffix = '获胜';
+                                        }
+
+                                        // 提取标签内容（如【英语单词默写】）
+                                        const labelMatch = activity.content?.match(/【[^】]+】/);
+                                        const label = labelMatch ? labelMatch[0] : activity.content;
+
                                         return (
-                                            <div key={activity.id} className="flex items-center gap-[0.5vw] p-[1vh] rounded-xl bg-white/5 border border-white/5">
-                                                <div className={`w-[3.2vh] h-[3.2vh] rounded-full shrink-0 flex items-center justify-center ${config.bg} ${config.color}`}>
-                                                    {config.icon}
-                                                </div>
-                                                <div className="flex-1 flex items-center justify-between min-w-0">
-                                                    <div className="flex items-center gap-2 min-w-0 flex-1">
-                                                        <span className="text-[1.5vh] font-bold text-slate-100 shrink-0 w-[7vh] tracking-tight">{activity.studentName}</span>
-                                                        <span className={`text-[1.3vh] ${config.color} opacity-90 truncate flex-1`}>{activity.content}</span>
-                                                    </div>
-                                                    <span className="text-[1.1vh] text-slate-500 font-mono shrink-0 ml-2">
-                                                        {activity.timestamp ? new Date(activity.timestamp).toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' }) : ''}
-                                                    </span>
+                                            <div key={activity.id} className="flex items-center gap-[0.8vh] py-[1vh] px-[0.5vw] rounded-xl hover:bg-white/5 transition-colors">
+                                                {/* 蓝色圆点指示器 */}
+                                                <div className="w-[1.2vh] h-[1.2vh] rounded-full bg-cyan-400 shrink-0 shadow-lg shadow-cyan-400/50" />
+
+                                                {/* 内容 - 紧凑布局 */}
+                                                <div className="flex-1 text-[1.6vh] text-slate-200 flex items-center">
+                                                    <span className="font-bold text-white shrink-0">{activity.studentName}</span>
+                                                    <span className="text-slate-400 mx-[0.5vh] shrink-0">{actionText}</span>
+                                                    <span className="text-cyan-300 font-bold truncate">{label}</span>
+                                                    {suffix && <span className="text-slate-400 shrink-0">{suffix}</span>}
                                                 </div>
                                             </div>
                                         );

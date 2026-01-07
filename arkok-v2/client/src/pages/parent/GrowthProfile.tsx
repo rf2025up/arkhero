@@ -323,7 +323,7 @@ const GrowthProfile: React.FC = () => {
                 >
                     <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
                         <Flame className="w-5 h-5 text-orange-500 fill-orange-500" />
-                        <span>连胜纪录 (Debug)</span>
+                        <span>连胜纪录</span>
                         <span className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full ml-auto">
                             共 {streakRecords.length} 项
                         </span>
@@ -578,7 +578,7 @@ const GrowthProfile: React.FC = () => {
                         </div>
                         <div className="text-center">
                             <div className="text-sm font-black text-slate-800">{data?.summary?.totalPK}</div>
-                            <div className="text-[9px] text-slate-400">PK</div>
+                            <div className="text-[9px] text-slate-400">对决</div>
                         </div>
                     </div>
                     <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-1">
