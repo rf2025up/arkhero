@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星途与伴 - 2026版系统功能说明书</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #FF7A00;
+            --primary-light: #FFF0E5;
+            --secondary: #3B82F6;
+            --bg-body: #F9FAFB;
+            --bg-sidebar: #FFFFFF;
+            --text-main: #111827;
+            --text-sub: #6B7280;
+            --border: #E5E7EB;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif; margin: 0; background-color: var(--bg-body); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        /* 左侧侧边栏 */
+        .sidebar { width: 260px; background: var(--bg-sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; height: 100%; overflow-y: auto; }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid var(--border); }
+        .logo { font-size: 18px; font-weight: 800; display: flex; align-items: center; gap: 8px; color: var(--text-main); }
+        .logo-icon { width: 28px; height: 28px; background: linear-gradient(135deg, #FF7A00, #FF5E62); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; }
+        
+        .nav-menu { padding: 20px 16px; flex: 1; }
+        .nav-group-title { font-size: 12px; font-weight: 600; color: var(--text-sub); text-transform: uppercase; margin: 16px 0 8px 12px; letter-spacing: 0.5px; }
+        .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; color: var(--text-sub); text-decoration: none; border-radius: 8px; font-size: 14px; transition: 0.2s; margin-bottom: 2px; }
+        .nav-item:hover { background: #F3F4F6; color: var(--text-main); }
+        .nav-item.active { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+        .nav-item svg { width: 18px; height: 18px; }
+
+        .sidebar-footer { padding: 20px; font-size: 12px; color: #999; border-top: 1px solid var(--border); }
+
+        /* 右侧主内容区 */
+        .main-content { flex: 1; overflow-y: auto; padding: 40px; scroll-behavior: smooth; position: relative; }
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding-bottom: 100px; }
+
+        .doc-header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .doc-title { font-size: 32px; font-weight: 800; margin: 0 0 10px 0; }
+        .doc-meta { display: flex; gap: 15px; color: var(--text-sub); font-size: 14px; }
+        .tag { background: #E5E7EB; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+
+        /* 功能板块样式 */
+        .section-block { margin-bottom: 60px; scroll-margin-top: 40px; }
+        .section-title { font-size: 24px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+        .section-title svg { color: var(--primary); }
+
+        /* 功能卡片 */
+        .feature-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 0; margin-bottom: 30px; box-shadow: var(--card-shadow); overflow: hidden; }
+        
+        .card-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: #FAFAFA; }
+        .card-title { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin: 0; }
+        .badge { font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: 600; }
+        .badge-core { background: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; }
+        .badge-new { background: #ECFDF5; color: #047857; border: 1px solid #D1FAE5; }
+        .badge-basic { background: #F3F4F6; color: #4B5563; border: 1px solid #E5E7EB; }
+        .badge-purple { background: #F3E8FF; color: #7C3AED; border: 1px solid #E9D5FF; }
+
+        .card-body { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        
+        .info-group h4 { font-size: 14px; font-weight: 600; color: var(--text-sub); margin: 0 0 12px 0; text-transform: uppercase; }
+        .feature-list, .value-list { list-style: none; padding: 0; margin: 0; }
+        .feature-list li { margin-bottom: 8px; font-size: 14px; color: #374151; display: flex; gap: 8px; }
+        .feature-list li::before { content: "•"; color: var(--primary); font-weight: bold; }
+        
+        .value-list li { margin-bottom: 8px; font-size: 14px; color: #374151; display: flex; gap: 8px; }
+        .value-list li svg { width: 16px; height: 16px; color: var(--secondary); flex-shrink: 0; margin-top: 3px; }
+
+        .card-footer { background: #F8FAFC; padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+        .guide-icon { width: 20px; height: 20px; color: var(--text-sub); margin-top: 2px; }
+        .guide-content { font-size: 14px; color: #4B5563; line-height: 1.5; }
+        .guide-title { font-weight: 600; color: #111; margin-bottom: 4px; display: block; }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            body { flex-direction: column; height: auto; overflow: visible; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+            .nav-menu { display: none; } 
+            .main-content { padding: 20px; }
+            .card-body { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 侧边栏导航 -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon"><i data-lucide="book-open" size="16"></i></div>
+                星途与伴说明书
+            </div>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-group-title">核心驱动 · 游戏化</div>
+            <a href="#gamification" class="nav-item active"><i data-lucide="gamepad-2"></i> 积分与经验值</a>
+            <a href="#pk-system" class="nav-item"><i data-lucide="swords"></i> 沉浸式PK竞技</a>
+            <a href="#streak" class="nav-item"><i data-lucide="flame"></i> 连胜系统</a>
+            <a href="#skills" class="nav-item"><i data-lucide="network"></i> 五维技能树</a>
+            <a href="#badges" class="nav-item"><i data-lucide="medal"></i> 勋章荣誉系统</a>
+            <a href="#challenges" class="nav-item"><i data-lucide="target"></i> 定制化挑战</a>
+
+            <div class="nav-group-title">教学管理 · 标准化</div>
+            <a href="#attendance" class="nav-item"><i data-lucide="fingerprint"></i> 智能签到考勤</a>
+            <a href="#hud" class="nav-item"><i data-lucide="monitor"></i> 教室HUD大屏</a>
+            <a href="#prep" class="nav-item"><i data-lucide="clipboard-list"></i> 备课过关系统</a>
+            <a href="#map" class="nav-item"><i data-lucide="map"></i> 全学期过关地图</a>
+            <a href="#habit" class="nav-item"><i data-lucide="check-square"></i> 习惯打卡</a>
+
+            <div class="nav-group-title">家校互联 · 口碑</div>
+            <a href="#reading" class="nav-item"><i data-lucide="book-open"></i> 阅读计划追踪</a>
+            <a href="#timeline" class="nav-item"><i data-lucide="truck"></i> 家长端动态</a>
+            <a href="#fission" class="nav-item"><i data-lucide="share-2"></i> 复活与裂变</a>
+        </div>
+        <div class="sidebar-footer">
+            v 2026.1.0 Build<br>
+            Designed for 托管教育场景
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            
+            <header class="doc-header">
+                <h1 class="doc-title">系统功能操作手册</h1>
+                <div class="doc-meta">
+                    <span class="tag">Release 2026</span>
+                    <span>最后更新：2026年1月7日</span>
+                    <span>适用角色：校长、老师、教务</span>
+                </div>
+            </header>
+
+            <!-- 1. 游戏化板块 -->
+            <div id="gamification" class="section-block">
+                <h2 class="section-title"><i data-lucide="gamepad-2"></i> 核心驱动：游戏化行为塑造</h2>
+                
+                <!-- 功能 1 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">1. 积分与经验值系统</h3>
+                        <span class="badge badge-core">核心</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>双轨制：积分（换实物）与经验值（升荣誉等级）。</li>
+                                <li>全覆盖：涵盖学科、习惯、互助、家庭等9大类任务。</li>
+                                <li>多维度：关注结果，更关注过程（预习/计划）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 降低管理难度：用规则替代“碎碎念”。</li>
+                                <li><i data-lucide="check"></i> 激发内驱力：从“要我学”变“我要学”。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            老师发布任务（如“专注力挑战”） -> 学生举手/系统申报 -> 老师一键通过 -> 触发升级特效。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 2 -->
+                <div id="pk-system" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">2. 沉浸式 PK 竞技</h3>
+                        <span class="badge badge-core">热门</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>支持古诗、单词、口算等1V1或多人对战。</li>
+                                <li>即时胜负判定，实时展示分数条。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 激活氛围：枯燥死记硬背变刺激竞技。</li>
+                                <li><i data-lucide="check"></i> 心流体验：高强度专注中完成练习。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            课堂间隙点击“开启PK” -> 选择两名/多名学生 -> 大屏展示实时进度。
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- 功能 3 -->
+                 <div id="streak" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">3. 连胜系统 (Streak)</h3>
+                        <span class="badge badge-core">核心</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>连击特效：连续达标触发火苗（x3, x10...）。</li>
+                                <li>中断惩罚：一旦出错/未达标，火苗熄灭。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 固化品质：倒逼孩子养成极致细心。</li>
+                                <li><i data-lucide="check"></i> 自我要求：为了保住荣誉而主动检查。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            系统自动判断每日作业结果，连续全对自动累计连胜天数。
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- 功能 4 -->
+                 <div id="skills" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">4. 五维内力技能树</h3>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>能力具象化：检查=“雷达眼”，逻辑=“逻辑力”。</li>
+                                <li>技能升级：动作做得越多，熟练度越高。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 满足炫耀心理：像收集装备一样学习。</li>
+                                <li><i data-lucide="check"></i> 软实力培养：关注自驱、规划、内省。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            学生完成特定动作（如主动检查） -> 老师确认 -> 系统点亮对应技能图标。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 5 新增: 勋章 -->
+                <div id="badges" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">5. 数字化勋章荣誉系统</h3>
+                        <span class="badge badge-purple">新增</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>虚拟奖状：如“进步之星”、“阅读达人”等电子勋章。</li>
+                                <li>永久记录：勋章展示在学生个人档案的荣誉墙上。</li>
+                                <li>仪式感：授予时大屏会有全屏动画弹窗。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 肯定努力：不只看分数，更奖励过程和进步。</li>
+                                <li><i data-lucide="check"></i> 仪式感：类似班级发奖状，增强自信心。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            老师在评语页或周结时，选择学生 -> 点击“授予勋章” -> 选择勋章类型。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 6 新增: 挑战 -->
+                <div id="challenges" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">6. 定制化挑战系统</h3>
+                        <span class="badge badge-purple">新增</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>量身定制：针对具体问题（如粗心、上课说话）发布挑战。</li>
+                                <li>契约精神：学生接受挑战，形成“师生契约”。</li>
+                                <li>目标导向：设定明确的达成条件（如连续5天无提醒）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 克服弱点：将缺点转化为具体的改进目标。</li>
+                                <li><i data-lucide="check"></i> 个性化成长：关注每个孩子不同的进步点。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            老师发现问题 -> 发布“改掉粗心”挑战 -> 设定周期与奖励 -> 学生接受挑战。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 管理板块 -->
+            <div id="attendance" class="section-block">
+                <h2 class="section-title"><i data-lucide="clipboard-list"></i> 教学与管理：服务标准化</h2>
+                
+                <!-- 功能 7 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">7. 智能签到考勤</h3>
+                        <span class="badge badge-basic">基础</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>一键全选/分组批量签到。</li>
+                                <li>个人页自动汇总月度异常（未到/请假）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 极致效率：解决放学接送时的混乱。</li>
+                                <li><i data-lucide="check"></i> 账目清晰：退费、餐费结算无争议。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            接校时勾选“全选” -> 确认 -> 校长可随时在学生详情页查看月度统计。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 8 HUD -->
+                <div id="hud" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">8. 教室 HUD 数据大屏</h3>
+                        <span class="badge badge-core">亮点</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>实时展示积分榜、连胜榜、PK结果。</li>
+                                <li>视觉焦点，展示“本周悬赏令”。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 管理神器：用集体注意力解决纪律问题。</li>
+                                <li><i data-lucide="check"></i> 荣誉可视：微小进步都能被集体看见。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            硬件连接电视/投影 -> 登录系统大屏端 -> 自动轮播。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 9 备课 -->
+                <div id="prep" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">9. 备课过关系统</h3>
+                        <span class="badge badge-core">核心</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>结构化备课（基础+核心教法+加餐）。</li>
+                                <li>一键批量分发任务。</li>
+                                <li>移动端极速勾选“过关”。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 服务标准化：避免“换老师即换机构”。</li>
+                                <li><i data-lucide="check"></i> 植入核心教法：体现专业度。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            上午：老师点选发布计划 -> 下午：学生完成后，老师点击“通过”。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 10 地图 -->
+                <div id="map" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">10. 全学期过关地图</h3>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>数据留痕：记录每一课生字、错题。</li>
+                                <li>可视化：地图形式呈现学期进度。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 资产留存：新老师看图即知学情。</li>
+                                <li><i data-lucide="check"></i> 精准辅导：基于红点（未过关）复习。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            期中/期末调取地图 -> 查看未过关节点 -> 针对性训练。
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- 功能 11 习惯 -->
+                 <div id="habit" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">11. 习惯打卡系统</h3>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>行为量化（坐姿、书写、收纳等）。</li>
+                                <li>生成月度习惯养成报告。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 素质外化：将“管得好”转化为数据。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            发现好/坏习惯 -> 随时在手持端记录 -> 月底生成报告。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 家校板块 -->
+            <div id="reading" class="section-block">
+                <h2 class="section-title"><i data-lucide="share-2"></i> 家校互联：信任与裂变</h2>
+                
+                <!-- 功能 12 阅读 -->
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">12. 分级阅读计划追踪</h3>
+                        <span class="badge badge-new">新增</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>分级计划：按年龄段（绘本/桥梁书/名著）定制。</li>
+                                <li>进度同步：记录书名、页数（P25-P40）、时长。</li>
+                                <li>生成“数字书房”及阅读报告。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 差异化：从管作业升级为管素养。</li>
+                                <li><i data-lucide="check"></i> 量化“静心”：证明托管的高质量。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            建立阅读档案 -> 每日离校前录入页数时长 -> 自动推送到家长端。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 13 动态 -->
+                <div id="timeline" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">13. 家长端“物流式”动态</h3>
+                        <span class="badge badge-core">核心</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>节点推送：计划发布→基础过关→技能点亮。</li>
+                                <li>细节呈现：展示具体任务内容、勋章。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 打破黑盒：像查快递一样看服务。</li>
+                                <li><i data-lucide="check"></i> 建立信任：感知机构专业度。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            系统自动根据老师的操作，实时触发微信/APP消息推送。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能 14 裂变 -->
+                <div id="fission" class="feature-card">
+                    <div class="card-header">
+                        <h3 class="card-title">14. 挑战复活与裂变机制</h3>
+                        <span class="badge badge-new">营销</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h4>功能特点</h4>
+                            <ul class="feature-list">
+                                <li>复活机制：挑战中断（如21天全对）时可用。</li>
+                                <li>社交助力：家长发圈（晒娃/求赞）获取能量。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>核心价值</h4>
+                            <ul class="value-list">
+                                <li><i data-lucide="check"></i> 高级软广：利用“不忍心”和“晒优秀”心理。</li>
+                                <li><i data-lucide="check"></i> 高口碑传播：营销转化为对成长的守护。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <i data-lucide="mouse-pointer-2" class="guide-icon"></i>
+                        <div class="guide-content">
+                            <span class="guide-title">如何使用：</span>
+                            挑战失败弹出复活窗 -> 家长点击分享 -> 朋友圈助力复活。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        // 简单的导航激活状态切换
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(n => n.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'empowerment',
-        element: <EmpowermentHub />,
+        element: <ExperienceAccounts />,
       },
       {
         path: 'prep',

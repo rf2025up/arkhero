@@ -27,7 +27,8 @@ import {
     ClipboardCheck,
     Flame,
     Swords,
-    Search
+    Search,
+    BookOpen
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -59,6 +60,20 @@ const ExperienceAccounts = () => {
 
     return (
         <div className="min-h-screen bg-[#FFF8F4] text-[#2D2D2F] font-sans selection:bg-orange-100 selection:text-orange-600 pb-20 overflow-x-hidden">
+            {/* 全功能说明书入口 */}
+            <div className="fixed top-6 right-6 z-[100]">
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                        window.open('/系统功能说明书.html', '_blank');
+                    }}
+                    className="flex items-center gap-2 bg-white/80 backdrop-blur-xl px-6 py-3 rounded-2xl shadow-2xl border border-white/50 text-orange-500 font-black text-sm group transition-all hover:bg-orange-500 hover:text-white"
+                >
+                    <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
+                    <span>全功能说明书</span>
+                </motion.button>
+            </div>
 
             {/* 动态背景 */}
             <div className="fixed inset-0 pointer-events-none z-0">
@@ -69,14 +84,7 @@ const ExperienceAccounts = () => {
             <div className="relative z-10 max-w-[1000px] mx-auto px-6">
 
                 {/* Hero Section */}
-                <section className="text-center pt-24 pb-16">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="inline-flex items-center gap-2 bg-orange-100/50 text-orange-600 px-4 py-1.5 rounded-full text-xs font-black tracking-widest mb-6 border border-orange-200/50"
-                    >
-                        <Sparkles size={14} /> 人工智能时代托管教育数字化白皮书 · 2026版
-                    </motion.div>
+                <section className="text-center pt-16 pb-16">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -95,11 +103,12 @@ const ExperienceAccounts = () => {
                     </motion.p>
 
                     {/* 痛点卡片 */}
-                    <div className="grid md:grid-cols-3 gap-6 mt-16 text-left">
+                    <div className="grid md:grid-cols-4 gap-6 mt-16 text-left">
                         {[
                             { icon: Frown, title: '班级氛围差', desc: '孩子被动学习，老师靠吼靠催，师生关系紧张，充满对抗情绪。', color: 'bg-red-50 text-red-500' },
                             { icon: EyeOff, title: '家长看不见', desc: '服务过程无形，家长只看结果，机构的用心和专业无法被感知。', color: 'bg-orange-50 text-orange-500' },
                             { icon: BarChart2, title: '管理无数据', desc: '校长两眼一抹黑，换个老师就像换个机构，教学质量无法标准化。', color: 'bg-blue-50 text-blue-500' },
+                            { icon: Zap, title: '续费没底气', desc: '家长问"孩子进步在哪"，老师只能靠感觉说话，续费全凭运气。', color: 'bg-purple-50 text-purple-500' },
                         ].map((p, i) => (
                             <motion.div
                                 key={i}
@@ -251,6 +260,13 @@ const ExperienceAccounts = () => {
                                     <h4 className="text-base font-black text-blue-700 mb-2">服务产品化</h4>
                                     <p className="text-sm text-slate-500 font-medium leading-relaxed">
                                         将教学动作标准化为 <b className="text-slate-700">Checklist（检查清单）</b>。解决了“换个老师就像换个机构”的问题。
+                                    </p>
+                                </div>
+                                <div className="bg-purple-50/50 p-6 rounded-[32px] border border-purple-100/50 relative">
+                                    <div className="absolute top-4 right-4 text-purple-200"><Sparkles size={20} /></div>
+                                    <h4 className="text-base font-black text-purple-700 mb-2">高度自由 · 灵活定制</h4>
+                                    <p className="text-sm text-slate-500 font-medium leading-relaxed">
+                                        根据机构自身特色<b className="text-slate-700">灵活新增、删除内容</b>。预制 <b className="text-purple-600">9大类核心教学法</b> 和 <b className="text-purple-600">综合成长任务库</b>，开箱即用。
                                     </p>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
