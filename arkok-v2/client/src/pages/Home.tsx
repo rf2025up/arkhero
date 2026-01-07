@@ -377,14 +377,15 @@ const Home = () => {
               <Sparkles size={120} />
             </div>
             <div className="relative z-10 text-left">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="bg-white/20 p-1 rounded-lg"><Smartphone size={16} /></div>
-                <span className="text-xs font-bold opacity-80 tracking-widest uppercase">Empowerment Center</span>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="bg-white/20 p-2 rounded-xl backdrop-blur-sm shadow-sm ring-1 ring-white/20">
+                  <Smartphone size={24} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-black italic tracking-tight">校长赋能中心</h3>
               </div>
-              <h3 className="text-xl font-black mb-2 italic">校长赋能中心</h3>
-              <p className="text-xs opacity-90 leading-relaxed font-bold">
+              <p className="text-sm opacity-90 leading-relaxed font-bold pl-1">
                 全学期过关地图、家长端动态预览、口碑裂变引擎...<br />
-                让机构的专业服务“清晰可见”。
+                让机构的专业服务"清晰可见"。
               </p>
             </div>
           </div>
@@ -434,13 +435,17 @@ const Home = () => {
                   }}
                   className={`w-14 h-14 rounded-full object-cover border-2 transition-all ${selectedIds.has(student.id) ? 'border-primary opacity-100' : 'border-gray-100'}`}
                 />
+                {/* 等级胶囊 (悬浮在头像下方) */}
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-amber-400 text-amber-900 text-[8px] font-black px-2 py-0.5 rounded-full border border-white shadow-sm whitespace-nowrap">
+                  Lv.{student.level || 1}
+                </div>
                 {isMultiSelectMode && (
                   <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shadow-sm transition-colors ${selectedIds.has(student.id) ? 'bg-primary' : 'bg-gray-200'}`}>
                     {selectedIds.has(student.id) && <Check size={12} className="text-white" strokeWidth={3} />}
                   </div>
                 )}
               </div>
-              <span className={`mt-2 text-xs font-bold truncate w-full text-center ${selectedIds.has(student.id) ? 'text-primary' : 'text-gray-700'}`}>{student.name}</span>
+              <span className={`mt-3 text-xs font-bold truncate w-full text-center ${selectedIds.has(student.id) ? 'text-primary' : 'text-gray-700'}`}>{student.name}</span>
               <span className="text-[10px] text-gray-400 font-medium">{student.points} 积分</span>
             </div>
           ))}
