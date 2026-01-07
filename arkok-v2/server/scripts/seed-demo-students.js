@@ -9,8 +9,8 @@ const crypto = require('crypto');
 
 const prisma = new PrismaClient();
 
-// 目标学校
-const SCHOOL_ID = '3aa160c1-9b0a-4d80-9778-67e0a503ae45';
+// 目标学校配置
+const TARGET_SCHOOL_NAME = '乐学优能金潇校区';
 
 // 10个真实学生数据
 const STUDENTS = [
@@ -87,8 +87,20 @@ function randomDate(daysBack) {
 }
 
 async function main() {
-    console.log('🚀 开始创建演示学生数据...');
-    console.log(`📍 目标学校: ${SCHOOL_ID}`);
+    console.log('🚀 演示学生数据种子脚本启动...');
+
+    // 动态搜索学校ID
+    const targetSchool = await prisma.schools.findFirst({
+        where: { name: TARGET_SCHOOL_NAME }
+    });
+
+    if (!targetSchool) {
+        console.error(`❌ 未找到名称为 "${TARGET_SCHOOL_NAME}" 的学校，请手动确认数据库内容`);
+        return;
+    }
+
+    const SCHOOL_ID = targetSchool.id;
+    console.log(`✅ 已确认校区: ${targetSchool.name} (ID: ${SCHOOL_ID})`);
 
     // 1. 获取学校的一个老师
     const teacher = await prisma.teachers.findFirst({

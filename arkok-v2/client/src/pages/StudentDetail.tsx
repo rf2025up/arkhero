@@ -14,6 +14,7 @@ import { toast } from 'sonner';
 import InviteCardModal from '../components/InviteCardModal';
 import ParentBindingList from '../components/ParentBindingList';
 import ReadingStatsCard from '../components/ReadingStatsCard';  // 🆕 阅读统计组件
+import CheckinCalendarModal from '../components/CheckinCalendarModal';  // 🆕 签到日历弹窗
 
 // 本周数据过滤工具函数（周一到周日）
 const filterThisWeek = <T extends { created_at?: string; date?: string; createdAt?: string; awardedAt?: string }>(items: T[]): T[] => {
@@ -252,6 +253,8 @@ const StudentDetail: React.FC = () => {
 
   // 🆕 本月签到天数
   const [monthlyCheckinCount, setMonthlyCheckinCount] = useState<number>(0);
+  // 🆕 签到日历弹窗状态
+  const [showCheckinCalendar, setShowCheckinCalendar] = useState(false);
 
   // 🆕 五维技能属性
   const [skillStats, setSkillStats] = useState<SkillStats | null>(null);
@@ -1051,11 +1054,14 @@ const StudentDetail: React.FC = () => {
 
           {/* 右上角：签到天数 + 分享按钮 */}
           <div className="absolute top-4 right-4 flex items-center gap-2">
-            {/* 🆕 本月签到天数 */}
-            <div className="bg-white/80 backdrop-blur-sm text-green-600 px-3 py-1.5 rounded-full text-xs font-black flex items-center gap-1 shadow-sm">
+            {/* 🆕 本月签到天数 - 点击打开日历 */}
+            <button
+              onClick={() => setShowCheckinCalendar(true)}
+              className="bg-white/80 backdrop-blur-sm text-green-600 px-3 py-1.5 rounded-full text-xs font-black flex items-center gap-1 shadow-sm hover:bg-white active:scale-95 transition-all"
+            >
               <Calendar size={12} />
               {monthlyCheckinCount}天
-            </div>
+            </button>
             <button
               onClick={() => setShowInviteModal(true)}
               className="w-9 h-9 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-orange-500 hover:bg-white shadow-sm"
@@ -2171,6 +2177,15 @@ const StudentDetail: React.FC = () => {
               className: student.className,
               avatarUrl: undefined
             }}
+          />
+        )}
+
+        {/* 🆕 签到日历弹窗 */}
+        {studentId && (
+          <CheckinCalendarModal
+            studentId={studentId}
+            isOpen={showCheckinCalendar}
+            onClose={() => setShowCheckinCalendar(false)}
           />
         )}
       </div>

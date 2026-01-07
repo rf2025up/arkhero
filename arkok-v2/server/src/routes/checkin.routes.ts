@@ -21,6 +21,9 @@ export class CheckinRoutes {
         // 获取学生本月签到天数
         this.router.get('/student/:studentId/monthly', authenticateToken(this.authService), validateUser, this.getMonthlyCheckinCount.bind(this));
 
+        // 🆕 获取学生本月签到日期列表（用于日历展示）
+        this.router.get('/student/:studentId/monthly-dates', authenticateToken(this.authService), validateUser, this.getMonthlyCheckinDates.bind(this));
+
         // 检查学生今日是否已签到
         this.router.get('/student/:studentId/today', authenticateToken(this.authService), validateUser, this.isTodayCheckedIn.bind(this));
     }
@@ -109,6 +112,30 @@ export class CheckinRoutes {
             res.status(500).json({
                 success: false,
                 message: '检查签到状态失败'
+            });
+        }
+    }
+
+    /**
+     * 🆕 获取学生本月签到日期列表
+     */
+    private async getMonthlyCheckinDates(req: Request, res: Response): Promise<void> {
+        try {
+            const { studentId } = req.params;
+            const year = req.query.year ? parseInt(req.query.year as string) : undefined;
+            const month = req.query.month ? parseInt(req.query.month as string) - 1 : undefined; // 前端传1-12，后端用0-11
+
+            const dates = await this.checkinService.getMonthlyCheckinDates(studentId, year, month);
+
+            res.status(200).json({
+                success: true,
+                data: { dates }
+            });
+        } catch (error) {
+            console.error('Get monthly checkin dates error:', error);
+            res.status(500).json({
+                success: false,
+                message: '获取签到日期失败'
             });
         }
     }

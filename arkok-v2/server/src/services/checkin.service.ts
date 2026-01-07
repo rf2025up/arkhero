@@ -102,6 +102,34 @@ export class CheckinService {
     }
 
     /**
+     * 获取学生本月签到日期列表（用于日历展示）
+     */
+    async getMonthlyCheckinDates(studentId: string, year?: number, month?: number): Promise<string[]> {
+        // 获取指定月份或当前月份（北京时间）
+        const now = new Date();
+        now.setHours(now.getHours() + 8);
+        const targetYear = year || now.getFullYear();
+        const targetMonth = month !== undefined ? month : now.getMonth();
+
+        const firstDay = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-01`;
+        const lastDay = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-31`;
+
+        const checkins = await this.prisma.student_checkins.findMany({
+            where: {
+                studentId,
+                checkinDate: {
+                    gte: firstDay,
+                    lte: lastDay
+                }
+            },
+            select: { checkinDate: true },
+            orderBy: { checkinDate: 'asc' }
+        });
+
+        return checkins.map(c => c.checkinDate);
+    }
+
+    /**
      * 获取学生今日是否已签到
      */
     async isTodayCheckedIn(studentId: string): Promise<boolean> {
