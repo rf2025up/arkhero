@@ -1,0 +1,1 @@
+{"version":3,"file":"skill.routes.d.ts","sourceRoot":"","sources":["../../../src/routes/skill.routes.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAE,MAAM,EAAqB,MAAM,SAAS,CAAC;AAEpD,OAAO,WAAW,MAAM,0BAA0B,CAAC;AAGnD,qBAAa,WAAW;IAGR,OAAO,CAAC,WAAW;IAF/B,OAAO,CAAC,MAAM,CAAS;gBAEH,WAAW,EAAE,WAAW;IAK5C,OAAO,CAAC,gBAAgB;IAiGjB,SAAS,IAAI,MAAM;CAG7B;AAED,eAAe,WAAW,CAAC"}

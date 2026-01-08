@@ -17,6 +17,9 @@ export class StudentRoutes {
   }
 
   private initializeRoutes(): void {
+    // 🆕 公开路由（大屏展示用，需要在认证中间件之前注册）
+    this.router.get('/:id/public-profile', this.getStudentPublicProfile.bind(this));
+
     // 所有路由都需要认证
     this.router.use(authenticateToken(this.authService));
 
@@ -1037,6 +1040,43 @@ export class StudentRoutes {
       res.status(500).json({
         success: false,
         message: '获取班级统计过程中发生错误'
+      });
+    }
+  }
+
+  /**
+   * 获取学生公开档案（大屏展示用，不需要认证）
+   */
+  private async getStudentPublicProfile(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const schoolId = req.query.schoolId as string;
+
+      // 🔐 强制要求提供 schoolId，确保校区数据隔离
+      if (!schoolId) {
+        console.warn('⚠️ [PUBLIC PROFILE] 拒绝无 schoolId 的请求');
+        res.status(400).json({
+          success: false,
+          message: 'schoolId is required for data isolation'
+        });
+        return;
+      }
+
+      console.log(`📺 [PUBLIC PROFILE] Loading profile for student: ${id}, school: ${schoolId}`);
+
+      // 调用学生服务获取完整档案
+      const profile = await this.studentService.getStudentProfile(id, schoolId);
+
+      res.status(200).json({
+        success: true,
+        data: profile
+      });
+    } catch (error) {
+      console.error('❌ [PUBLIC PROFILE] Error:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Failed to load student profile',
+        error: error instanceof Error ? error.message : 'Unknown error'
       });
     }
   }

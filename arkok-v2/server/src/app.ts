@@ -183,7 +183,7 @@ export class App {
     this.app.use('/api/streaks', new StreakRoutes(this.prisma).getRouter());
 
     // 静态文件与前端路由
-    const clientPath = path.resolve(__dirname, '../../client/dist');
+    const clientPath = path.resolve(__dirname, '../../../client/dist');
     this.app.use(express.static(clientPath));
     this.app.get('/debug-mobile', (req, res) => res.sendFile(path.join(__dirname, '../debug-mobile.html')));
     this.app.get('*', (req, res, next) => {

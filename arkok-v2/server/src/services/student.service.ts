@@ -520,15 +520,68 @@ export class StudentService {
         challengeTasks: task_records.filter(task => task.type === 'CHALLENGE').length
       };
 
-      // 计算学生等级（基于经验值）- 使用新的等级配置
-      const { getLevelInfo } = require('../config/levelConfig');
-      // 🆕 获取学校倍率并计算等级信息
+      // 计算学生等级（基于经验表）
       const school = await this.prisma.schools.findUnique({
         where: { id: student.schoolId },
         select: { settings: true }
       });
       const multiplier = (school?.settings as any)?.expMultiplier || 1.0;
-      const levelInfo = getLevelInfo(student.exp, multiplier);
+      const adjustedExp = student.exp * multiplier;
+
+      // 经验等级表（累计经验）
+      const levelThresholds = [
+        0,      // Lv.1
+        500,    // Lv.2
+        1500,   // Lv.3
+        3000,   // Lv.4
+        5000,   // Lv.5
+        7500,   // Lv.6
+        10500,  // Lv.7
+        14000,  // Lv.8
+        18000,  // Lv.9
+        23000   // Lv.10
+      ];
+
+      const levelTitles = [
+        '初窥门径',  // Lv.1
+        '略有小成',  // Lv.2
+        '驾轻就熟',  // Lv.3
+        '融会贯通',  // Lv.4
+        '炉火纯青',  // Lv.5
+        '出类拔萃',  // Lv.6
+        '神乎其技',  // Lv.7
+        '登峰造极',  // Lv.8
+        '返璞归真',  // Lv.9
+        '一代宗师'   // Lv.10
+      ];
+
+      // 查找当前等级
+      let level = 1;
+      for (let i = 0; i < levelThresholds.length; i++) {
+        if (adjustedExp >= levelThresholds[i]) {
+          level = i + 1;
+        } else {
+          break;
+        }
+      }
+
+      // 计算进度
+      const currentLevelExp = levelThresholds[level - 1] || 0;
+      const nextLevelExp = levelThresholds[level] || levelThresholds[levelThresholds.length - 1];
+      const expForNextLevel = nextLevelExp - currentLevelExp;
+      const expProgress = expForNextLevel > 0
+        ? Math.min(100, Math.max(0, Math.floor(((adjustedExp - currentLevelExp) / expForNextLevel) * 100)))
+        : 100;
+
+      const remainingExp = Math.max(0, nextLevelExp - adjustedExp);
+
+      const levelInfo = {
+        level,
+        expProgress,
+        remainingExp,  // 升级还需多少经验
+        title: levelTitles[Math.min(level - 1, levelTitles.length - 1)],
+        isMaxLevel: level >= levelThresholds.length
+      };
 
       // 构建时间轴数据（按日期分组的任务、PK记录和阅读记录）
       const timelineData = this.buildTimelineData(task_records, allPkRecordsWithDetails, (readingStats as any).rawLogs || []);
@@ -539,8 +592,8 @@ export class StudentService {
           ...student,
           level: levelInfo.level,
           levelTitle: levelInfo.title,
-          nextLevelExp: levelInfo.nextLevelExp,
-          expProgress: levelInfo.progress,
+          nextLevelExp: levelInfo.remainingExp,  // 升级还需多少经验
+          expProgress: levelInfo.expProgress,
           isMaxLevel: levelInfo.isMaxLevel,
           progress: processedProgress
         },

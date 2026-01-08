@@ -8,6 +8,7 @@ import { apiService } from '../../services/api.service';
 
 interface StudentDetailOverlayProps {
     studentId: string;
+    schoolId: string;
     onClose: () => void;
 }
 
@@ -55,7 +56,7 @@ const DIMENSION_COLOR_MAP: Record<string, any> = {
     reflection: { text: 'text-emerald-400', bg: 'bg-emerald-500/20', border: 'border-emerald-500/30' },
 };
 
-export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ studentId, onClose }) => {
+export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ studentId, schoolId, onClose }) => {
     const [data, setData] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
     const [streakOffset, setStreakOffset] = React.useState(0);
@@ -65,7 +66,8 @@ export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ stud
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const res = await apiService.get(`/students/${studentId}/profile`);
+                // 🆕 使用公开 API，不需要认证，schoolId 由父组件传入
+                const res = await apiService.get(`/students/${studentId}/public-profile?schoolId=${schoolId}`);
                 if (res.success) {
                     const finalData = res.data as any; // 🆕 强制转为 any 以修复 lint 报错
 
@@ -103,7 +105,7 @@ export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ stud
             }
         };
         fetchData();
-    }, [studentId]);
+    }, [studentId, schoolId]);
 
     const {
         student = {},
@@ -309,7 +311,7 @@ export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ stud
                         <div className="w-full mb-[2vh]">
                             <div className="flex justify-between text-[1.2vh] mb-1">
                                 <span className="text-slate-400">下一级进度</span>
-                                <span className="text-blue-400">{student.exp} / {student.nextLevelExp || '?'} 经验</span>
+                                <span className="text-blue-400">{student.expProgress}% (还需 {student.nextLevelExp || 0} 经验)</span>
                             </div>
                             <div className="h-[0.8vh] bg-slate-800 rounded-full overflow-hidden">
                                 <div

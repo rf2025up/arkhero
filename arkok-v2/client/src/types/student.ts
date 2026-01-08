@@ -7,6 +7,9 @@ export interface Student {
   points: number;
   exp: number;
   level: number;
+  levelTitle?: string;     // 等级名称（如：融会贯通）
+  expProgress?: number;    // 当前等级进度 0-100
+  expForNextLevel?: number; // 下一级所需经验
   avatarUrl?: string;
   isActive: boolean;
   createdAt: string;

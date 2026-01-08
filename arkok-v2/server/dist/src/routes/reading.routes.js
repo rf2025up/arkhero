@@ -1,0 +1,193 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReadingRoutes = void 0;
+const express_1 = require("express");
+const auth_middleware_1 = require("../middleware/auth.middleware");
+/**
+ * 阅读计划路由
+ */
+class ReadingRoutes {
+    constructor(readingService, authService) {
+        this.readingService = readingService;
+        this.authService = authService;
+        this.router = (0, express_1.Router)();
+        this.initializeRoutes();
+    }
+    initializeRoutes() {
+        // 所有路由都需要认证
+        this.router.use((0, auth_middleware_1.authenticateToken)(this.authService));
+        // 获取学生的阅读书籍列表
+        this.router.get('/books/:studentId', this.getStudentBooks.bind(this));
+        // 新增书籍
+        this.router.post('/books', this.addBook.bind(this));
+        // 删除书籍
+        this.router.delete('/books/:bookId', this.deleteBook.bind(this));
+        // 记录阅读进度
+        this.router.post('/logs', this.addReadingLog.bind(this));
+        // 获取学生阅读统计
+        this.router.get('/stats/:studentId', this.getReadingStats.bind(this));
+        // 获取最近选择的书籍
+        this.router.get('/last-book/:studentId', this.getLastSelectedBook.bind(this));
+    }
+    /**
+     * 获取学生的阅读书籍列表
+     */
+    async getStudentBooks(req, res) {
+        try {
+            const { studentId } = req.params;
+            const schoolId = req.schoolId;
+            const books = await this.readingService.getStudentBooks(studentId, schoolId);
+            res.status(200).json({
+                success: true,
+                data: books
+            });
+        }
+        catch (error) {
+            console.error('Get student books error:', error);
+            res.status(500).json({
+                success: false,
+                message: '获取阅读书籍失败'
+            });
+        }
+    }
+    /**
+     * 新增书籍
+     */
+    async addBook(req, res) {
+        try {
+            const { studentId, bookName, totalPages } = req.body;
+            const schoolId = req.schoolId;
+            if (!studentId || !bookName) {
+                res.status(400).json({
+                    success: false,
+                    message: '缺少必要参数'
+                });
+                return;
+            }
+            const book = await this.readingService.addBook({
+                studentId,
+                schoolId,
+                bookName,
+                totalPages
+            });
+            res.status(201).json({
+                success: true,
+                message: '书籍添加成功',
+                data: book
+            });
+        }
+        catch (error) {
+            console.error('Add book error:', error);
+            res.status(500).json({
+                success: false,
+                message: '添加书籍失败'
+            });
+        }
+    }
+    /**
+     * 删除书籍
+     */
+    async deleteBook(req, res) {
+        try {
+            const { bookId } = req.params;
+            const schoolId = req.schoolId;
+            await this.readingService.deleteBook(bookId, schoolId);
+            res.status(200).json({
+                success: true,
+                message: '书籍删除成功'
+            });
+        }
+        catch (error) {
+            console.error('Delete book error:', error);
+            res.status(500).json({
+                success: false,
+                message: '删除书籍失败'
+            });
+        }
+    }
+    /**
+     * 记录阅读进度
+     */
+    async addReadingLog(req, res) {
+        try {
+            const { bookId, studentId, currentPage, duration } = req.body;
+            const schoolId = req.schoolId;
+            const recordedBy = req.user?.username;
+            if (!bookId || !studentId || currentPage === undefined || duration === undefined) {
+                res.status(400).json({
+                    success: false,
+                    message: '缺少必要参数'
+                });
+                return;
+            }
+            const log = await this.readingService.addReadingLog({
+                bookId,
+                studentId,
+                schoolId,
+                currentPage: parseInt(currentPage),
+                duration: parseInt(duration),
+                recordedBy
+            });
+            res.status(201).json({
+                success: true,
+                message: '阅读记录添加成功',
+                data: log
+            });
+        }
+        catch (error) {
+            console.error('Add reading log error:', error);
+            res.status(500).json({
+                success: false,
+                message: '添加阅读记录失败'
+            });
+        }
+    }
+    /**
+     * 获取学生阅读统计
+     */
+    async getReadingStats(req, res) {
+        try {
+            const { studentId } = req.params;
+            const schoolId = req.schoolId;
+            const stats = await this.readingService.getStudentReadingStats(studentId, schoolId);
+            res.status(200).json({
+                success: true,
+                data: stats
+            });
+        }
+        catch (error) {
+            console.error('Get reading stats error:', error);
+            res.status(500).json({
+                success: false,
+                message: '获取阅读统计失败'
+            });
+        }
+    }
+    /**
+     * 获取最近选择的书籍
+     */
+    async getLastSelectedBook(req, res) {
+        try {
+            const { studentId } = req.params;
+            const schoolId = req.schoolId;
+            const lastBook = await this.readingService.getLastSelectedBook(studentId, schoolId);
+            res.status(200).json({
+                success: true,
+                data: lastBook
+            });
+        }
+        catch (error) {
+            console.error('Get last selected book error:', error);
+            res.status(500).json({
+                success: false,
+                message: '获取最近书籍失败'
+            });
+        }
+    }
+    getRoutes() {
+        return this.router;
+    }
+}
+exports.ReadingRoutes = ReadingRoutes;
+exports.default = ReadingRoutes;
+//# sourceMappingURL=reading.routes.js.map

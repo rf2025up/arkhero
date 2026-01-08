@@ -177,7 +177,7 @@ phase3_service_startup() {
 
     # 3. 直接启动服务（云原生最佳实践）
     log "启动服务（无PM2，云原生方式）..."
-    nohup node dist/index.js > server.log 2>&1 &
+    nohup node dist/src/index.js > server.log 2>&1 &
     SERVER_PID=$!
 
     if ps -p $SERVER_PID > /dev/null; then
@@ -251,7 +251,7 @@ deployment_success_report() {
     echo ""
     echo "📝 管理命令："
     echo "   - 查看日志: tail -f $SERVER_DIR/server.log"
-    echo "   - 停止服务: pkill -f 'node dist/index.js'"
+    echo "   - 停止服务: pkill -f 'node dist/src/index.js'"
     echo "   - 重启服务: 重新执行此脚本"
     echo ""
 }

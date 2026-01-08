@@ -80,6 +80,7 @@ export interface BigscreenStudent {
   name: string;
   avatarUrl?: string;
   level: number;
+  levelTitle: string;      // 等级名称（如：融会贯通）
   exp: number;
   expProgress: number;      // 当前等级进度 0-100
   expForNextLevel: number;  // 下一级所需经验
@@ -88,16 +89,57 @@ export interface BigscreenStudent {
   perfectStreak: number; // 🆕 连胜火焰
 }
 
-// 辅助函数：计算等级进度
+// 辅助函数：计算等级进度（基于经验等级表）
 function calculateLevelProgress(exp: number) {
-  const level = Math.floor(Math.sqrt(exp / 100)) + 1;
-  const currentLevelExp = 100 * Math.pow(level - 1, 2);
-  const nextLevelExp = 100 * Math.pow(level, 2);
+  // 经验等级表（累计经验）
+  const levelThresholds = [
+    0,      // Lv.1
+    500,    // Lv.2
+    1500,   // Lv.3
+    3000,   // Lv.4
+    5000,   // Lv.5
+    7500,   // Lv.6
+    10500,  // Lv.7
+    14000,  // Lv.8
+    18000,  // Lv.9
+    23000   // Lv.10
+  ];
+
+  // 等级称号
+  const levelTitles = [
+    '初窥门径',  // Lv.1
+    '略有小成',  // Lv.2
+    '驾轻就熟',  // Lv.3
+    '融会贯通',  // Lv.4
+    '炉火纯青',  // Lv.5
+    '出类拔萃',  // Lv.6
+    '神乎其技',  // Lv.7
+    '登峰造极',  // Lv.8
+    '返璞归真',  // Lv.9
+    '一代宗师'   // Lv.10
+  ];
+
+  // 查找当前等级
+  let level = 1;
+  for (let i = 0; i < levelThresholds.length; i++) {
+    if (exp >= levelThresholds[i]) {
+      level = i + 1;
+    } else {
+      break;
+    }
+  }
+
+  // 计算进度
+  const currentLevelExp = levelThresholds[level - 1] || 0;
+  const nextLevelExp = levelThresholds[level] || levelThresholds[levelThresholds.length - 1];
   const expForNextLevel = nextLevelExp - currentLevelExp;
-  const expProgress = Math.min(100, Math.max(0, Math.floor(((exp - currentLevelExp) / expForNextLevel) * 100)));
+  const expProgress = expForNextLevel > 0
+    ? Math.min(100, Math.max(0, Math.floor(((exp - currentLevelExp) / expForNextLevel) * 100)))
+    : 100;
 
   return {
     level,
+    levelTitle: levelTitles[Math.min(level - 1, levelTitles.length - 1)],
     expProgress,
     expForNextLevel
   };
@@ -301,6 +343,7 @@ export default class DashboardService {
         name: s.name,
         avatarUrl: s.avatarUrl || undefined,
         level: progress.level,
+        levelTitle: progress.levelTitle,
         exp: s.exp,
         expProgress: progress.expProgress,
         expForNextLevel: progress.expForNextLevel,
