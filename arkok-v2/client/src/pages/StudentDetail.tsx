@@ -942,16 +942,24 @@ const StudentDetail: React.FC = () => {
   };
 
   // 🚀 基于任务记录的过程任务数据 - 只包含核心教法、综合成长、个性加餐
+  // 🆕 需要排除的系统操作标题（这些不是学习任务，不应显示）
+  const SYSTEM_OPERATION_TITLES = [
+    '移入班级', '移出班级',
+    '手动加分', '手动扣分',
+    '老师手动调整进度', '进度修正',
+    '积分奖励', '积分扣除'
+  ];
+
   const processTasks = allTaskRecords
     .filter(record => {
       const taskType = record.type.toUpperCase();
       const taskStatus = record.status.toUpperCase();
       // 🆕 核心优化：仅展示“已达成”(COMPLETED)记录，隐藏“进行中”(PENDING)
-      // 同时过滤掉系统自动生成的“老师手动调整进度”冗余记录
+      // 同时过滤掉系统自动生成的各类操作记录
       // 且排除勋章记录 (已由独立面板展示)
       return (taskType === 'TASK' || taskType === 'METHODOLOGY' || taskType === 'SPECIAL' || taskType === 'SKILL') &&
         taskStatus === 'COMPLETED' &&
-        record.title !== '老师手动调整进度' &&
+        !SYSTEM_OPERATION_TITLES.includes(record.title) &&
         (record as any).task_category !== 'BADGE';
     })
     .map(record => {
@@ -1174,35 +1182,39 @@ const StudentDetail: React.FC = () => {
               )}
 
               {/* 🆕 五维内功 (紧凑版) */}
-              {skillStats && (
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                  <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
-                    <Sparkles className="w-4 h-4 text-purple-500" /> 五维内功
-                  </h3>
-                  <div className="grid grid-cols-5 gap-2">
-                    <div className="flex flex-col items-center p-2 bg-red-50 rounded-xl border border-red-100">
-                      <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-black mb-1">内</div>
-                      <div className="text-sm font-black text-red-600">{skillStats.reflection}</div>
-                    </div>
-                    <div className="flex flex-col items-center p-2 bg-blue-50 rounded-xl border border-blue-100">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black mb-1">逻</div>
-                      <div className="text-sm font-black text-blue-600">{skillStats.logic}</div>
-                    </div>
-                    <div className="flex flex-col items-center p-2 bg-yellow-50 rounded-xl border border-yellow-100">
-                      <div className="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-black mb-1">自</div>
-                      <div className="text-sm font-black text-yellow-600">{skillStats.autonomy}</div>
-                    </div>
-                    <div className="flex flex-col items-center p-2 bg-green-50 rounded-xl border border-green-100">
-                      <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-black mb-1">规</div>
-                      <div className="text-sm font-black text-green-600">{skillStats.planning}</div>
-                    </div>
-                    <div className="flex flex-col items-center p-2 bg-orange-50 rounded-xl border border-orange-100">
-                      <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-black mb-1">毅</div>
-                      <div className="text-sm font-black text-orange-600">{skillStats.grit}</div>
+              {skillStats && (() => {
+                // 将累积分数转换为等级 (每5点升1级，最高Lv.5)
+                const toLevel = (score: number) => Math.min(5, Math.floor(score / 5) + 1);
+                return (
+                  <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <h3 className="font-bold text-slate-800 flex items-center gap-2 mb-3">
+                      <Sparkles className="w-4 h-4 text-purple-500" /> 五维内功
+                    </h3>
+                    <div className="grid grid-cols-5 gap-2">
+                      <div className="flex flex-col items-center p-2 bg-red-50 rounded-xl border border-red-100">
+                        <div className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-black mb-1">内</div>
+                        <div className="text-[10px] font-bold text-red-600">Lv.{toLevel(skillStats.reflection)}</div>
+                      </div>
+                      <div className="flex flex-col items-center p-2 bg-blue-50 rounded-xl border border-blue-100">
+                        <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black mb-1">逻</div>
+                        <div className="text-[10px] font-bold text-blue-600">Lv.{toLevel(skillStats.logic)}</div>
+                      </div>
+                      <div className="flex flex-col items-center p-2 bg-yellow-50 rounded-xl border border-yellow-100">
+                        <div className="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-black mb-1">自</div>
+                        <div className="text-[10px] font-bold text-yellow-600">Lv.{toLevel(skillStats.autonomy)}</div>
+                      </div>
+                      <div className="flex flex-col items-center p-2 bg-green-50 rounded-xl border border-green-100">
+                        <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-black mb-1">规</div>
+                        <div className="text-[10px] font-bold text-green-600">Lv.{toLevel(skillStats.planning)}</div>
+                      </div>
+                      <div className="flex flex-col items-center p-2 bg-orange-50 rounded-xl border border-orange-100">
+                        <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-black mb-1">毅</div>
+                        <div className="text-[10px] font-bold text-orange-600">Lv.{toLevel(skillStats.grit)}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
 
               {/* 🆕 连胜记录 - 始终显示 */}
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
