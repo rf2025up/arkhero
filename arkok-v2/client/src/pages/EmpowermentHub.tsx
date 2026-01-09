@@ -14,13 +14,19 @@ import {
     Smartphone,
     Sparkles,
     Heart,
-    Target
+    Target,
+    BookOpen,
+    X,
+    ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const EmpowermentHub = () => {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('standard');
+
+    // 诊断：强制包含此代码
+    console.log('[EMPOWERMENT] Component loaded, guide button should be visible');
 
     // 模拟数据：全学期过关地图
     const progressData = [
@@ -37,7 +43,18 @@ const EmpowermentHub = () => {
                 <div className="absolute bottom-[-50px] left-[-100px] w-[400px] h-[400px] bg-[#FF9966] rounded-full blur-[100px] opacity-40 animate-pulse delay-700" />
             </div>
 
+            {/* 左上角新手向导按钮 */}
+            <button
+                onClick={() => window.open('/新手村向导.html', '_blank')}
+                className="fixed top-6 left-6 z-[9999] bg-gradient-to-r from-orange-500 to-rose-500 text-white px-5 py-3 rounded-2xl shadow-2xl shadow-orange-300/70 flex items-center gap-2 hover:scale-105 active:scale-95 transition-all border-2 border-white/50"
+                style={{ minWidth: '140px' }}
+            >
+                <BookOpen size={20} />
+                <span className="font-bold text-base whitespace-nowrap">新手村向导</span>
+            </button>
+
             <div className="relative z-10 max-w-6xl mx-auto px-6 pt-12">
+
                 {/* Hero Section */}
                 <section className="text-center mb-16 px-4">
                     <motion.div

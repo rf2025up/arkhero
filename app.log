@@ -1,0 +1,49 @@
+🚀 启动 ArkOK V2 应用...
+💻 本地环境
+🗄️  同步数据库结构...
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "arkok_v2", schema "public" at "dbconn.sealosbja.site:35539"
+
+1 migration found in prisma/migrations
+
+Error: P3005
+
+The database schema is not empty. Read more about how to baseline an existing production database: https://pris.ly/d/migrate-baseline
+
+⚠️  迁移失败，继续启动
+▶️  启动服务器（端口：3000）...
+🚀 Starting ArkOK V2 Server...
+🌍 Environment: production
+🔌 Port: 3000
+🔧 Setting up Socket.IO handlers...
+🔌 Socket.io 服务已初始化
+✅ Database connected successfully
+🚀 ArkOK V2 Server running on port 3000
+2026-01-08T15:44:11.801Z - GET /empowerment
+2026-01-08T15:44:11.983Z - GET /assets/index-D9IQntz1.js
+2026-01-08T15:44:11.984Z - GET /assets/index-DSjDcH6U.css
+2026-01-08T15:44:13.779Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-08T15:44:13.936Z - GET /vite.svg
+2026-01-08T15:44:14.042Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-08T15:52:13.486Z - GET /

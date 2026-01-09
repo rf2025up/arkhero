@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新手村向导 - 五维内功修炼系统</title>
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-light: #fff7ed;
+            --bg: #FFF8F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: #2D2D2F;
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        /* 动态背景光晕 */
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb1 {
+            position: absolute;
+            top: -100px;
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            background: #FFD194;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.3;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .orb2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: #FF9966;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.3;
+            animation: pulse 4s ease-in-out infinite 0.7s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* 章节标签 */
+        .chapter-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            margin-bottom: 24px;
+        }
+
+        /* 白色卡片 */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            padding: 48px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2 .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* 深色卡片 */
+        .card-dark {
+            background: #0f172a;
+            color: white;
+            border-radius: 48px;
+            padding: 48px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-dark h2 {
+            color: white;
+        }
+
+        .card-dark p {
+            color: #94a3b8;
+        }
+
+        /* 五维网格 */
+        .dimension-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        @media (max-width: 768px) {
+            .dimension-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .dimension-card {
+            padding: 24px 16px;
+            border-radius: 24px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .dimension-card.red {
+            background: linear-gradient(135deg, #fef2f2, #fecaca);
+        }
+
+        .dimension-card.blue {
+            background: linear-gradient(135deg, #eff6ff, #bfdbfe);
+        }
+
+        .dimension-card.yellow {
+            background: linear-gradient(135deg, #fefce8, #fef08a);
+        }
+
+        .dimension-card.green {
+            background: linear-gradient(135deg, #f0fdf4, #bbf7d0);
+        }
+
+        .dimension-card.orange {
+            background: linear-gradient(135deg, #fff7ed, #fed7aa);
+        }
+
+        .dimension-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .dimension-card .name {
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .dimension-card .desc {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* 流程图 */
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 32px;
+            background: rgba(249, 115, 22, 0.05);
+            border-radius: 32px;
+            margin: 24px 0;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 16px 28px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 2px solid #f1f5f9;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: #f97316;
+        }
+
+        /* 技能标签 */
+        .skill-section {
+            margin: 24px 0;
+        }
+
+        .skill-section h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .skill-tag.red {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .skill-tag.blue {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .skill-tag.yellow {
+            background: #fefce8;
+            color: #ca8a04;
+        }
+
+        .skill-tag.green {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+
+        .skill-tag.orange {
+            background: #fff7ed;
+            color: #ea580c;
+        }
+
+        /* 表格 */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        th {
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+            font-weight: 800;
+            color: #f97316;
+        }
+
+        tr:hover {
+            background: #fafafa;
+        }
+
+        /* 提示框 */
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 24px 28px;
+            border-radius: 24px;
+            margin: 24px 0;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .tip-box .title {
+            font-weight: 900;
+            color: #92400e;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .tip-box p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        /* 内嵌卡片 */
+        .inner-card {
+            background: rgba(249, 115, 22, 0.05);
+            padding: 24px;
+            border-radius: 24px;
+            border: 1px solid rgba(249, 115, 22, 0.1);
+            margin: 16px 0;
+        }
+
+        .inner-card h4 {
+            font-weight: 800;
+            color: #f97316;
+            margin-bottom: 8px;
+        }
+
+        /* 等级进度条 */
+        .level-bar {
+            display: flex;
+            gap: 6px;
+            margin: 16px 0;
+        }
+
+        .level-bar .bar {
+            flex: 1;
+            height: 10px;
+            border-radius: 5px;
+            background: #e2e8f0;
+        }
+
+        .level-bar .bar.active {
+            background: linear-gradient(135deg, #f97316, #ec4899);
+        }
+
+        /* CTA 区域 */
+        .cta {
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            border-radius: 56px;
+            padding: 64px;
+            text-align: center;
+            color: white;
+            margin-top: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta p {
+            opacity: 0.9;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #f97316;
+            padding: 16px 48px;
+            border-radius: 24px;
+            font-weight: 900;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 48px;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 动态背景 -->
+    <div class="bg-orbs">
+        <div class="orb1"></div>
+        <div class="orb2"></div>
+    </div>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>🌟 新手村向导</h1>
+            <p>五维内功修炼系统 · 快速入门指南</p>
+        </section>
+
+        <!-- 什么是五维系统 -->
+        <div class="card">
+            <span class="chapter-badge">第一章：系统概述</span>
+            <h2><span class="icon" style="background: #fff7ed; color: #f97316;">📖</span> 什么是五维内功系统？</h2>
+            <p>五维内功系统是 <strong style="color: #f97316;">星途与伴</strong>
+                的核心能力评估框架。它通过游戏化的方式，将学生的学习行为转化为可量化的成长指标，帮助孩子建立"看得见"的自主学习力。</p>
+            <div class="flow">
+                <div class="flow-step">📝 完成学习任务</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">⚡ 技能经验 +1</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">🎯 五维属性提升</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">🏆 角色等级升级</div>
+            </div>
+        </div>
+
+        <!-- 五大维度 -->
+        <div class="card">
+            <span class="chapter-badge">第二章：五大维度</span>
+            <h2><span class="icon" style="background: #eff6ff; color: #3b82f6;">⭐</span> 五大能力维度</h2>
+            <p>每个孩子都有独特的能力画像，五维内功系统从5个核心维度全面评估：</p>
+            <div class="dimension-grid">
+                <div class="dimension-card red">
+                    <div class="icon">🟥</div>
+                    <div class="name">内省力</div>
+                    <div class="desc">自我检查·复盘纠错</div>
+                </div>
+                <div class="dimension-card blue">
+                    <div class="icon">🟦</div>
+                    <div class="name">逻辑力</div>
+                    <div class="desc">推理分析·结构思维</div>
+                </div>
+                <div class="dimension-card yellow">
+                    <div class="icon">🟨</div>
+                    <div class="name">自主力</div>
+                    <div class="desc">主动学习·费曼传道</div>
+                </div>
+                <div class="dimension-card green">
+                    <div class="icon">🟩</div>
+                    <div class="name">规划力</div>
+                    <div class="desc">时间管理·优先排序</div>
+                </div>
+                <div class="dimension-card orange">
+                    <div class="icon">🟧</div>
+                    <div class="name">毅力值</div>
+                    <div class="desc">坚持不懈·持续积累</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技能体系 -->
+        <div class="card-dark">
+            <span class="chapter-badge"
+                style="background: rgba(249, 115, 22, 0.2); border-color: rgba(249, 115, 22, 0.3);">第三章：技能体系</span>
+            <h2><span class="icon" style="background: rgba(249, 115, 22, 0.2); color: #f97316;">🎮</span> 28个可点亮技能</h2>
+            <p>每个维度下有若干"技能"，完成对应任务即可获得技能经验。技能共有3个等级：<strong style="color: #f97316;">解锁(Lv.1)</strong> → <strong
+                    style="color: #f97316;">进阶(Lv.2)</strong> → <strong style="color: #f97316;">大师(Lv.3)</strong></p>
+
+            <div class="skill-section">
+                <h3 style="color: #fca5a5;">🟥 内省力技能（6个）</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag red">三色修补术</span>
+                    <span class="skill-tag red">雷达自检眼</span>
+                    <span class="skill-tag red">试卷体检法</span>
+                    <span class="skill-tag red">日悟心法</span>
+                    <span class="skill-tag red">盲区探照灯</span>
+                    <span class="skill-tag red">细读定身咒</span>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h3 style="color: #93c5fd;">🟦 逻辑力技能（6个）</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag blue">母题溯源眼</span>
+                    <span class="skill-tag blue">思维草图术</span>
+                    <span class="skill-tag blue">结构解牛刀</span>
+                    <span class="skill-tag blue">异同辨析手</span>
+                    <span class="skill-tag blue">万能模型卡</span>
+                    <span class="skill-tag blue">知识串联桥</span>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h3 style="color: #fde047;">🟨 自主力技能（6个）</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag yellow">费曼传道</span>
+                    <span class="skill-tag yellow">字字开花</span>
+                    <span class="skill-tag yellow">素材捕捉手</span>
+                    <span class="skill-tag yellow">追问求索心</span>
+                    <span class="skill-tag yellow">侠义助人</span>
+                    <span class="skill-tag yellow">生活算术师</span>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h3 style="color: #86efac;">🟩 规划力技能（5个）</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag green">掌舵规划术</span>
+                    <span class="skill-tag green">前哨侦查兵</span>
+                    <span class="skill-tag green">粮草先行官</span>
+                    <span class="skill-tag green">番茄时钟法</span>
+                    <span class="skill-tag green">要事第一策</span>
+                </div>
+            </div>
+
+            <div class="skill-section">
+                <h3 style="color: #fdba74;">🟧 毅力值技能（5个）</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag orange">定力禅修</span>
+                    <span class="skill-tag orange">薪火相传</span>
+                    <span class="skill-tag orange">百折不挠</span>
+                    <span class="skill-tag orange">千锤百炼</span>
+                    <span class="skill-tag orange">滴水穿石</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 等级体系 -->
+        <div class="card">
+            <span class="chapter-badge">第四章：等级体系</span>
+            <h2><span class="icon" style="background: #f0fdf4; color: #22c55e;">📈</span> 三层等级体系</h2>
+
+            <div class="inner-card">
+                <h4>1️⃣ 总等级（角色等级）</h4>
+                <p style="color: #64748b; margin-bottom: 16px;">代表学生的综合成长水平，由所有经验累加得出</p>
+                <div class="table-wrapper">
+                    <table>
+                        <tr>
+                            <th>等级</th>
+                            <th>称号</th>
+                            <th>累计经验</th>
+                            <th>预计耗时</th>
+                        </tr>
+                        <tr>
+                            <td>Lv.1</td>
+                            <td>初窥门径</td>
+                            <td>0</td>
+                            <td>初始</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.2</td>
+                            <td>略有小成</td>
+                            <td>500</td>
+                            <td>~1周</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.3</td>
+                            <td>驾轻就熟</td>
+                            <td>1,500</td>
+                            <td>~2周</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.4</td>
+                            <td>融会贯通</td>
+                            <td>3,000</td>
+                            <td>~1个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.5</td>
+                            <td>炉火纯青</td>
+                            <td>5,000</td>
+                            <td>~1.5个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.6</td>
+                            <td>出类拔萃</td>
+                            <td>7,500</td>
+                            <td>~2个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.7</td>
+                            <td>神乎其技</td>
+                            <td>10,500</td>
+                            <td>~3个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.8</td>
+                            <td>登峰造极</td>
+                            <td>14,000</td>
+                            <td>~4个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.9</td>
+                            <td>返璞归真</td>
+                            <td>18,000</td>
+                            <td>~5个月</td>
+                        </tr>
+                        <tr>
+                            <td>Lv.10</td>
+                            <td>一代宗师</td>
+                            <td>23,000</td>
+                            <td>学年末</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="inner-card"
+                style="background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.1);">
+                <h4 style="color: #3b82f6;">2️⃣ 维度等级</h4>
+                <p style="color: #64748b; margin-bottom: 12px;">每个维度有独立等级，反映该维度的深入程度</p>
+                <div class="level-bar">
+                    <div class="bar active"></div>
+                    <div class="bar active"></div>
+                    <div class="bar active"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <p style="font-size: 0.85rem; color: #64748b;">学徒(Lv.1) → 能手(Lv.2) → 专家(Lv.3) → 大师(Lv.4) → 首席(Lv.5)</p>
+            </div>
+
+            <div class="inner-card"
+                style="background: rgba(236, 72, 153, 0.05); border-color: rgba(236, 72, 153, 0.1);">
+                <h4 style="color: #ec4899;">3️⃣ 技能等级</h4>
+                <p style="color: #64748b;">单个技能的精通程度，共3级，如：<strong style="color: #ec4899;">三色修补术 - 订正能手 (Lv.2)</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- 经验来源 -->
+        <div class="card">
+            <span class="chapter-badge">第五章：经验获取</span>
+            <h2><span class="icon" style="background: #fef3c7; color: #f59e0b;">💰</span> 如何获得经验？</h2>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>经验来源</th>
+                        <th>影响范围</th>
+                        <th>单次经验</th>
+                    </tr>
+                    <tr>
+                        <td>QC过关（映射技能）</td>
+                        <td>总等级 + 维度 + 技能</td>
+                        <td>1 exp/技能</td>
+                    </tr>
+                    <tr>
+                        <td>教师手动认证技能</td>
+                        <td>总等级 + 维度 + 技能</td>
+                        <td>1 exp/技能</td>
+                    </tr>
+                    <tr>
+                        <td>连胜里程碑（3/7/14/21/30天）</td>
+                        <td>总等级 + 毅力值</td>
+                        <td>10-500 exp</td>
+                    </tr>
+                    <tr>
+                        <td>PK获胜</td>
+                        <td>仅总等级</td>
+                        <td>10-50 exp</td>
+                    </tr>
+                    <tr>
+                        <td>挑战完成</td>
+                        <td>仅总等级</td>
+                        <td>20-100 exp</td>
+                    </tr>
+                    <tr>
+                        <td>习惯打卡</td>
+                        <td>仅总等级</td>
+                        <td>5-15 exp</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tip-box">
+                <div class="title">💡 小贴士：连胜奖励翻倍</div>
+                <p>坚持连续全对，在第3、7、14、21、30、50、100天会获得丰厚的额外经验奖励！</p>
+            </div>
+        </div>
+
+        <!-- 任务类型 -->
+        <div class="card">
+            <span class="chapter-badge">第六章：任务类型</span>
+            <h2><span class="icon" style="background: #eff6ff; color: #3b82f6;">📋</span> 任务类型一览</h2>
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>任务类型</th>
+                        <th>说明</th>
+                        <th>关联维度</th>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-tag orange">学业过关</span></td>
+                        <td>语数英每日过关项（听写、口算、背诵等）</td>
+                        <td>毅力值、逻辑力</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-tag blue">核心教学法</span></td>
+                        <td>思维链、三色笔、费曼法等专业教学法</td>
+                        <td>内省力、逻辑力、自主力</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-tag green">综合成长</span></td>
+                        <td>阅读、整理、互助、家庭联结等</td>
+                        <td>自主力、毅力值</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-tag yellow">习惯养成</span></td>
+                        <td>每日习惯打卡（坐姿、专注、整理等）</td>
+                        <td>毅力值</td>
+                    </tr>
+                    <tr>
+                        <td><span class="skill-tag red">个性加餐</span></td>
+                        <td>老师为学生定制的专属任务</td>
+                        <td>视内容而定</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <h2>🚀 开始你的修炼之旅</h2>
+            <p>掌握五维内功系统，让孩子的成长清晰可见，让教育服务可量化、可复制。</p>
+            <a href="/empowerment" class="cta-btn">返回赋能中心</a>
+        </div>
+
+        <div class="footer">© 2026 星途与伴 · 赋能中国托管教育</div>
+    </div>
+</body>
+
+</html>

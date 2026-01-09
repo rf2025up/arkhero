@@ -28,9 +28,11 @@ import {
     Flame,
     Swords,
     Search,
-    BookOpen
+    BookOpen,
+    X,
+    ChevronDown
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // --- 演示数据 ---
 const MOCK_MAP_DATA = [
@@ -60,6 +62,19 @@ const ExperienceAccounts = () => {
 
     return (
         <div className="min-h-screen bg-[#FFF8F4] text-[#2D2D2F] font-sans selection:bg-orange-100 selection:text-orange-600 pb-20 overflow-x-hidden">
+            {/* 左上角新手村向导按钮 */}
+            <div className="fixed top-6 left-6 z-[100]">
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => window.open('/新手村向导.html', '_blank')}
+                    className="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-500 px-6 py-3 rounded-2xl shadow-2xl shadow-orange-300/70 border-2 border-white/50 text-white font-black text-sm"
+                >
+                    <BookOpen size={18} />
+                    <span>新手村向导</span>
+                </motion.button>
+            </div>
+
             {/* 全功能说明书入口 */}
             <div className="fixed top-6 right-6 z-[100]">
                 <motion.button
@@ -80,6 +95,7 @@ const ExperienceAccounts = () => {
                 <div className="absolute top-[-100px] right-[-150px] w-[600px] h-[600px] bg-[#FFD194] rounded-full blur-[120px] opacity-30 animate-pulse" />
                 <div className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] bg-[#FF9966] rounded-full blur-[120px] opacity-30 animate-pulse delay-700" />
             </div>
+
 
             <div className="relative z-10 max-w-[1000px] mx-auto px-6">
 

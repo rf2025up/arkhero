@@ -183,8 +183,8 @@ export class App {
     this.app.use('/api/streaks', new StreakRoutes(this.prisma).getRouter());
 
     // 静态文件与前端路由
-    const clientPath = path.resolve(__dirname, '../../../client/dist');
-    this.app.use(express.static(clientPath));
+    const clientPath = '/home/devbox/project/arkok-v2/client/dist';
+    console.log('📁 Serving static files from:', clientPath);
     this.app.get('/debug-mobile', (req, res) => res.sendFile(path.join(__dirname, '../debug-mobile.html')));
     this.app.get('*', (req, res, next) => {
       if (req.path.startsWith('/api/') || req.path.startsWith('/socket.io/') || req.path === '/health') return next();
