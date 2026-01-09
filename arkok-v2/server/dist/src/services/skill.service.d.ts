@@ -44,6 +44,10 @@ declare class SkillService {
      */
     updateStreak(studentId: string, increment?: boolean): Promise<void>;
     /**
+     * 🆕 重新过关成功奖励 g_retry (百折不挠)
+     */
+    awardRetrySkill(studentId: string, taskName: string, certifiedBy: string): Promise<void>;
+    /**
      * 批量认证技能（教师端过关页使用）
      */
     batchCertify(params: {

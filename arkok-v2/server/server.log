@@ -1,7 +1,3 @@
-
-> arkok-v2-server@2.0.0 start
-> npx ts-node --transpile-only src/index.ts
-
 🚀 Starting ArkOK V2 Server...
 🌍 Environment: development
 🔌 Port: 3000
@@ -10,4 +6,1324 @@
 🔌 Socket.io 服务已初始化
 ✅ Database connected successfully
 🚀 ArkOK V2 Server running on port 3000
-2026-01-08T16:16:58.062Z - GET /
+2026-01-09T08:01:05.637Z - HEAD /
+2026-01-09T08:01:21.098Z - GET /assets/index-BVUlG4Uu.js
+2026-01-09T08:01:21.237Z - GET /assets/index-BVUlG4Uu.js
+2026-01-09T08:01:21.700Z - HEAD /assets/index-BVUlG4Uu.js
+2026-01-09T08:04:15.377Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:04:15.593Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:04:15.781Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:04:15.787Z - GET /api/pkmatch
+2026-01-09T08:04:15.800Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket E9UU4csQnOT5JkXeAAAE 认证成功: 14789706098(ADMIN) - School: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 用户 14789706098 已连接: E9UU4csQnOT5JkXeAAAE
+📊 当前活跃连接数: 3
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📡 向学校 3aa160c1-9b0a-4d80-9778-67e0a503ae45 广播事件: USER_ONLINE
+🔌 Socket CEKuLDmHAgEIRQymAAAG 连接失败: 缺少认证令牌
+2026-01-09T08:04:16.005Z - GET /api/pkmatch
+2026-01-09T08:04:16.006Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:04:16.008Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🏠 BigScreen 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:04:30.704Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:04:45.575Z - GET /api/students/cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: cae60945-8b17-4bee-bdfe-597549134837, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 28
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 吴梓涵, 包含 41 条任务记录, 15 条PK记录
+2026-01-09T08:04:45.748Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:04:45.840Z - GET /api/students/cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: cae60945-8b17-4bee-bdfe-597549134837, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 28
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 吴梓涵, 包含 41 条任务记录, 15 条PK记录
+2026-01-09T08:05:00.682Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:05:15.687Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:05:30.686Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:05:45.692Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:06:00.700Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:06:15.692Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:06:30.686Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:06:45.701Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:07:00.689Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:07:15.698Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:07:30.701Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:07:45.694Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:08:00.712Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:08:15.699Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:08:30.680Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:08:45.704Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:09:00.703Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:09:15.698Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:09:30.679Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:09:45.690Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:10:00.698Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:10:15.683Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:10:30.719Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:10:45.684Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:11:00.707Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:11:15.723Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:11:30.696Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:11:45.690Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:12:00.693Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:12:15.708Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:12:30.683Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:12:45.701Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:13:00.694Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:13:15.695Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:13:30.683Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:13:45.710Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:14:00.699Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:14:15.702Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:14:30.695Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:14:45.728Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:15:00.689Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:15:15.729Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:15:30.700Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:15:45.716Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:16:00.692Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:16:15.689Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:16:30.686Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:16:45.693Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:17:00.709Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:17:15.704Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:17:30.699Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:17:45.680Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:18:00.699Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:18:15.703Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:18:30.687Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:18:45.708Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:19:00.761Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:19:15.725Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:19:30.700Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:19:45.712Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:20:00.706Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:20:15.683Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:20:30.693Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:20:45.685Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:21:00.693Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:21:15.705Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:21:30.751Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:21:45.707Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:22:00.698Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:22:15.783Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:22:30.713Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:22:45.764Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:23:00.739Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:23:15.742Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:23:30.726Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:23:45.714Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:24:00.711Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:24:15.746Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:24:30.716Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:24:45.704Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:25:00.765Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:25:15.746Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:25:30.803Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:25:45.734Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:26:00.710Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:26:16.085Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:26:31.134Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:26:45.710Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:26:59.365Z - GET /api/streaks/leaderboard/subject/chinese
+2026-01-09T08:26:59.366Z - GET /api/streaks/leaderboard/subject/english
+2026-01-09T08:26:59.367Z - GET /api/streaks/leaderboard/subject/math
+2026-01-09T08:26:59.557Z - GET /api/streaks/leaderboard/subject/math
+2026-01-09T08:26:59.558Z - GET /api/streaks/leaderboard/subject/chinese
+2026-01-09T08:26:59.567Z - GET /api/streaks/leaderboard/subject/english
+2026-01-09T08:27:22.932Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:27:23.115Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket 0kKW9J9v-me6BkF6AAAK 连接失败: 缺少认证令牌
+2026-01-09T08:27:37.970Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:27:55.101Z - GET /api/streaks/leaderboard/subject/english
+2026-01-09T08:27:55.102Z - GET /api/streaks/leaderboard/subject/math
+2026-01-09T08:27:55.102Z - GET /api/streaks/leaderboard/subject/chinese
+2026-01-09T08:27:55.301Z - GET /api/streaks/leaderboard/subject/chinese
+2026-01-09T08:27:55.302Z - GET /api/streaks/leaderboard/subject/math
+2026-01-09T08:27:55.302Z - GET /api/streaks/leaderboard/subject/english
+2026-01-09T08:28:07.788Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket n3vZ5cq5ydTseW4yAAAQ 连接失败: 缺少认证令牌
+2026-01-09T08:28:07.993Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:28:16.155Z - GET /api/students/cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: cae60945-8b17-4bee-bdfe-597549134837, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 28
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 吴梓涵, 包含 41 条任务记录, 15 条PK记录
+2026-01-09T08:28:16.371Z - GET /api/students/cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /cae60945-8b17-4bee-bdfe-597549134837/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: cae60945-8b17-4bee-bdfe-597549134837, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 28
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 吴梓涵, 包含 41 条任务记录, 15 条PK记录
+2026-01-09T08:28:22.789Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:28:30.760Z - GET /api/students/d17ddc5f-6995-4f67-b7a4-6518111a369a/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /d17ddc5f-6995-4f67-b7a4-6518111a369a/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: d17ddc5f-6995-4f67-b7a4-6518111a369a, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 19
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 刘思琪, 包含 42 条任务记录, 13 条PK记录
+2026-01-09T08:28:30.996Z - GET /api/students/d17ddc5f-6995-4f67-b7a4-6518111a369a/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /d17ddc5f-6995-4f67-b7a4-6518111a369a/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: d17ddc5f-6995-4f67-b7a4-6518111a369a, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 19
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 刘思琪, 包含 42 条任务记录, 13 条PK记录
+2026-01-09T08:28:37.786Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:28:52.814Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:29:07.796Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:29:15.101Z - GET /api/students/b3ae9dcf-5485-4b53-a8ed-a683fcae0d65/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /b3ae9dcf-5485-4b53-a8ed-a683fcae0d65/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: b3ae9dcf-5485-4b53-a8ed-a683fcae0d65, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 19
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 张雨萱, 包含 37 条任务记录, 14 条PK记录
+2026-01-09T08:29:15.337Z - GET /api/students/b3ae9dcf-5485-4b53-a8ed-a683fcae0d65/profile
+🔐 [AUTH_MIDDLEWARE] Processing GET /b3ae9dcf-5485-4b53-a8ed-a683fcae0d65/profile
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+🔍 获取学生档案: b3ae9dcf-5485-4b53-a8ed-a683fcae0d65, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 19
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 张雨萱, 包含 37 条任务记录, 14 条PK记录
+2026-01-09T08:29:22.803Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 用户 14789706098 断开连接: E9UU4csQnOT5JkXeAAAE - 原因: transport close
+📊 剩余活跃连接数: 0
+📡 向学校 3aa160c1-9b0a-4d80-9778-67e0a503ae45 广播事件: USER_OFFLINE
+2026-01-09T08:45:41.940Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:42.196Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:42.198Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:42.278Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:44.489Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:44.742Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T08:45:45.301Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:45:45.857Z - GET /api/pkmatch
+2026-01-09T08:45:45.858Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:45:45.860Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket CpNTUHKst3JvB322AAAX 认证成功: 14789706098(ADMIN) - School: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 用户 14789706098 已连接: CpNTUHKst3JvB322AAAX
+📊 当前活跃连接数: 3
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📡 向学校 3aa160c1-9b0a-4d80-9778-67e0a503ae45 广播事件: USER_ONLINE
+2026-01-09T08:45:46.250Z - GET /api/pkmatch
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🏠 BigScreen 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:45:46.286Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket MrzVg8norhG3SZEdAAAa 连接失败: 缺少认证令牌
+2026-01-09T08:45:49.661Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:45:49.663Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+School ID from user: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+Request query params: {
+  scope: 'MY_STUDENTS',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  userRole: 'ADMIN'
+}
+[DEBUG] Query object sent to service: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: undefined,
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN',
+  requesterId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a'
+}
+[DEBUG] ✅ teacherId is present: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+2026-01-09T08:45:49.665Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+School ID from user: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+Request query params: {
+  scope: 'MY_STUDENTS',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  userRole: 'ADMIN'
+}
+[DEBUG] Query object sent to service: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: undefined,
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN',
+  requesterId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a'
+}
+[DEBUG] ✅ teacherId is present: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+[DEBUG] 📊 TeacherId distribution: { '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a': 10 }
+[DEBUG] 📊 Total students in DB: 10
+[TEACHER BINDING] Querying MY_STUDENTS for teachers: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+[DEBUG] 📊 TeacherId distribution: { '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a': 10 }
+[DEBUG] 📊 Total students in DB: 10
+[TEACHER BINDING] Querying MY_STUDENTS for teachers: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+[TEACHER BINDING] ✅ Found 10 students for scope: MY_STUDENTS
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+      name: '陈浩然',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 815,
+      exp: 4883,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'cae60945-8b17-4bee-bdfe-597549134837',
+      name: '吴梓涵',
+      className: '五年级2班',
+      avatarUrl: null,
+      points: 275,
+      exp: 4397,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: 'd17ddc5f-6995-4f67-b7a4-6518111a369a',
+      name: '刘思琪',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 345,
+      exp: 4330,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'd084782d-8bf1-4404-a956-fbabf45de313',
+      name: '赵子墨',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 888,
+      exp: 3625,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '67ca37a3-77a9-46ae-b902-a68ff6a4466a',
+      name: '周雨晴',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 474,
+      exp: 3234,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '7979861d-43b3-4305-a285-229032be4709',
+      name: '李明轩',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 574,
+      exp: 3142,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: '22c0ed41-874c-47b4-95e2-985ea1fefb00',
+      name: '杨紫萱',
+      className: '四年级2班',
+      avatarUrl: null,
+      points: 241,
+      exp: 2677,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: '255ea075-d29d-4ae5-a1f2-f37e644ad04f',
+      name: '郑思远',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 950,
+      exp: 1270,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '六年级',
+      semester: null
+    },
+    {
+      id: 'df5235d3-560c-4fb6-a410-cf9fc096102f',
+      name: '王子涵',
+      className: '三年级2班',
+      avatarUrl: null,
+      points: 886,
+      exp: 844,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: 'b3ae9dcf-5485-4b53-a8ed-a683fcae0d65',
+      name: '张雨萱',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 941,
+      exp: 745,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    }
+  ],
+  pagination: { page: 1, limit: 10, total: 10, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 10
+[DEBUG] Students data preview: [
+  {
+    id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+    name: '陈浩然',
+    className: '四年级1班',
+    avatarUrl: null,
+    points: 815,
+    exp: 4883,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '四年级',
+    semester: null
+  },
+  {
+    id: 'cae60945-8b17-4bee-bdfe-597549134837',
+    name: '吴梓涵',
+    className: '五年级2班',
+    avatarUrl: null,
+    points: 275,
+    exp: 4397,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '五年级',
+    semester: null
+  }
+]
+[DEBUG] Response sent to frontend successfully
+[TEACHER BINDING] ✅ Found 10 students for scope: MY_STUDENTS
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+      name: '陈浩然',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 815,
+      exp: 4883,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'cae60945-8b17-4bee-bdfe-597549134837',
+      name: '吴梓涵',
+      className: '五年级2班',
+      avatarUrl: null,
+      points: 275,
+      exp: 4397,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: 'd17ddc5f-6995-4f67-b7a4-6518111a369a',
+      name: '刘思琪',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 345,
+      exp: 4330,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'd084782d-8bf1-4404-a956-fbabf45de313',
+      name: '赵子墨',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 888,
+      exp: 3625,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '67ca37a3-77a9-46ae-b902-a68ff6a4466a',
+      name: '周雨晴',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 474,
+      exp: 3234,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '7979861d-43b3-4305-a285-229032be4709',
+      name: '李明轩',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 574,
+      exp: 3142,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: '22c0ed41-874c-47b4-95e2-985ea1fefb00',
+      name: '杨紫萱',
+      className: '四年级2班',
+      avatarUrl: null,
+      points: 241,
+      exp: 2677,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: '255ea075-d29d-4ae5-a1f2-f37e644ad04f',
+      name: '郑思远',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 950,
+      exp: 1270,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '六年级',
+      semester: null
+    },
+    {
+      id: 'df5235d3-560c-4fb6-a410-cf9fc096102f',
+      name: '王子涵',
+      className: '三年级2班',
+      avatarUrl: null,
+      points: 886,
+      exp: 844,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: 'b3ae9dcf-5485-4b53-a8ed-a683fcae0d65',
+      name: '张雨萱',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 941,
+      exp: 745,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    }
+  ],
+  pagination: { page: 1, limit: 10, total: 10, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 10
+[DEBUG] Students data preview: [
+  {
+    id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+    name: '陈浩然',
+    className: '四年级1班',
+    avatarUrl: null,
+    points: 815,
+    exp: 4883,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '四年级',
+    semester: null
+  },
+  {
+    id: 'cae60945-8b17-4bee-bdfe-597549134837',
+    name: '吴梓涵',
+    className: '五年级2班',
+    avatarUrl: null,
+    points: 275,
+    exp: 4397,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '五年级',
+    semester: null
+  }
+]
+[DEBUG] Response sent to frontend successfully
+2026-01-09T08:46:01.863Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:46:16.662Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T08:46:31.384Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 用户 14789706098 断开连接: CpNTUHKst3JvB322AAAX - 原因: ping timeout
+📊 剩余活跃连接数: 0
+📡 向学校 3aa160c1-9b0a-4d80-9778-67e0a503ae45 广播事件: USER_OFFLINE
+2026-01-09T09:15:27.911Z - GET /
+2026-01-09T09:15:28.089Z - GET /assets/index-BVUlG4Uu.js
+2026-01-09T09:15:28.095Z - GET /assets/index-f3k6szBD.css
+2026-01-09T09:15:29.712Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T09:15:29.801Z - GET /vite.svg
+2026-01-09T09:15:29.975Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:15:29.977Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+School ID from user: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+Request query params: {
+  scope: 'MY_STUDENTS',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  userRole: 'ADMIN'
+}
+[DEBUG] Query object sent to service: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: undefined,
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN',
+  requesterId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a'
+}
+[DEBUG] ✅ teacherId is present: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  scope: 'MY_STUDENTS',
+  userRole: 'ADMIN'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+[DEBUG] 📊 TeacherId distribution: { '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a': 10 }
+[DEBUG] 📊 Total students in DB: 10
+[TEACHER BINDING] Querying MY_STUDENTS for teachers: 9accf445-d5d0-42d7-a5fe-e0d0193c9f1a
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+[TEACHER BINDING] ✅ Found 10 students for scope: MY_STUDENTS
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+      name: '陈浩然',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 815,
+      exp: 4883,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'cae60945-8b17-4bee-bdfe-597549134837',
+      name: '吴梓涵',
+      className: '五年级2班',
+      avatarUrl: null,
+      points: 275,
+      exp: 4397,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: 'd17ddc5f-6995-4f67-b7a4-6518111a369a',
+      name: '刘思琪',
+      className: '四年级1班',
+      avatarUrl: null,
+      points: 345,
+      exp: 4330,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: 'd084782d-8bf1-4404-a956-fbabf45de313',
+      name: '赵子墨',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 888,
+      exp: 3625,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '67ca37a3-77a9-46ae-b902-a68ff6a4466a',
+      name: '周雨晴',
+      className: '五年级1班',
+      avatarUrl: null,
+      points: 474,
+      exp: 3234,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '五年级',
+      semester: null
+    },
+    {
+      id: '7979861d-43b3-4305-a285-229032be4709',
+      name: '李明轩',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 574,
+      exp: 3142,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: '22c0ed41-874c-47b4-95e2-985ea1fefb00',
+      name: '杨紫萱',
+      className: '四年级2班',
+      avatarUrl: null,
+      points: 241,
+      exp: 2677,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '四年级',
+      semester: null
+    },
+    {
+      id: '255ea075-d29d-4ae5-a1f2-f37e644ad04f',
+      name: '郑思远',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 950,
+      exp: 1270,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '六年级',
+      semester: null
+    },
+    {
+      id: 'df5235d3-560c-4fb6-a410-cf9fc096102f',
+      name: '王子涵',
+      className: '三年级2班',
+      avatarUrl: null,
+      points: 886,
+      exp: 844,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    },
+    {
+      id: 'b3ae9dcf-5485-4b53-a8ed-a683fcae0d65',
+      name: '张雨萱',
+      className: '三年级1班',
+      avatarUrl: null,
+      points: 941,
+      exp: 745,
+      level: 1,
+      teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+      isActive: true,
+      grade: '三年级',
+      semester: null
+    }
+  ],
+  pagination: { page: 1, limit: 10, total: 10, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 10
+[DEBUG] Students data preview: [
+  {
+    id: '9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c',
+    name: '陈浩然',
+    className: '四年级1班',
+    avatarUrl: null,
+    points: 815,
+    exp: 4883,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '四年级',
+    semester: null
+  },
+  {
+    id: 'cae60945-8b17-4bee-bdfe-597549134837',
+    name: '吴梓涵',
+    className: '五年级2班',
+    avatarUrl: null,
+    points: 275,
+    exp: 4397,
+    level: 1,
+    teacherId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+    isActive: true,
+    grade: '五年级',
+    semester: null
+  }
+]
+[DEBUG] Response sent to frontend successfully
+2026-01-09T09:15:30.055Z - GET /avatar.jpg
+2026-01-09T09:15:32.099Z - GET /assets/index-f3k6szBD.css
+2026-01-09T09:15:41.252Z - GET /%E6%96%B0%E6%89%8B%E6%9D%91%E5%90%91%E5%AF%BC.html
+2026-01-09T09:16:03.476Z - GET /screen
+2026-01-09T09:16:03.809Z - GET /assets/index-BVUlG4Uu.js
+2026-01-09T09:16:03.810Z - GET /assets/index-f3k6szBD.css
+2026-01-09T09:16:05.059Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+2026-01-09T09:16:05.265Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:16:05.266Z - GET /api/pkmatch
+2026-01-09T09:16:05.267Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 465
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: 14789706098 (ADMIN)
+[DEBUG] getClasses - User: {
+  userId: '9accf445-d5d0-42d7-a5fe-e0d0193c9f1a',
+  username: '14789706098',
+  name: '李老师',
+  displayName: null,
+  email: null,
+  role: 'ADMIN',
+  schoolId: '3aa160c1-9b0a-4d80-9778-67e0a503ae45',
+  schoolName: '乐学优能金潇校区',
+  primaryClassName: null
+}
+[DEBUG] getClasses - SchoolId: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 Socket PzpC01AA8FQzREPpAAAc 连接失败: 缺少认证令牌
+2026-01-09T09:16:05.361Z - GET /avatar.jpg
+🔌 Socket qa_6NQV_Upjr1TncAAAf 认证成功: 14789706098(ADMIN) - School: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔌 用户 14789706098 已连接: qa_6NQV_Upjr1TncAAAf
+📊 当前活跃连接数: 2
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📡 向学校 3aa160c1-9b0a-4d80-9778-67e0a503ae45 广播事件: USER_ONLINE
+🏠 用户 14789706098 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🏠 BigScreen 加入学校房间: school_3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:16:09.550Z - GET /api/students/cae60945-8b17-4bee-bdfe-597549134837/public-profile
+📺 [PUBLIC PROFILE] Loading profile for student: cae60945-8b17-4bee-bdfe-597549134837, school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔍 获取学生档案: cae60945-8b17-4bee-bdfe-597549134837, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 28
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 吴梓涵, 包含 41 条任务记录, 15 条PK记录
+2026-01-09T09:16:09.632Z - GET /avatar.jpg
+2026-01-09T09:16:13.531Z - GET /api/students/9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c/public-profile
+📺 [PUBLIC PROFILE] Loading profile for student: 9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c, school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🔍 获取学生档案: 9c7eb446-37dc-49ad-a1f8-4cf277cf5a9c, 学校: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+🎯 [HABIT_DEBUG] allHabits 数量: 3, studentHabitLogs 数量: 20
+🎯 [HABIT_DEBUG] 生成的 habitStats 数量: 3
+✅ 学生档案获取成功: 陈浩然, 包含 43 条任务记录, 14 条PK记录
+2026-01-09T09:16:20.265Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:16:35.262Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:16:50.733Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:16:53.058Z - GET /
+2026-01-09T09:17:05.612Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:21.008Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:28.757Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:35.694Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:38.261Z - GET /
+2026-01-09T09:17:42.521Z - GET /
+2026-01-09T09:17:43.756Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:50.596Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:17:58.054Z - GET /
+2026-01-09T09:17:58.907Z - GET /
+2026-01-09T09:17:59.025Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:18:13.722Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+2026-01-09T09:18:14.056Z - GET /
+2026-01-09T09:18:15.088Z - GET /
+2026-01-09T09:18:28.724Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45
+📺 [BIGSCREEN] Fetching data for school: 3aa160c1-9b0a-4d80-9778-67e0a503ae45

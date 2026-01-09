@@ -9,6 +9,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.skillService = void 0;
 const prisma_1 = __importDefault(require("../utils/prisma"));
+const skillMapping_config_1 = require("../config/skillMapping.config");
 const prisma = prisma_1.default; // 绕过 IDE 类型缓存问题
 // 五维属性映射
 const ATTRIBUTE_GAIN_MAP = {
@@ -217,6 +218,16 @@ class SkillService {
                     maxStreak: Math.max(newStreak, stats.maxStreak)
                 }
             });
+            // 🆕 连胜里程碑奖励 g_streak (薪火相传)
+            if ((0, skillMapping_config_1.isStreakMilestone)(newStreak)) {
+                console.log(`🔥 [SKILL_SERVICE] 连胜${newStreak}天里程碑达成，奖励 g_streak`);
+                await this.recordPractice({
+                    studentId,
+                    skillCode: 'g_streak',
+                    certifiedBy: 'SYSTEM',
+                    note: `连胜${newStreak}天里程碑奖励`
+                });
+            }
         }
         else {
             // 中断连胜
@@ -225,6 +236,18 @@ class SkillService {
                 data: { streak: 0 }
             });
         }
+    }
+    /**
+     * 🆕 重新过关成功奖励 g_retry (百折不挠)
+     */
+    async awardRetrySkill(studentId, taskName, certifiedBy) {
+        console.log(`💪 [SKILL_SERVICE] 重新过关成功，奖励 g_retry: ${taskName}`);
+        await this.recordPractice({
+            studentId,
+            skillCode: 'g_retry',
+            certifiedBy,
+            note: `重新过关成功: ${taskName}`
+        });
     }
     /**
      * 批量认证技能（教师端过关页使用）

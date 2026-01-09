@@ -144,9 +144,11 @@ class App {
         this.app.use('/api/skill', new skill_routes_1.default(this.authService).getRoutes());
         // 🆕 连胜系统路由
         this.app.use('/api/streaks', new streak_routes_1.StreakRoutes(this.prisma).getRouter());
-        // 静态文件与前端路由
-        const clientPath = path_1.default.resolve(__dirname, '../../../client/dist');
+        // 静态文件服务
+        const clientPath = '/home/devbox/project/arkok-v2/client/dist';
+        console.log('📁 Serving static files from:', clientPath);
         this.app.use(express_1.default.static(clientPath));
+        // 静态文件与前端路由
         this.app.get('/debug-mobile', (req, res) => res.sendFile(path_1.default.join(__dirname, '../debug-mobile.html')));
         this.app.get('*', (req, res, next) => {
             if (req.path.startsWith('/api/') || req.path.startsWith('/socket.io/') || req.path === '/health')

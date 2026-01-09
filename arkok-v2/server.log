@@ -2,22 +2,15 @@
 > arkok-v2-server@2.0.0 dev
 > ts-node-dev --respawn --transpile-only src/index.ts
 
-[INFO] 14:20:55 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[INFO] 07:18:40 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
 🚀 Starting ArkOK V2 Server...
 🌍 Environment: development
 🔌 Port: 3000
+📁 Serving static files from: /home/devbox/project/arkok-v2/client/dist
 🔧 Setting up Socket.IO handlers...
 🔌 Socket.io 服务已初始化
 ✅ Database connected successfully
 🚀 ArkOK V2 Server running on port 3000
-🔌 Socket o6O-2aYVCD6INDaWAAAB 连接失败: 缺少认证令牌
-🔌 Socket u81sdgDYvupQQNa-AAAD 连接失败: 缺少认证令牌
-🔌 Socket f75PEUb2jYGnovd7AAAF 连接失败: 缺少认证令牌
-2025-12-26T06:22:24.008Z - GET /api/parent/timeline/1896c410-1a91-4281-ac02-797756c638cc/today
-2025-12-26T06:22:24.974Z - GET /api/parent/timeline/1896c410-1a91-4281-ac02-797756c638cc/today
-🔌 Socket 7C5Ng5mjZ2btdfl9AAAH 连接失败: 缺少认证令牌
-🔌 Socket _w_8iPIUAcBslWjJAAAJ 连接失败: 缺少认证令牌
-🔌 Socket VWEqSipPhRuocgvcAAAL 连接失败: 缺少认证令牌
-🔌 Socket xOxhGTrDhVaeMcrrAAAN 连接失败: 缺少认证令牌
-🔌 Socket 5rVYWp8oeyXRPF1lAAAP 连接失败: 缺少认证令牌
-🔌 Socket zTpbPHqqf9N9opTWAAAR 连接失败: 缺少认证令牌
+2026-01-09T07:20:53.492Z - GET /health
+2026-01-09T07:23:42.887Z - GET /%e6%96%b0%e6%89%8b%e6%9d%91%e5%90%91%e5%af%bc.html
+2026-01-09T07:23:43.017Z - GET /health

@@ -141,5 +141,29 @@ router.delete('/configs/:id', async (req, res) => {
         });
     }
 });
+// 获取全局经验倍率
+router.get('/multiplier/:schoolId', async (req, res) => {
+    try {
+        const { schoolId } = req.params;
+        const rewardService = new reward_service_1.RewardService(req.app.get('prisma'));
+        const multiplier = await rewardService.getExpMultiplier(schoolId);
+        res.json({ success: true, data: multiplier });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+// 更新全局经验倍率
+router.post('/multiplier', async (req, res) => {
+    try {
+        const { schoolId, multiplier } = req.body;
+        const rewardService = new reward_service_1.RewardService(req.app.get('prisma'));
+        await rewardService.updateExpMultiplier(schoolId, multiplier);
+        res.json({ success: true, message: '倍率更新成功' });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
 exports.default = router;
 //# sourceMappingURL=reward.routes.js.map

@@ -1,7 +1,41 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryStreakService = exports.STREAK_CATEGORIES = void 0;
 const streakMapping_1 = require("../utils/streakMapping");
+const skillMapping_config_1 = require("../config/skillMapping.config");
 // 任务分类代码常量
 exports.STREAK_CATEGORIES = {
     // 语文
@@ -32,7 +66,7 @@ class CategoryStreakService {
         const streakCat = (0, streakMapping_1.getStreakCategory)(taskTitle);
         if (!streakCat) {
             // 如果不在基础映射中，检查是否有自定义的精确匹配
-            // 这里我们暂时跳过，只支持“依照基础过关项”的规则
+            // 这里我们暂时跳过，只支持"依照基础过关项"的规则
             return null;
         }
         // 2. 确保分类定义存在 (自动同步新内容)
@@ -68,6 +102,22 @@ class CategoryStreakService {
                 update: { currentStreak: newStreak, maxStreak: newMax },
                 create: { studentId, category, currentStreak: newStreak, maxStreak: newMax }
             });
+            // 🆕 连胜里程碑奖励 g_streak (薪火相传)
+            if ((0, skillMapping_config_1.isStreakMilestone)(newStreak)) {
+                try {
+                    const { skillService } = await Promise.resolve().then(() => __importStar(require('./skill.service')));
+                    console.log(`🔥 [STREAK_SERVICE] 连胜${newStreak}次里程碑达成 (${category})，奖励 g_streak`);
+                    await skillService.recordPractice({
+                        studentId,
+                        skillCode: 'g_streak',
+                        certifiedBy: 'SYSTEM',
+                        note: `连胜${newStreak}次 - ${category}`
+                    });
+                }
+                catch (e) {
+                    console.error('❌ [STREAK_SERVICE] g_streak 奖励失败:', e);
+                }
+            }
             return { currentStreak: result.currentStreak, maxStreak: result.maxStreak };
         }
         else {

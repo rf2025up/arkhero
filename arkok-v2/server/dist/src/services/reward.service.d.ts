@@ -79,6 +79,14 @@ export declare class RewardService {
      * @returns 经验值，如果未找到配置则返回null
      */
     getExpForTask(schoolId: string, category: string, subcategory: string, title: string): Promise<number | null>;
+    /**
+     * 获取全局经验倍率
+     */
+    getExpMultiplier(schoolId: string): Promise<number>;
+    /**
+     * 更新全局经验倍率
+     */
+    updateExpMultiplier(schoolId: string, multiplier: number): Promise<void>;
 }
 export default RewardService;
 //# sourceMappingURL=reward.service.d.ts.map

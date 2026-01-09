@@ -111,7 +111,7 @@ phase1_environment_cleanup() {
 
     # 3. 清理可能存在的服务进程
     log "清理现有服务进程..."
-    if pkill -f "node dist/index.js" 2>/dev/null; then
+    if pkill -f "node dist/src/index.js" 2>/dev/null; then
         success "现有服务进程已停止"
     else
         success "无现有服务进程"
@@ -165,8 +165,8 @@ phase3_service_startup() {
     log "🚀 第三阶段：服务启动（无PM2，云原生方式）"
 
     # 1. 确保在正确的目录 (上下文关键修复)
-    if [[ ! -f "$SERVER_DIR/dist/index.js" ]]; then
-        error "无法找到入口文件: $SERVER_DIR/dist/index.js，请确保已执行阶段二编译"
+    if [[ ! -f "$SERVER_DIR/dist/src/index.js" ]]; then
+        error "无法找到入口文件: $SERVER_DIR/dist/src/index.js，请确保已执行阶段二编译"
         exit 1
     fi
     cd "$SERVER_DIR"

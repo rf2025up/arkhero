@@ -192,6 +192,32 @@ class RewardService {
         const config = await this.getRewardConfig(schoolId, module, action);
         return config ? config.expReward : null;
     }
+    /**
+     * 获取全局经验倍率
+     */
+    async getExpMultiplier(schoolId) {
+        const school = await this.prisma.schools.findUnique({
+            where: { id: schoolId },
+            select: { settings: true }
+        });
+        const settings = school?.settings || {};
+        return settings.expMultiplier || 1.0;
+    }
+    /**
+     * 更新全局经验倍率
+     */
+    async updateExpMultiplier(schoolId, multiplier) {
+        const school = await this.prisma.schools.findUnique({
+            where: { id: schoolId },
+            select: { settings: true }
+        });
+        const settings = school?.settings || {};
+        settings.expMultiplier = multiplier;
+        await this.prisma.schools.update({
+            where: { id: schoolId },
+            data: { settings }
+        });
+    }
 }
 exports.RewardService = RewardService;
 exports.default = RewardService;

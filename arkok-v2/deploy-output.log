@@ -1,0 +1,77 @@
+🚀 ArkOK V2 标准化公网部署（无PM2 - 云原生最佳实践）
+==============================================
+[0;34m[2026-01-09 07:28:01] 🔍 第一阶段：环境准备与清理[0m
+[0;34m[2026-01-09 07:28:01] 同步 Prisma 客户端状态...[0m
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+
+✔ Generated Prisma Client (v5.22.0) to ./node_modules/@prisma/client in 519ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+
+[0;32m✅ Prisma 客户端同步成功[0m
+[0;34m[2026-01-09 07:28:03] 同步数据库表结构...[0m
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "arkok_v2", schema "public" at "dbconn.sealosbja.site:35539"
+
+The database is already in sync with the Prisma schema.
+
+┌─────────────────────────────────────────────────────────┐
+│  Update available 5.22.0 -> 7.2.0                       │
+│                                                         │
+│  This is a major update - please follow the guide at    │
+│  https://pris.ly/d/major-version-upgrade                │
+│                                                         │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+[0;32m✅ 数据库表结构同步成功（含 reward_configs 表）[0m
+[0;34m[2026-01-09 07:28:04] 检查核心依赖...[0m
+[0;34m[2026-01-09 07:28:05] 检查端口占用情况...[0m
+ 64292[0;32m✅ 端口3000已释放[0m
+[0;32m✅ 端口3001未被占用[0m
+[0;34m[2026-01-09 07:28:05] 清理进程管理器...[0m
+[32m[PM2] [39mSpawning PM2 daemon with pm2_home=/home/devbox/.pm2
+[32m[PM2] [39mPM2 Successfully daemonized
+[32m[PM2] [39m[v] All Applications Stopped
+[32m[PM2] [39m[v] PM2 Daemon Stopped
+[0;32m✅ PM2进程已清理[0m
+[0;34m[2026-01-09 07:28:05] 清理现有服务进程...[0m
+[0;32m✅ 无现有服务进程[0m
+[0;34m[2026-01-09 07:28:05] 验证环境配置...[0m
+[0;32m✅ 端口配置正确 (PORT=3000)[0m
+[0;32m✅ 第一阶段完成：环境准备与清理[0m
+[0;34m[2026-01-09 07:28:05] 🔨 第二阶段：代码编译[0m
+[0;34m[2026-01-09 07:28:05] 编译前端代码...[0m
+
+> client@0.0.0 build
+> tsc -b && vite build
+
+vite v7.3.1 building client environment for production...
+transforming...
+✓ 2241 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     1.86 kB │ gzip:   0.97 kB
+dist/assets/index-f3k6szBD.css    142.19 kB │ gzip:  20.20 kB
+dist/assets/index-BVUlG4Uu.js   1,044.96 kB │ gzip: 299.31 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.55s
+[0;32m✅ 前端编译成功[0m
+[0;34m[2026-01-09 07:28:21] 编译后端代码...[0m
+
+> arkok-v2-server@2.0.0 build
+> tsc
+
+[0;32m✅ 后端编译成功[0m
+[0;32m✅ 第二阶段完成：代码编译[0m
+[0;34m[2026-01-09 07:28:29] 🚀 第三阶段：服务启动（无PM2，云原生方式）[0m
+[0;31m❌ 无法找到入口文件: /home/devbox/project/arkok-v2/server/dist/index.js，请确保已执行阶段二编译[0m
