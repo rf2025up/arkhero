@@ -165,7 +165,7 @@ model schools {
   settings                    Json?
   educationalPhilosophy       String                        @default("我们致力于培养面向未来的孩子，视自主学习力为核心武器，通过反馈驱动和最近发展区理论，鼓励孩子注重过程，持续自我迭代。")
   expiredAt                   DateTime?                     @default(dbgenerated("'2026-12-31 23:59:59'::timestamp without time zone"))
-  deletedAt                   DateTime?                     // 软删除标记，30天后可清理
+  deletedAt                   DateTime?
   badges                      badges[]
   challenges                  challenges[]
   habit_logs                  habit_logs[]
@@ -175,15 +175,15 @@ model schools {
   parents                     parents[]
   personalized_tutoring_plans personalized_tutoring_plans[]
   pk_matches                  pk_matches[]
+  reading_books               reading_books[]
+  reading_logs                reading_logs[]
   reward_configs              reward_configs[]
+  streak_category_items       streak_category_items[]
   student_checkins            student_checkins[]
   students                    students[]
   task_library                task_library[]
   task_records                task_records[]
   teachers                    teachers[]
-  reading_books               reading_books[]               // 🆕 阅读书籍
-  reading_logs                reading_logs[]                // 🆕 阅读记录
-  streak_category_items       streak_category_items[]       // 🆕 连胜分类定义
 }
 
 model student_badges {
@@ -221,6 +221,7 @@ model students {
   semester                    String?
   currentProgress             Json?
   campaigns                   campaigns[]
+  category_streaks            category_streaks[]
   challenge_participants      challenge_participants[]
   daily_summaries             daily_summaries[]
   habit_logs                  habit_logs[]
@@ -230,17 +231,16 @@ model students {
   pk_matches_studentA         pk_matches[]                  @relation("pk_matches_studentA")
   pk_matches_studentB         pk_matches[]                  @relation("pk_matches_studentB")
   pk_matches_winner           pk_matches[]                  @relation("pk_matches_winner")
+  reading_books               reading_books[]
+  reading_logs                reading_logs[]
   student_badges              student_badges[]
   student_checkins            student_checkins[]
   student_skills              student_skills[]
+  student_stats               student_stats?
   schools                     schools                       @relation(fields: [schoolId], references: [id], onDelete: Cascade)
   teachers                    teachers?                     @relation(fields: [teacherId], references: [id])
   task_records                task_records[]
-  reading_books               reading_books[]               // 🆕 阅读书籍
-  reading_logs                reading_logs[]                // 🆕 阅读记录
-  weekly_plans                weekly_plans[]                // 🆕 周计划
-  student_stats               student_stats?
-  category_streaks            category_streaks[]
+  weekly_plans                weekly_plans[]
 
   @@unique([schoolId, name])
 }
@@ -305,7 +305,7 @@ model task_records {
 
 model teachers {
   id                          String                        @id @default(uuid())
-  schoolId                    String?                       // 🆕 可空，支持 PLATFORM_ADMIN 跨校区穿透
+  schoolId                    String?
   username                    String                        @unique
   password                    String
   name                        String
@@ -448,6 +448,167 @@ model reward_configs {
   @@index([module])
 }
 
+model reading_books {
+  id         String         @id @default(uuid())
+  schoolId   String
+  studentId  String
+  bookName   String
+  totalPages Int?
+  isActive   Boolean        @default(true)
+  createdAt  DateTime       @default(now())
+  schools    schools        @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  students   students       @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  logs       reading_logs[]
+
+  @@index([studentId])
+  @@index([schoolId, studentId])
+}
+
+model reading_logs {
+  id          String        @id @default(uuid())
+  bookId      String
+  studentId   String
+  schoolId    String
+  currentPage Int
+  duration    Int
+  recordedAt  DateTime      @default(now())
+  recordedBy  String?
+  books       reading_books @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  schools     schools       @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+  students    students      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@index([bookId])
+  @@index([schoolId, studentId])
+}
+
+model weekly_plans {
+  id         String              @id @default(uuid())
+  studentId  String
+  weekStart  String
+  parentNote String?
+  status     String              @default("ACTIVE")
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+  items      weekly_plan_items[]
+  students   students            @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, weekStart])
+  @@index([studentId])
+}
+
+model weekly_plan_items {
+  id          String       @id @default(uuid())
+  planId      String
+  category    String
+  title       String
+  metadata    Json?
+  isCompleted Boolean      @default(false)
+  completedAt DateTime?
+  createdAt   DateTime     @default(now())
+  plan        weekly_plans @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  @@index([planId])
+}
+
+model student_stats {
+  id               String   @id @default(uuid())
+  studentId        String   @unique
+  autonomy         Int      @default(0)
+  planning         Int      @default(0)
+  reflection       Int      @default(0)
+  logic            Int      @default(0)
+  grit             Int      @default(0)
+  streak           Int      @default(0)
+  maxStreak        Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  maxPerfectStreak Int      @default(0)
+  perfectStreak    Int      @default(0)
+  students         students @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+}
+
+model category_streaks {
+  id            String   @id @default(uuid())
+  studentId     String
+  category      String
+  currentStreak Int      @default(0)
+  maxStreak     Int      @default(0)
+  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  student       students @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, category])
+  @@index([category, currentStreak(sort: Desc)])
+}
+
+model streak_category_items {
+  id        String   @id @default(cuid())
+  schoolId  String
+  subject   String
+  name      String
+  code      String
+  isDefault Boolean  @default(false)
+  createdAt DateTime @default(now())
+  school    schools  @relation(fields: [schoolId], references: [id], onDelete: Cascade)
+
+  @@unique([schoolId, code])
+  @@index([schoolId, subject])
+}
+
+model skills {
+  id            String            @id @default(uuid())
+  code          String            @unique
+  name          String
+  attribute     String
+  category      String
+  icon          String?
+  levelData     Json
+  unlockExp     Int               @default(5)
+  description   String?
+  isActive      Boolean           @default(true)
+  createdAt     DateTime          @default(now())
+  practices     skill_practices[]
+  studentSkills student_skills[]
+
+  @@index([attribute])
+}
+
+model skill_practices {
+  id          String   @id @default(uuid())
+  studentId   String
+  skillId     String
+  taskId      String?
+  expGained   Int
+  certifiedBy String?
+  note        String?
+  createdAt   DateTime @default(now())
+  skill       skills   @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@index([skillId])
+  @@index([studentId, skillId])
+}
+
+model student_skills {
+  id         String    @id @default(uuid())
+  studentId  String
+  skillId    String
+  currentExp Int       @default(0)
+  level      Int       @default(0)
+  unlockedAt DateTime?
+  levelUpAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  skill      skills    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  students   students  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, skillId])
+  @@index([studentId])
+}
+
 enum ChallengeStatus {
   DRAFT
   ACTIVE
@@ -534,187 +695,3 @@ enum TaskType {
   HABIT
   SKILL
 }
-
-// 🆕 阅读书籍表（按学生管理）
-model reading_books {
-  id          String         @id @default(uuid())
-  schoolId    String
-  studentId   String
-  bookName    String
-  totalPages  Int?
-  isActive    Boolean        @default(true)
-  createdAt   DateTime       @default(now())
-  
-  schools     schools        @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-  students    students       @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  logs        reading_logs[]
-  
-  @@index([studentId])
-  @@index([schoolId, studentId])
-}
-
-// 🆕 阅读记录表
-model reading_logs {
-  id          String        @id @default(uuid())
-  bookId      String
-  studentId   String
-  schoolId    String
-  currentPage Int           // 当前读到第几页（进度）
-  duration    Int           // 本次阅读时长（分钟）
-  recordedAt  DateTime      @default(now())
-  recordedBy  String?       // 记录老师ID
-  
-  books       reading_books @relation(fields: [bookId], references: [id], onDelete: Cascade)
-  students    students      @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  schools     schools       @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-  
-  @@index([studentId])
-  @@index([bookId])
-  @@index([schoolId, studentId])
-}
-
-// 🆕 周计划表（家校共同制定）
-model weekly_plans {
-  id           String              @id @default(uuid())
-  studentId    String
-  weekStart    String              // 周一日期，如 "2025-01-06"
-  parentNote   String?             // 家长寄语
-  status       String              @default("ACTIVE") // ACTIVE, COMPLETED
-  createdAt    DateTime            @default(now())
-  updatedAt    DateTime            @updatedAt
-  
-  students     students            @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  items        weekly_plan_items[]
-  
-  @@unique([studentId, weekStart])
-  @@index([studentId])
-}
-
-// 🆕 周计划项目表
-model weekly_plan_items {
-  id          String        @id @default(uuid())
-  planId      String
-  category    String        // METHODOLOGY, GROWTH, HABIT, READING, ERROR_REVIEW
-  title       String
-  metadata    Json?         // 额外信息如书籍ID、目标页数等
-  isCompleted Boolean       @default(false)
-  completedAt DateTime?
-  createdAt   DateTime      @default(now())
-  
-  plan        weekly_plans  @relation(fields: [planId], references: [id], onDelete: Cascade)
-  
-  @@index([planId])
-}
-
-// ==================== 五维内功修炼系统 ====================
-
-// 🆕 学生五维属性表
-model student_stats {
-  id          String   @id @default(uuid())
-  studentId   String   @unique
-  autonomy    Int      @default(0)  // 自主力
-  planning    Int      @default(0)  // 规划力
-  reflection  Int      @default(0)  // 内省力
-  logic       Int      @default(0)  // 逻辑力
-  grit        Int      @default(0)  // 毅力值
-  streak      Int      @default(0)  // 当前连胜天数
-  maxStreak   Int      @default(0)  // 历史最高连胜
-  perfectStreak Int    @default(0)  // 🆕 连捷圣火(Perfect)连胜
-  maxPerfectStreak Int @default(0)  // 🆕 连捷圣火最高纪录
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
-  students    students @relation(fields: [studentId], references: [id], onDelete: Cascade)
-
-  @@index([studentId])
-}
-
-// 🆕 分类连胜记录表
-model category_streaks {
-  id            String   @id @default(uuid())
-  studentId     String
-  category      String   // e.g. "math_calculation", "cn_dictation"
-  currentStreak Int      @default(0)
-  maxStreak     Int      @default(0)
-  updatedAt     DateTime @updatedAt
-  createdAt     DateTime @default(now())
-
-  student       students @relation(fields: [studentId], references: [id], onDelete: Cascade)
-
-  @@unique([studentId, category])
-  @@index([category, currentStreak(sort: Desc)])
-}
-
-// 🆕 连胜分类定义表（支持自定义）
-model streak_category_items {
-  id         String   @id @default(cuid())
-  schoolId   String
-  subject    String   // chinese | math | english
-  name       String   // 显示名称
-  code       String   // 唯一代码
-  isDefault  Boolean  @default(false)
-  createdAt  DateTime @default(now())
-
-  school     schools  @relation(fields: [schoolId], references: [id], onDelete: Cascade)
-
-  @@unique([schoolId, code])
-  @@index([schoolId, subject])
-}
-
-// 🆕 技能定义表（预置数据）
-model skills {
-  id          String   @id @default(uuid())
-  code        String   @unique       // r_color, l_source, a_feynman...
-  name        String                 // 三色修补术, 母题溯源眼...
-  attribute   String                 // reflection, logic, autonomy, planning, grit
-  category    String                 // 内省力, 逻辑力, 自主力, 规划力, 毅力值
-  icon        String?
-  levelData   Json                   // [{lvl:1, exp:5, title:"学徒"}, ...]
-  unlockExp   Int      @default(5)   // L1解锁所需熟练度
-  description String?
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  
-  practices       skill_practices[]
-  studentSkills   student_skills[]
-  
-  @@index([attribute])
-}
-
-// 🆕 技能修炼记录表
-model skill_practices {
-  id          String   @id @default(uuid())
-  studentId   String
-  skillId     String
-  taskId      String?  // 关联任务（可选）
-  expGained   Int      // 本次获得熟练度
-  certifiedBy String?  // 认证老师ID
-  note        String?  // 修炼笔记
-  createdAt   DateTime @default(now())
-  
-  skill       skills   @relation(fields: [skillId], references: [id], onDelete: Cascade)
-  
-  @@index([studentId])
-  @@index([skillId])
-  @@index([studentId, skillId])
-}
-
-// 🆕 学生技能进度表
-model student_skills {
-  id          String    @id @default(uuid())
-  studentId   String
-  skillId     String
-  currentExp  Int       @default(0)  // 当前熟练度
-  level       Int       @default(0)  // 当前等级(0=未解锁, 1=L1, 2=L2, 3=L3)
-  unlockedAt  DateTime?              // 首次解锁时间
-  levelUpAt   DateTime?              // 最近升级时间
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  
-  skill       skills    @relation(fields: [skillId], references: [id], onDelete: Cascade)
-  students    students  @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  
-  @@unique([studentId, skillId])
-  @@index([studentId])
-}
-

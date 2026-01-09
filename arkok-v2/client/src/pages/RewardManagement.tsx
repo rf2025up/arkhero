@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ChevronLeft, Save, RotateCcw, Settings } from 'lucide-react';
+import { ChevronLeft, Save, RotateCcw, Settings, Flame, Info } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api.service';
 
@@ -23,6 +23,7 @@ const RewardManagement: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
+  const [multiplier, setMultiplier] = useState(1.0);
 
   // 获取奖励配置
   const fetchConfigs = async () => {
@@ -45,6 +46,19 @@ const RewardManagement: React.FC = () => {
       setMessage('获取配置失败，请重试');
     } finally {
       setLoading(false);
+    }
+  };
+
+  // 获取倍率
+  const fetchMultiplier = async () => {
+    if (!user?.schoolId) return;
+    try {
+      const response = await apiService.get(`/reward/multiplier/${user.schoolId}`);
+      if (response.success) {
+        setMultiplier(response.data as number || 1.0);
+      }
+    } catch (error) {
+      console.error('获取倍率失败:', error);
     }
   };
 
@@ -90,6 +104,12 @@ const RewardManagement: React.FC = () => {
 
       const response = await apiService.patch(`/reward/configs/${user?.schoolId}/batch`, { updates });
 
+      // 保存倍率
+      await apiService.post('/reward/multiplier', {
+        schoolId: user?.schoolId,
+        multiplier
+      });
+
       if (response.success) {
         setMessage('保存成功！');
         setTimeout(() => setMessage(''), 2000);
@@ -115,6 +135,7 @@ const RewardManagement: React.FC = () => {
 
   useEffect(() => {
     fetchConfigs();
+    fetchMultiplier();
   }, [user, token]);
 
   // 按模块分组
@@ -185,6 +206,48 @@ const RewardManagement: React.FC = () => {
             <RotateCcw size={16} />
             重置
           </button>
+        </div>
+
+        {/* 🆕 全局经验倍率控制 */}
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <div className="p-2 bg-orange-50 rounded-lg text-orange-500">
+                <Flame size={20} />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-slate-800">全服升级倍率</h3>
+                <p className="text-[10px] text-slate-400 font-medium">调整全校学生升级所需的经验系数</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-50 rounded-full border border-slate-100">
+              <span className="text-[10px] font-bold text-slate-400">当前:</span>
+              <span className="text-sm font-black text-orange-500 italic">x{multiplier.toFixed(1)}</span>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] font-bold text-slate-400 w-8">极快</span>
+              <input
+                type="range"
+                min="0.5"
+                max="2.0"
+                step="0.1"
+                value={multiplier}
+                onChange={(e) => setMultiplier(parseFloat(e.target.value))}
+                className="flex-1 h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-orange-500"
+              />
+              <span className="text-[10px] font-bold text-slate-400 w-8 text-right">极慢</span>
+            </div>
+
+            <div className="bg-blue-50/50 border border-blue-100/50 rounded-xl p-3 flex gap-2">
+              <Info size={14} className="text-blue-500 shrink-0 mt-0.5" />
+              <p className="text-[10px] text-blue-600 font-medium leading-relaxed">
+                倍率越小升级越快。例如 0.5 表示学生只需一半经验即可升级；2.0 表示需要双倍经验。默认为 1.0。
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* 消息提示 */}

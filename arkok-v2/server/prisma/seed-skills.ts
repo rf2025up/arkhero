@@ -66,7 +66,7 @@ const skillsData = [
         levelData: [{ lvl: 1, exp: 3, title: '小助教' }, { lvl: 2, exp: 15, title: '讲坛新秀' }, { lvl: 3, exp: 40, title: '传道教授' }]
     },
     {
-        code: 'a_bloom', name: '字字开花', attribute: 'autonomy', category: '自主力',
+        code: 'a_bloom', name: '语感爆棚手', attribute: 'autonomy', category: '自主力',
         levelData: [{ lvl: 1, exp: 10, title: '采花童' }, { lvl: 2, exp: 50, title: '词汇库' }, { lvl: 3, exp: 200, title: '博学文曲' }]
     },
     {
@@ -96,7 +96,7 @@ const skillsData = [
         levelData: [{ lvl: 1, exp: 5, title: '探路者' }, { lvl: 2, exp: 20, title: '先锋官' }, { lvl: 3, exp: 50, title: '预知未来' }]
     },
     {
-        code: 'p_bag', name: '粮草先行官', attribute: 'planning', category: '规划力',
+        code: 'p_bag', name: '收纳卫士', attribute: 'planning', category: '规划力',
         levelData: [{ lvl: 1, exp: 7, title: '整理员' }, { lvl: 2, exp: 30, title: '管家' }, { lvl: 3, exp: 90, title: '井井有条' }]
     },
     {

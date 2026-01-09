@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { getStreakCategory } from '../utils/streakMapping';
+import { isStreakMilestone } from '../config/skillMapping.config';
 
 // 任务分类代码常量
 export const STREAK_CATEGORIES = {
@@ -33,7 +34,7 @@ export class CategoryStreakService {
         const streakCat = getStreakCategory(taskTitle);
         if (!streakCat) {
             // 如果不在基础映射中，检查是否有自定义的精确匹配
-            // 这里我们暂时跳过，只支持“依照基础过关项”的规则
+            // 这里我们暂时跳过，只支持"依照基础过关项"的规则
             return null;
         }
 
@@ -74,6 +75,22 @@ export class CategoryStreakService {
                 update: { currentStreak: newStreak, maxStreak: newMax },
                 create: { studentId, category, currentStreak: newStreak, maxStreak: newMax }
             });
+
+            // 🆕 连胜里程碑奖励 g_streak (薪火相传)
+            if (isStreakMilestone(newStreak)) {
+                try {
+                    const { skillService } = await import('./skill.service');
+                    console.log(`🔥 [STREAK_SERVICE] 连胜${newStreak}次里程碑达成 (${category})，奖励 g_streak`);
+                    await skillService.recordPractice({
+                        studentId,
+                        skillCode: 'g_streak',
+                        certifiedBy: 'SYSTEM',
+                        note: `连胜${newStreak}次 - ${category}`
+                    });
+                } catch (e) {
+                    console.error('❌ [STREAK_SERVICE] g_streak 奖励失败:', e);
+                }
+            }
 
             return { currentStreak: result.currentStreak, maxStreak: result.maxStreak };
         } else {

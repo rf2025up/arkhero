@@ -60,8 +60,21 @@ const ExperienceAccounts = () => {
 
     return (
         <div className="min-h-screen bg-[#FFF8F4] text-[#2D2D2F] font-sans selection:bg-orange-100 selection:text-orange-600 pb-20 overflow-x-hidden">
-            {/* 全功能说明书入口 */}
-            <div className="fixed top-6 right-6 z-[100]">
+            {/* 文档入口按钮组 */}
+            <div className="fixed top-6 right-6 z-[100] flex gap-3">
+                {/* 新手村向导 */}
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                        window.open('/新手村向导.html', '_blank');
+                    }}
+                    className="flex items-center gap-2 bg-gradient-to-r from-orange-400 to-rose-400 px-6 py-3 rounded-2xl shadow-2xl border border-white/50 text-white font-black text-sm group transition-all hover:shadow-orange-200/50"
+                >
+                    <Sparkles size={18} className="group-hover:rotate-12 transition-transform" />
+                    <span>新手村向导</span>
+                </motion.button>
+                {/* 全功能说明书 */}
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -74,6 +87,7 @@ const ExperienceAccounts = () => {
                     <span>全功能说明书</span>
                 </motion.button>
             </div>
+
 
             {/* 动态背景 */}
             <div className="fixed inset-0 pointer-events-none z-0">

@@ -80,6 +80,7 @@ export interface BigscreenStudent {
   name: string;
   avatarUrl?: string;
   level: number;
+  levelTitle?: string;  // 🆕 等级称号
   exp: number;
   expProgress: number;      // 当前等级进度 0-100
   expForNextLevel: number;  // 下一级所需经验
@@ -88,18 +89,17 @@ export interface BigscreenStudent {
   perfectStreak: number; // 🆕 连胜火焰
 }
 
-// 辅助函数：计算等级进度
-function calculateLevelProgress(exp: number) {
-  const level = Math.floor(Math.sqrt(exp / 100)) + 1;
-  const currentLevelExp = 100 * Math.pow(level - 1, 2);
-  const nextLevelExp = 100 * Math.pow(level, 2);
-  const expForNextLevel = nextLevelExp - currentLevelExp;
-  const expProgress = Math.min(100, Math.max(0, Math.floor(((exp - currentLevelExp) / expForNextLevel) * 100)));
+// 辅助函数：计算等级进度（使用新的等级配置）
+function calculateLevelProgress(exp: number, multiplier: number = 1.0) {
+  const { getLevelInfo } = require('../config/levelConfig');
+  const info = getLevelInfo(exp, multiplier);
 
   return {
-    level,
-    expProgress,
-    expForNextLevel
+    level: info.level,
+    levelTitle: info.title,
+    expProgress: info.progress,
+    expForNextLevel: info.expNeededForNext,
+    isMaxLevel: info.isMaxLevel
   };
 }
 
@@ -128,6 +128,7 @@ export interface ChallengeResult {
 export interface ActivityItem {
   id: string;
   type: 'task' | 'habit' | 'badge' | 'challenge' | 'pk' | 'progress' | 'methodology' | 'growth' | 'personalized' | 'special';
+  studentId: string; // 🆕 新增
   studentName: string;
   content: string;
   expAwarded: number;
@@ -136,10 +137,12 @@ export interface ActivityItem {
 
 export interface BadgeItem {
   id: string;
+  studentId: string; // 🆕 新增
   badgeName: string;
   badgeIcon: string;
   badgeDescription: string;
   studentName: string;
+  studentAvatar?: string; // 🆕 新增
   earnedAt: string;
 }
 
@@ -290,17 +293,25 @@ export default class DashboardService {
       })
     ]);
 
+    // 0. 获取倍率设置
+    const school = await this.prisma.schools.findUnique({
+      where: { id: schoolId },
+      select: { settings: true }
+    });
+    const multiplier = (school?.settings as any)?.expMultiplier || 1.0;
+
     // 处理学生数据
     const studentsData = allStudentsResult.status === 'fulfilled' ? allStudentsResult.value : [];
 
     // 1. 先计算所有人的真实等级与进度
     let students: BigscreenStudent[] = studentsData.map((s) => {
-      const progress = calculateLevelProgress(s.exp);
+      const progress = calculateLevelProgress(s.exp, multiplier);
       return {
         id: s.id,
         name: s.name,
         avatarUrl: s.avatarUrl || undefined,
         level: progress.level,
+        levelTitle: progress.levelTitle,  // 🆕 等级称号
         exp: s.exp,
         expProgress: progress.expProgress,
         expForNextLevel: progress.expForNextLevel,
@@ -458,6 +469,7 @@ export default class DashboardService {
       return {
         id: t.id,
         type: (categoryMap[t.task_category] || 'task') as any,
+        studentId: t.studentId, // 🆕 新增
         studentName: (t as any).students?.name || '未知',
         content: label + title,
         expAwarded: t.expAwarded || 0,
@@ -469,6 +481,7 @@ export default class DashboardService {
     const habitActivities: ActivityItem[] = habitLogsData.map((h: any) => ({
       id: h.id,
       type: 'habit' as any,
+      studentId: h.studentId, // 🆕 新增
       studentName: h.students?.name || '未知',
       content: `【习惯打卡】${h.habits?.name || '打卡'} (连续${h.streakDays}天)`,
       expAwarded: 10,
@@ -478,7 +491,7 @@ export default class DashboardService {
     // 获取阅读日志数据
     const readingLogs = await this.prisma.reading_logs.findMany({
       where: { schoolId, recordedAt: { gte: today } },
-      include: { students: { select: { name: true } }, books: { select: { bookName: true } } },
+      include: { students: { select: { id: true, name: true } }, books: { select: { bookName: true } } },
       orderBy: { recordedAt: 'desc' },
       take: 20
     });
@@ -487,6 +500,7 @@ export default class DashboardService {
     const readingActivities: ActivityItem[] = readingLogs.map((r: any) => ({
       id: r.id,
       type: 'progress' as any,
+      studentId: r.studentId, // 🆕 新增
       studentName: r.students?.name || '未知',
       content: `【阅读记录】《${r.books?.bookName || '书籍'}》 ${r.duration}分钟`,
       expAwarded: Math.floor(r.duration / 5) * 5,
@@ -502,10 +516,12 @@ export default class DashboardService {
     const badgesData = recentBadgesResult.status === 'fulfilled' ? recentBadgesResult.value : [];
     const recentBadgesList: BadgeItem[] = badgesData.map(b => ({
       id: b.id,
+      studentId: b.studentId, // 🆕 新增
       badgeName: (b as any).badges?.name || '勋章',
       badgeIcon: (b as any).badges?.icon || '🏅',
       badgeDescription: (b as any).badges?.description || '在相应领域表现优异，获得此项荣誉。继续加油！',
       studentName: (b as any).students?.name || '未知',
+      studentAvatar: (b as any).students?.avatarUrl || undefined, // 🆕 新增
       earnedAt: b.awardedAt.toISOString()
     }));
 

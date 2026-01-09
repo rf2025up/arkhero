@@ -246,7 +246,10 @@ export class LMSService {
 
       // 英语过关项
       { id: require('crypto').randomUUID(), schoolId: 'default', name: '单词默写', educationalDomain: 'PROGRESS', educationalSubcategory: '英语过关', category: '英语过关', defaultExp: 8, difficulty: 2, type: 'QC' as const, description: '本单元单词默写', updatedAt: new Date() },
-      { id: require('crypto').randomUUID(), schoolId: 'default', name: '听力理解', educationalDomain: 'PROGRESS', educationalSubcategory: '英语过关', category: '英语过关', defaultExp: 8, difficulty: 2, type: 'QC' as const, description: '英语听力理解训练', updatedAt: new Date() }
+      { id: require('crypto').randomUUID(), schoolId: 'default', name: '听力理解', educationalDomain: 'PROGRESS', educationalSubcategory: '英语过关', category: '英语过关', defaultExp: 8, difficulty: 2, type: 'QC' as const, description: '英语听力理解训练', updatedAt: new Date() },
+
+      // 核心教学法 (METHODOLOGY)
+      { id: require('crypto').randomUUID(), schoolId: 'default', name: '字字开花', educationalDomain: 'METHODOLOGY', educationalSubcategory: '语文学科能力', category: '语文学科能力', defaultExp: 10, difficulty: 2, type: 'METHODOLOGY' as const, description: '词语积累与拓展，丰富语言素材', updatedAt: new Date() }
     ];
 
     console.log(`🌱[LMS_SERVICE] 正在创建 ${defaultTasks.length} 个默认任务...`);
@@ -757,6 +760,37 @@ export class LMSService {
       where: { id: { in: recordIds } },
       select: { id: true, studentId: true, type: true, title: true, schoolId: true, content: true },
     });
+
+    // 🆕 技能映射自动认证 (仅当状态为 COMPLETED 或 PASSED 时)
+    if (status === 'COMPLETED' || status === 'PASSED') {
+      const { getSkillCodeByTask } = await import('../config/skillMapping.config');
+      const { skillService } = await import('./skill.service');
+
+      for (const record of records) {
+        const taskName = record.title;
+        const skillCode = getSkillCodeByTask(taskName);
+
+        if (skillCode) {
+          try {
+            // 特殊处理：重新过关使用专门的方法
+            if (taskName === '重新过关') {
+              await skillService.awardRetrySkill(record.studentId, taskName, userId);
+            } else {
+              await skillService.recordPractice({
+                studentId: record.studentId,
+                skillCode,
+                certifiedBy: userId,
+                taskId: record.id,
+                note: `任务完成自动认证: ${taskName}`
+              });
+            }
+            console.log(`✅ [LMS_SERVICE] 技能自动认证: ${taskName} -> ${skillCode}`);
+          } catch (e) {
+            console.error(`❌ [LMS_SERVICE] 技能认证失败: ${taskName}`, e);
+          }
+        }
+      }
+    }
 
     // 注：连胜更新已移至独立的连胜抽屉，不再与基础过关绑定
 

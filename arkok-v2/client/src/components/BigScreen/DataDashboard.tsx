@@ -5,6 +5,7 @@ import { apiService } from '../../services/api.service';
 import { useSearchParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import ScaleContainer from './ScaleContainer';
+import StudentDetailOverlay from './StudentDetailOverlay';
 
 // 🆕 从 localStorage 获取用户信息（数据隔离关键）
 const getUserInfo = () => {
@@ -25,6 +26,7 @@ interface Student {
     name: string;
     avatarUrl?: string;
     level: number;
+    levelTitle?: string;  // 🆕 等级称号
     exp: number;
     expProgress: number;
     expForNextLevel: number;
@@ -55,6 +57,7 @@ interface ChallengeResult {
 interface ActivityItem {
     id: string;
     type: 'habit' | 'badge' | 'challenge' | 'pk' | 'progress' | 'methodology' | 'growth' | 'personalized' | 'special' | 'task';
+    studentId: string; // 🆕 新增
     studentName: string;
     content: string;
     expAwarded: number;
@@ -63,10 +66,12 @@ interface ActivityItem {
 
 interface BadgeItem {
     id: string;
+    studentId: string; // 🆕 新增
     badgeName: string;
     badgeIcon: string;
     badgeDescription: string;
     studentName: string;
+    studentAvatar?: string; // 🆕 新增
     earnedAt: string;
 }
 
@@ -225,6 +230,7 @@ const DataDashboard: React.FC = () => {
     const [scrollIndex, setScrollIndex] = useState(0);
     const [pkIndex, setPkIndex] = useState(0);
     const [recentAchievements, setRecentAchievements] = useState<any[]>([]);
+    const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
 
     useEffect(() => {
         const socket = io();
@@ -307,7 +313,7 @@ const DataDashboard: React.FC = () => {
         );
     }
 
-    const currentPK = data?.pkResults[pkIndex];
+    const currentPK = data?.pkResults?.[pkIndex];
 
     return (
         <div className="w-screen h-screen overflow-hidden text-white flex flex-col p-[1.5vh] px-[1vw] pt-[7.5vh] gap-[1.5vh]"
@@ -337,15 +343,18 @@ const DataDashboard: React.FC = () => {
 
                     <div className="flex-1 flex flex-col min-h-0">
                         {/* 冠军面板 */}
-                        {data?.students[0] && (
-                            <div className="mb-[2vh] text-center shrink-0">
+                        {data?.students?.[0] && (
+                            <div
+                                className="mb-[2vh] text-center shrink-0 cursor-pointer hover:scale-105 transition-transform"
+                                onClick={() => setSelectedStudentId(data?.students?.[0]?.id)}
+                            >
                                 <div className="relative inline-block mb-[1vh]">
                                     <div className="absolute -top-[2vh] left-1/2 -translate-x-1/2 z-20">
                                         <span className="text-[4vh]">👑</span>
                                     </div>
                                     <div className="w-[10vh] h-[10vh] rounded-full border-4 border-yellow-500/50 p-1 bg-slate-900 shadow-[0_0_25px_rgba(234,179,8,0.3)] relative">
                                         <img
-                                            src={data.students[0].avatarUrl || "/avatar.jpg"}
+                                            src={data?.students?.[0]?.avatarUrl || "/avatar.jpg"}
                                             className="w-full h-full rounded-full object-cover"
                                         />
                                         {/* 🆕 冠军连胜火焰 - 更大更显眼 */}
@@ -356,17 +365,15 @@ const DataDashboard: React.FC = () => {
                                     </div>
                                 </div>
                                 <h3 className="text-[2vh] font-bold tracking-wide text-white flex items-center justify-center gap-2">
-                                    {data.students[0].name}
-                                    <span className="lv-tag-gold text-[1.2vh] px-2 py-0.5">Lv.{data.students[0].level}</span>
+                                    {data?.students?.[0]?.name}
+                                    <span className="lv-tag-gold text-[1.2vh] px-2 py-0.5">Lv.{data?.students?.[0]?.level}</span>
                                 </h3>
-                                <div className="mt-[1vh] px-4">
-                                    <div className="flex justify-between text-[1.2vh] mb-1">
-                                        <span className="text-slate-400 font-bold">等级经验值</span>
-                                        <span className="text-blue-400 font-mono">{data.students[0].expProgress}%</span>
-                                    </div>
-                                    <div className="h-[0.8vh] bg-slate-800 rounded-full overflow-hidden border border-white/5">
+                                {/* 简化显示：只显示称号和进度条 */}
+                                <p className="text-yellow-400 text-[1.4vh] mt-1">{data?.students?.[0]?.levelTitle || ''}</p>
+                                <div className="mt-[1vh] px-4 w-full">
+                                    <div className="h-[0.6vh] bg-slate-800 rounded-full overflow-hidden border border-white/5">
                                         <div className="h-full bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                                            style={{ width: `${data.students[0].expProgress}%` }} />
+                                            style={{ width: `${data?.students?.[0]?.expProgress || 0}%` }} />
                                     </div>
                                 </div>
                             </div>
@@ -392,7 +399,11 @@ const DataDashboard: React.FC = () => {
                                             displayStudents.push(restStudents[(startIdx + i) % restStudents.length]);
                                         }
                                         return displayStudents.map((student) => (
-                                            <div key={student.id} className="flex items-center gap-[1vw] p-[1vh] rounded-xl bg-white/5 border border-white/5">
+                                            <div
+                                                key={student.id}
+                                                onClick={() => setSelectedStudentId(student?.id)}
+                                                className="flex items-center gap-[1vw] p-[1vh] rounded-xl bg-white/5 border border-white/5 cursor-pointer hover:bg-white/10 transition-colors"
+                                            >
                                                 <div className="font-mono text-[1.8vh] font-bold text-slate-500 w-[2vw] text-center">
                                                     {String(student.rank).padStart(2, '0')}
                                                 </div>
@@ -450,16 +461,19 @@ const DataDashboard: React.FC = () => {
                                             exit={{ opacity: 0, scale: 0.9 }}
                                             className="flex items-center justify-between w-full px-[4vw] mt-[2vh]"
                                         >
-                                            <div className="flex flex-col items-center flex-1">
+                                            <div
+                                                className="flex flex-col items-center flex-1 cursor-pointer group"
+                                                onClick={() => currentPK?.winner?.id && setSelectedStudentId(currentPK.winner.id)}
+                                            >
                                                 <div className="relative">
                                                     <div className="absolute -top-[3vh] left-1/2 -translate-x-1/2 text-yellow-400 drop-shadow-lg animate-bounce z-20">
                                                         <span className="text-[3vh]">👑</span>
                                                     </div>
-                                                    <div className="w-[10vh] h-[10vh] rounded-full border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.5)] overflow-hidden">
+                                                    <div className="w-[10vh] h-[10vh] rounded-full border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.5)] overflow-hidden group-hover:scale-110 transition-transform">
                                                         <img src={currentPK.winner.avatarUrl || '/avatar.jpg'} className="w-full h-full object-cover" />
                                                     </div>
                                                 </div>
-                                                <div className="mt-[1vh] text-[2.5vh] font-bold text-white text-center whitespace-nowrap">{currentPK.winner.name}</div>
+                                                <div className="mt-[1vh] text-[2.5vh] font-bold text-white text-center whitespace-nowrap group-hover:text-yellow-400 transition-colors">{currentPK.winner.name}</div>
                                             </div>
 
                                             <div className="flex flex-col items-center gap-[1vh] mx-[2vw] shrink-0">
@@ -472,11 +486,14 @@ const DataDashboard: React.FC = () => {
                                                 </div>
                                             </div>
 
-                                            <div className="flex flex-col items-center flex-1">
-                                                <div className="w-[10vh] h-[10vh] rounded-full border-4 border-slate-600 grayscale brightness-50 overflow-hidden">
+                                            <div
+                                                className="flex flex-col items-center flex-1 cursor-pointer group"
+                                                onClick={() => currentPK?.loser?.id && setSelectedStudentId(currentPK.loser.id)}
+                                            >
+                                                <div className="w-[10vh] h-[10vh] rounded-full border-4 border-slate-600 grayscale brightness-50 overflow-hidden group-hover:grayscale-0 group-hover:brightness-100 transition-all">
                                                     <img src={currentPK.loser.avatarUrl || '/avatar.jpg'} className="w-full h-full object-cover" />
                                                 </div>
-                                                <div className="mt-[1vh] text-[2.5vh] font-bold text-slate-500 text-center whitespace-nowrap">{currentPK.loser.name}</div>
+                                                <div className="mt-[1vh] text-[2.5vh] font-bold text-slate-500 text-center whitespace-nowrap group-hover:text-slate-300 transition-colors">{currentPK.loser.name}</div>
                                             </div>
                                         </motion.div>
                                     </AnimatePresence>
@@ -501,7 +518,7 @@ const DataDashboard: React.FC = () => {
                                 </div>
                             ) : (
                                 <div className="absolute inset-0 overflow-y-auto pr-2 custom-scrollbar space-y-[2vh] py-[1vh]"> {/* 增加间距 */}
-                                    {data?.publicBounties.slice(0, LIMITS.BOUNTIES).map((bounty, idx) => (
+                                    {data?.publicBounties?.slice(0, LIMITS.BOUNTIES).map((bounty, idx) => (
                                         <div key={idx} className={`task-card ${idx === 0 ? 'gold' : ''} p-[2vh]`}> {/* 增加卡片内边距 */}
                                             <div className="flex items-center">
                                                 <div className="task-icon-box w-[5vh] h-[5vh] text-[2.5vh] text-blue-200 mr-[1.5vw]">
@@ -575,7 +592,14 @@ const DataDashboard: React.FC = () => {
                                         const label = labelMatch ? labelMatch[0] : activity.content;
 
                                         return (
-                                            <div key={activity.id} className="flex items-center gap-[0.8vh] py-[1vh] px-[0.5vw] rounded-xl hover:bg-white/5 transition-colors">
+                                            <div
+                                                key={activity.id}
+                                                className="flex items-center gap-[0.8vh] py-[1vh] px-[0.5vw] rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+                                                onClick={() => {
+                                                    // 注意：activity 应该包含 studentId，如果没有则需要后端补充
+                                                    if ((activity as any).studentId) setSelectedStudentId((activity as any).studentId);
+                                                }}
+                                            >
                                                 {/* 蓝色圆点指示器 */}
                                                 <div className="w-[1.2vh] h-[1.2vh] rounded-full bg-cyan-400 shrink-0 shadow-lg shadow-cyan-400/50" />
 
@@ -604,7 +628,7 @@ const DataDashboard: React.FC = () => {
                         <div className="flex-1 overflow-hidden relative">
                             <AnimatePresence>
                                 <div className="absolute inset-0 space-y-[0.8vh]">
-                                    {recentAchievements.map((ach) => (
+                                    {(Array.isArray(recentAchievements) ? recentAchievements : []).map((ach) => (
                                         <motion.div
                                             key={`${ach.studentId}-${ach.skillCode}`}
                                             layout
@@ -648,10 +672,14 @@ const DataDashboard: React.FC = () => {
                             transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
                         >
                             {[...data.recentBadges, ...data.recentBadges].map((badge, i) => (
-                                <div key={`${badge.id}-${i}`} className="w-[42vh] h-[16vh] flex-shrink-0 bg-slate-800/80 border border-yellow-500/30 rounded-2xl p-[1.5vh] flex gap-[2vh] items-center shadow-xl group hover:border-yellow-500/60 transition-colors">
+                                <div
+                                    key={`${badge.id}-${i}`}
+                                    className="w-[42vh] h-[16vh] flex-shrink-0 bg-slate-800/80 border border-yellow-500/30 rounded-2xl p-[1.5vh] flex gap-[2vh] items-center shadow-xl group hover:border-yellow-500/60 transition-colors cursor-pointer"
+                                    onClick={() => setSelectedStudentId(badge.studentId)}
+                                >
                                     <div className="flex flex-col items-center gap-[1vh] shrink-0 w-[10vh]">
                                         <div className="w-[9vh] h-[9vh] rounded-full border-2 border-yellow-400/50 p-1 bg-slate-900 shadow-lg group-hover:scale-105 transition-transform">
-                                            <img src="/avatar.jpg" className="w-full h-full rounded-full object-cover" />
+                                            <img src={badge.studentAvatar || "/avatar.jpg"} className="w-full h-full rounded-full object-cover" />
                                         </div>
                                         <div className="text-slate-200 text-[1.5vh] font-bold text-center truncate w-full px-1">{badge.studentName}</div>
                                     </div>
@@ -672,6 +700,15 @@ const DataDashboard: React.FC = () => {
                     )}
                 </div>
             </footer>
+
+            <AnimatePresence>
+                {selectedStudentId && (
+                    <StudentDetailOverlay
+                        studentId={selectedStudentId}
+                        onClose={() => setSelectedStudentId(null)}
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 };
