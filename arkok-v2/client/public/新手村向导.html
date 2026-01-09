@@ -570,7 +570,7 @@
                 <h3 style="color: #fde047;">🟨 自主力技能（6个）</h3>
                 <div class="skill-tags">
                     <span class="skill-tag yellow">费曼传道</span>
-                    <span class="skill-tag yellow">字字开花</span>
+                    <span class="skill-tag yellow">语感爆棚手</span>
                     <span class="skill-tag yellow">素材捕捉手</span>
                     <span class="skill-tag yellow">追问求索心</span>
                     <span class="skill-tag yellow">侠义助人</span>
@@ -583,7 +583,7 @@
                 <div class="skill-tags">
                     <span class="skill-tag green">掌舵规划术</span>
                     <span class="skill-tag green">前哨侦查兵</span>
-                    <span class="skill-tag green">粮草先行官</span>
+                    <span class="skill-tag green">收纳卫士</span>
                     <span class="skill-tag green">番茄时钟法</span>
                     <span class="skill-tag green">要事第一策</span>
                 </div>
@@ -683,8 +683,65 @@
 
             <div class="inner-card"
                 style="background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.1);">
-                <h4 style="color: #3b82f6;">2️⃣ 维度等级</h4>
-                <p style="color: #64748b; margin-bottom: 12px;">每个维度有独立等级，反映该维度的深入程度</p>
+                <h4 style="color: #3b82f6;">2️⃣ 五维内功维度等级</h4>
+                <p style="color: #64748b; margin-bottom: 16px;">每个维度（内省力、逻辑力、自主力、规划力、毅力值）都有独立的5级成长体系，反映该维度的深入程度。</p>
+
+                <!-- 五维标识 -->
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <span class="skill-tag red">🟥 内省力</span>
+                    <span class="skill-tag blue">🟦 逻辑力</span>
+                    <span class="skill-tag yellow">🟨 自主力</span>
+                    <span class="skill-tag green">🟩 规划力</span>
+                    <span class="skill-tag orange">🟧 毅力值</span>
+                </div>
+
+                <!-- 以内省力为例 -->
+                <div
+                    style="background: linear-gradient(135deg, #fef2f2, #fecaca); padding: 20px; border-radius: 20px; margin-bottom: 16px;">
+                    <div style="font-weight: 800; color: #dc2626; margin-bottom: 12px; font-size: 0.9rem;">📌 以「内省力」为例：
+                    </div>
+                    <div class="table-wrapper" style="margin: 0;">
+                        <table style="font-size: 0.85rem;">
+                            <tr>
+                                <th style="background: #fecaca; color: #dc2626;">等级</th>
+                                <th style="background: #fecaca; color: #dc2626;">称号</th>
+                                <th style="background: #fecaca; color: #dc2626;">所需经验值</th>
+                                <th style="background: #fecaca; color: #dc2626;">说明</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.1</strong></td>
+                                <td>学徒</td>
+                                <td>0 经验值</td>
+                                <td>初次接触自我检查</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.2</strong></td>
+                                <td>能手</td>
+                                <td>10 经验值</td>
+                                <td>能主动发现错误</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.3</strong></td>
+                                <td>专家</td>
+                                <td>40 经验值</td>
+                                <td>形成复盘习惯</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.4</strong></td>
+                                <td>大师</td>
+                                <td>80 经验值</td>
+                                <td>深度自我诊断</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.5</strong></td>
+                                <td>首席</td>
+                                <td>150 经验值</td>
+                                <td>内省力登峰造极</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
                 <div class="level-bar">
                     <div class="bar active"></div>
                     <div class="bar active"></div>
@@ -692,14 +749,77 @@
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
-                <p style="font-size: 0.85rem; color: #64748b;">学徒(Lv.1) → 能手(Lv.2) → 专家(Lv.3) → 大师(Lv.4) → 首席(Lv.5)</p>
+                <p style="font-size: 0.85rem; color: #64748b;">显示格式：<strong style="color: #3b82f6;">内省力 Lv.3:
+                        专家</strong></p>
             </div>
+
 
             <div class="inner-card"
                 style="background: rgba(236, 72, 153, 0.05); border-color: rgba(236, 72, 153, 0.1);">
                 <h4 style="color: #ec4899;">3️⃣ 技能等级</h4>
-                <p style="color: #64748b;">单个技能的精通程度，共3级，如：<strong style="color: #ec4899;">三色修补术 - 订正能手 (Lv.2)</strong>
-                </p>
+                <p style="color: #64748b; margin-bottom: 16px;">每个技能有独立的3级精通体系。完成对应任务即可积累技能经验，达到阈值自动升级。</p>
+
+                <!-- 以三色修补术为例 -->
+                <div
+                    style="background: linear-gradient(135deg, #fdf2f8, #fbcfe8); padding: 20px; border-radius: 20px; margin-bottom: 16px;">
+                    <div style="font-weight: 800; color: #be185d; margin-bottom: 12px; font-size: 0.9rem;">📌
+                        以「三色修补术」为例（属于内省力）：</div>
+                    <div class="table-wrapper" style="margin: 0;">
+                        <table style="font-size: 0.85rem;">
+                            <tr>
+                                <th style="background: #fbcfe8; color: #be185d;">等级</th>
+                                <th style="background: #fbcfe8; color: #be185d;">称号</th>
+                                <th style="background: #fbcfe8; color: #be185d;">练习次数</th>
+                                <th style="background: #fbcfe8; color: #be185d;">能力描述</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.1</strong></td>
+                                <td>纠错学徒</td>
+                                <td>5 次</td>
+                                <td>开始使用三色笔区分正误</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.2</strong></td>
+                                <td>订正能手</td>
+                                <td>20 次</td>
+                                <td>能独立完成错题订正</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lv.3</strong></td>
+                                <td>治愈大师</td>
+                                <td>50 次</td>
+                                <td>错题归类分析，形成知识体系</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 技能升级流程 -->
+                <div
+                    style="background: rgba(236, 72, 153, 0.1); padding: 16px; border-radius: 16px; margin-bottom: 16px;">
+                    <div style="font-weight: 800; color: #ec4899; margin-bottom: 8px; font-size: 0.85rem;">⚡ 技能升级流程：
+                    </div>
+                    <div
+                        style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.85rem; color: #64748b;">
+                        <span style="background: white; padding: 6px 12px; border-radius: 8px;">完成"红笔订正"任务</span>
+                        <span style="color: #ec4899;">→</span>
+                        <span style="background: white; padding: 6px 12px; border-radius: 8px;">三色修补术 +1 次</span>
+                        <span style="color: #ec4899;">→</span>
+                        <span style="background: white; padding: 6px 12px; border-radius: 8px;">达到阈值自动升级</span>
+                        <span style="color: #ec4899;">→</span>
+                        <span
+                            style="background: #ec4899; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 700;">🎉
+                            大屏通知</span>
+                    </div>
+                </div>
+
+                <div class="level-bar">
+                    <div class="bar active" style="background: linear-gradient(135deg, #ec4899, #be185d);"></div>
+                    <div class="bar active" style="background: linear-gradient(135deg, #ec4899, #be185d);"></div>
+                    <div class="bar"></div>
+                </div>
+                <p style="font-size: 0.85rem; color: #64748b;">显示格式：<strong style="color: #ec4899;">三色修补术 - 订正能手
+                        (Lv.2)</strong></p>
             </div>
         </div>
 
@@ -712,37 +832,37 @@
                     <tr>
                         <th>经验来源</th>
                         <th>影响范围</th>
-                        <th>单次经验</th>
+                        <th>单次经验值</th>
                     </tr>
                     <tr>
                         <td>QC过关（映射技能）</td>
                         <td>总等级 + 维度 + 技能</td>
-                        <td>1 exp/技能</td>
+                        <td>+1 经验值/技能</td>
                     </tr>
                     <tr>
                         <td>教师手动认证技能</td>
                         <td>总等级 + 维度 + 技能</td>
-                        <td>1 exp/技能</td>
+                        <td>+1 经验值/技能</td>
                     </tr>
                     <tr>
                         <td>连胜里程碑（3/7/14/21/30天）</td>
                         <td>总等级 + 毅力值</td>
-                        <td>10-500 exp</td>
+                        <td>10-500 经验值</td>
                     </tr>
                     <tr>
                         <td>PK获胜</td>
                         <td>仅总等级</td>
-                        <td>10-50 exp</td>
+                        <td>10-50 经验值</td>
                     </tr>
                     <tr>
                         <td>挑战完成</td>
                         <td>仅总等级</td>
-                        <td>20-100 exp</td>
+                        <td>20-100 经验值</td>
                     </tr>
                     <tr>
                         <td>习惯打卡</td>
                         <td>仅总等级</td>
-                        <td>5-15 exp</td>
+                        <td>5-15 经验值</td>
                     </tr>
                 </table>
             </div>
@@ -789,6 +909,333 @@
                         <td>视内容而定</td>
                     </tr>
                 </table>
+            </div>
+        </div>
+
+        <!-- 任务与技能映射 -->
+        <div class="card">
+            <span class="chapter-badge">第七章：任务与技能映射</span>
+            <h2><span class="icon" style="background: #fff7ed; color: #f97316;">🔗</span> 任务与技能对应表</h2>
+            <p>完成以下任务，将自动积累对应技能的练习次数。每个任务都有明确的技能归属。</p>
+
+            <!-- 内省力任务 -->
+            <div class="skill-section">
+                <h3 style="color: #dc2626;">🟥 内省力相关任务</h3>
+                <div class="table-wrapper">
+                    <table style="font-size: 0.85rem;">
+                        <tr>
+                            <th style="background: #fecaca; color: #dc2626; width: 40%;">任务名称</th>
+                            <th style="background: #fecaca; color: #dc2626; width: 30%;">对应技能</th>
+                            <th style="background: #fecaca; color: #dc2626; width: 30%;">能力培养</th>
+                        </tr>
+                        <tr>
+                            <td>用"三色笔法"整理作业</td>
+                            <td>三色修补术</td>
+                            <td>纠错能力、复盘意识</td>
+                        </tr>
+                        <tr>
+                            <td>错题的红笔订正</td>
+                            <td>三色修补术</td>
+                            <td>错误改正、自我检查</td>
+                        </tr>
+                        <tr>
+                            <td>作业的自主检查</td>
+                            <td>雷达自检眼</td>
+                            <td>审题能力、细节关注</td>
+                        </tr>
+                        <tr>
+                            <td>试卷体检法</td>
+                            <td>试卷体检法</td>
+                            <td>问题诊断、盲区发现</td>
+                        </tr>
+                        <tr>
+                            <td>自评当日作业质量</td>
+                            <td>日悟心法</td>
+                            <td>元认知、反思能力</td>
+                        </tr>
+                        <tr>
+                            <td>错题的摘抄与归因</td>
+                            <td>盲区探照灯</td>
+                            <td>规律发现、归纳能力</td>
+                        </tr>
+                        <tr>
+                            <td>记录并解决盲区问题</td>
+                            <td>盲区探照灯</td>
+                            <td>主动求索、查漏补缺</td>
+                        </tr>
+                        <tr>
+                            <td>总结单元错因</td>
+                            <td>盲区探照灯</td>
+                            <td>错因归纳、单元复盘</td>
+                        </tr>
+                        <tr>
+                            <td>填写错题记录单</td>
+                            <td>盲区探照灯</td>
+                            <td>错题积累、问题追踪</td>
+                        </tr>
+                        <tr>
+                            <td>书写工整</td>
+                            <td>细读定身咒</td>
+                            <td>习惯养成、专注力</td>
+                        </tr>
+                        <tr>
+                            <td>圈画审题关键词</td>
+                            <td>细读定身咒</td>
+                            <td>细读能力、审题精准</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 逻辑力任务 -->
+            <div class="skill-section">
+                <h3 style="color: #2563eb;">🟦 逻辑力相关任务</h3>
+                <div class="table-wrapper">
+                    <table style="font-size: 0.85rem;">
+                        <tr>
+                            <th style="background: #bfdbfe; color: #2563eb; width: 40%;">任务名称</th>
+                            <th style="background: #bfdbfe; color: #2563eb; width: 30%;">对应技能</th>
+                            <th style="background: #bfdbfe; color: #2563eb; width: 30%;">能力培养</th>
+                        </tr>
+                        <tr>
+                            <td>错题归类与规律发现</td>
+                            <td>母题溯源眼</td>
+                            <td>归纳总结、模式识别</td>
+                        </tr>
+                        <tr>
+                            <td>用"画图法"理解应用题</td>
+                            <td>思维草图术</td>
+                            <td>可视化思维、建模能力</td>
+                        </tr>
+                        <tr>
+                            <td>用"分步法"讲解数学题</td>
+                            <td>结构解牛刀</td>
+                            <td>思维结构化、逻辑表达</td>
+                        </tr>
+                        <tr>
+                            <td>草稿纸规范使用</td>
+                            <td>思维草图术</td>
+                            <td>思维有序、过程可追溯</td>
+                        </tr>
+                        <tr>
+                            <td>一题多解练习</td>
+                            <td>万能模型卡</td>
+                            <td>发散思维、创造力</td>
+                        </tr>
+                        <tr>
+                            <td>整理易混淆点对比表</td>
+                            <td>异同辨析手</td>
+                            <td>辨析能力、精准理解</td>
+                        </tr>
+                        <tr>
+                            <td>总结解题模型与套路</td>
+                            <td>万能模型卡</td>
+                            <td>举一反三、知识迁移</td>
+                        </tr>
+                        <tr>
+                            <td>阅读理解策略练习</td>
+                            <td>异同辨析手</td>
+                            <td>信息提取、推理能力</td>
+                        </tr>
+                        <tr>
+                            <td>知识总结思维导图</td>
+                            <td>知识串联桥</td>
+                            <td>结构化思维、体系构建</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 自主力任务 -->
+            <div class="skill-section">
+                <h3 style="color: #ca8a04;">🟨 自主力相关任务</h3>
+                <div class="table-wrapper">
+                    <table style="font-size: 0.85rem;">
+                        <tr>
+                            <th style="background: #fef08a; color: #ca8a04; width: 40%;">任务名称</th>
+                            <th style="background: #fef08a; color: #ca8a04; width: 30%;">对应技能</th>
+                            <th style="background: #fef08a; color: #ca8a04; width: 30%;">能力培养</th>
+                        </tr>
+                        <tr>
+                            <td>帮助同学讲解题目</td>
+                            <td>费曼传道</td>
+                            <td>教学相长、巩固理解</td>
+                        </tr>
+                        <tr>
+                            <td>与家长分享学习内容</td>
+                            <td>费曼传道</td>
+                            <td>表达能力、家校联动</td>
+                        </tr>
+                        <tr>
+                            <td>生字词听写</td>
+                            <td>语感爆棚手</td>
+                            <td>词汇积累、书写规范</td>
+                        </tr>
+                        <tr>
+                            <td>字字开花（词语积累）</td>
+                            <td>素材捕捉手</td>
+                            <td>词汇丰富、语言感知</td>
+                        </tr>
+                        <tr>
+                            <td>好词好句摘抄</td>
+                            <td>素材捕捉手</td>
+                            <td>素材积累、语言感知</td>
+                        </tr>
+                        <tr>
+                            <td>阅读成语故事</td>
+                            <td>素材捕捉手</td>
+                            <td>阅读习惯、词汇丰富</td>
+                        </tr>
+                        <tr>
+                            <td>提出有价值的问题</td>
+                            <td>追问求索心</td>
+                            <td>批判性思维、好奇心</td>
+                        </tr>
+                        <tr>
+                            <td>帮助同学</td>
+                            <td>侠义助人</td>
+                            <td>协作能力、热心肠</td>
+                        </tr>
+                        <tr>
+                            <td>集体贡献任务</td>
+                            <td>侠义助人</td>
+                            <td>责任感、集体意识</td>
+                        </tr>
+                        <tr>
+                            <td>生活中的知识应用</td>
+                            <td>生活算术师</td>
+                            <td>知识迁移、实践能力</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 规划力任务 -->
+            <div class="skill-section">
+                <h3 style="color: #16a34a;">🟩 规划力相关任务</h3>
+                <div class="table-wrapper">
+                    <table style="font-size: 0.85rem;">
+                        <tr>
+                            <th style="background: #bbf7d0; color: #16a34a; width: 40%;">任务名称</th>
+                            <th style="background: #bbf7d0; color: #16a34a; width: 30%;">对应技能</th>
+                            <th style="background: #bbf7d0; color: #16a34a; width: 30%;">能力培养</th>
+                        </tr>
+                        <tr>
+                            <td>制定学习计划</td>
+                            <td>掌舵规划术</td>
+                            <td>规划意识、目标管理</td>
+                        </tr>
+                        <tr>
+                            <td>目标设定与回顾</td>
+                            <td>掌舵规划术</td>
+                            <td>PDCA循环、复盘能力</td>
+                        </tr>
+                        <tr>
+                            <td>作文提纲与修改</td>
+                            <td>掌舵规划术</td>
+                            <td>规划表达、迭代优化</td>
+                        </tr>
+                        <tr>
+                            <td>自主预习</td>
+                            <td>前哨侦查兵</td>
+                            <td>主动学习、超前意识</td>
+                        </tr>
+                        <tr>
+                            <td>有效预习并打卡</td>
+                            <td>前哨侦查兵</td>
+                            <td>习惯固化、自律</td>
+                        </tr>
+                        <tr>
+                            <td>离校前的书包整理</td>
+                            <td>收纳卫士</td>
+                            <td>条理性、收纳习惯</td>
+                        </tr>
+                        <tr>
+                            <td>离校前个人卫生清理</td>
+                            <td>收纳卫士</td>
+                            <td>自我管理、整洁意识</td>
+                        </tr>
+                        <tr>
+                            <td>时间管理练习</td>
+                            <td>番茄时钟法</td>
+                            <td>效率意识、专注力</td>
+                        </tr>
+                        <tr>
+                            <td>任务优先级排序</td>
+                            <td>要事第一策</td>
+                            <td>决策能力、要事第一</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 毅力值任务 -->
+            <div class="skill-section">
+                <h3 style="color: #ea580c;">🟧 毅力值相关任务</h3>
+                <div class="table-wrapper">
+                    <table style="font-size: 0.85rem;">
+                        <tr>
+                            <th style="background: #fed7aa; color: #ea580c; width: 40%;">任务名称</th>
+                            <th style="background: #fed7aa; color: #ea580c; width: 30%;">对应技能</th>
+                            <th style="background: #fed7aa; color: #ea580c; width: 30%;">能力培养</th>
+                        </tr>
+                        <tr>
+                            <td>听力理解训练</td>
+                            <td>定力禅修</td>
+                            <td>听觉专注、信息捕捉</td>
+                        </tr>
+                        <tr>
+                            <td>完成专注力训练</td>
+                            <td>定力禅修</td>
+                            <td>静心能力、抗干扰</td>
+                        </tr>
+                        <tr>
+                            <td>健康活力任务</td>
+                            <td>定力禅修</td>
+                            <td>身心平衡、自律</td>
+                        </tr>
+                        <tr>
+                            <td>连续全对（连胜奖励）</td>
+                            <td>薪火相传</td>
+                            <td>坚持不懈、持续积累</td>
+                        </tr>
+                        <tr>
+                            <td>主动举手发言</td>
+                            <td>百折不挠</td>
+                            <td>勇气、不怕失败</td>
+                        </tr>
+                        <tr>
+                            <td>补过/逆袭成功</td>
+                            <td>百折不挠</td>
+                            <td>抗挫折、逆境成长</td>
+                        </tr>
+                        <tr>
+                            <td>口算限时挑战</td>
+                            <td>千锤百炼</td>
+                            <td>速度与准确性、抗压</td>
+                        </tr>
+                        <tr>
+                            <td>单词听写与默写</td>
+                            <td>千锤百炼</td>
+                            <td>记忆巩固、反复练习</td>
+                        </tr>
+                        <tr>
+                            <td>课文朗读与背诵</td>
+                            <td>滴水穿石</td>
+                            <td>语感积累、持续阅读</td>
+                        </tr>
+                        <tr>
+                            <td>课外阅读30分钟</td>
+                            <td>滴水穿石</td>
+                            <td>阅读习惯、日积月累</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <div class="title">💡 小贴士</div>
+                <p>每完成一次任务，对应技能的练习次数 +1。当练习次数达到技能升级阈值时，技能自动升级，大屏实时通知！</p>
             </div>
         </div>
 

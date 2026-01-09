@@ -4,6 +4,7 @@
  */
 
 import _prisma from '../utils/prisma';
+import { isStreakMilestone } from '../config/skillMapping.config';
 const prisma = _prisma as any;  // 绕过 IDE 类型缓存问题
 
 // 五维属性映射
@@ -246,6 +247,17 @@ class SkillService {
                     maxStreak: Math.max(newStreak, stats.maxStreak)
                 }
             });
+
+            // 🆕 连胜里程碑奖励 g_streak (薪火相传)
+            if (isStreakMilestone(newStreak)) {
+                console.log(`🔥 [SKILL_SERVICE] 连胜${newStreak}天里程碑达成，奖励 g_streak`);
+                await this.recordPractice({
+                    studentId,
+                    skillCode: 'g_streak',
+                    certifiedBy: 'SYSTEM',
+                    note: `连胜${newStreak}天里程碑奖励`
+                });
+            }
         } else {
             // 中断连胜
             await prisma.student_stats.update({
@@ -253,6 +265,19 @@ class SkillService {
                 data: { streak: 0 }
             });
         }
+    }
+
+    /**
+     * 🆕 重新过关成功奖励 g_retry (百折不挠)
+     */
+    async awardRetrySkill(studentId: string, taskName: string, certifiedBy: string) {
+        console.log(`💪 [SKILL_SERVICE] 重新过关成功，奖励 g_retry: ${taskName}`);
+        await this.recordPractice({
+            studentId,
+            skillCode: 'g_retry',
+            certifiedBy,
+            note: `重新过关成功: ${taskName}`
+        });
     }
 
     /**

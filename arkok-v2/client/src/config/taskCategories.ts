@@ -61,7 +61,7 @@ export function saveGrowthCategories(categories: CategoryItem[]): void {
 
 // 基础过关标签（固定）
 export const FIXED_QC_ITEMS = {
-    chinese: ['课文背诵', '生字组词', '默写课文', '听写词语', '朗读课文'],
+    chinese: ['课文背诵', '生字组词', '默写课文', '听写词语', '朗读课文', '重新过关'],
     math: ['口算练习', '计算练习', '应用题', '错题订正'],
     english: ['单词默写', '中英互译', '句型背诵', '课文背诵']
 };
