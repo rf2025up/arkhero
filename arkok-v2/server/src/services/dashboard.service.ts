@@ -155,7 +155,14 @@ export interface BigscreenData {
   activities: ActivityItem[];
   recentBadges: BadgeItem[];
   recentSkillUps: any[]; // Define properly if needed, but 'any' works for now
-  publicBounties: { title: string; points: number; exp: number }[];
+  publicBounties: {
+    id: string;
+    title: string;
+    points: number;
+    exp: number;
+    challengerId?: string;
+    challengerName?: string;
+  }[];
 }
 
 export default class DashboardService {
@@ -222,16 +229,35 @@ export default class DashboardService {
         orderBy: { completedAt: 'desc' },
         take: 10,
       }),
-      // 4. 获取当前选课中的“公开悬赏”（CLASS 类型的 ACTIVE 挑战）
-      this.prisma.challenges.findMany({
-        where: {
-          schoolId,
-          type: 'CLASS',
-          status: 'ACTIVE'
-        },
-        orderBy: { startDate: 'desc' },
-        take: 5
-      }),
+      // 4. 获取当前选课中的“公开悬赏”（CLASS 类型的 ACTIVE 挑战，本周内有效）
+      (() => {
+        // 计算本周一和本周日
+        const now = new Date();
+        const dayOfWeek = now.getDay();
+        const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+        const weekStart = new Date(now);
+        weekStart.setDate(now.getDate() + diffToMonday);
+        weekStart.setHours(0, 0, 0, 0);
+
+        return this.prisma.challenges.findMany({
+          where: {
+            schoolId,
+            type: 'CLASS',
+            status: 'ACTIVE',
+            startDate: { gte: weekStart } // 只返回本周内创建的悬赏
+          },
+          include: {
+            challenge_participants: {
+              include: {
+                students: { select: { id: true, name: true } }
+              },
+              take: 1 // 公开悬赏只有一个应战人
+            }
+          },
+          orderBy: { startDate: 'desc' },
+          take: 5
+        });
+      })(),
       // 5. 最近获得的勋章
       this.prisma.student_badges.findMany({
         where: { students: { schoolId } },
@@ -549,11 +575,18 @@ export default class DashboardService {
 
     // 4. 处理公开悬赏
     const bountiesData = activeBountiesResult.status === 'fulfilled' ? activeBountiesResult.value : [];
-    const publicBounties = bountiesData.map(b => ({
-      title: b.title,
-      points: b.rewardPoints,
-      exp: b.rewardExp
-    }));
+    const publicBounties = bountiesData.map((b: any) => {
+      const challenger = b.challenge_participants?.[0];
+      return {
+        id: b.id,
+        title: b.title,
+        description: b.description, // 🆕 返回悬赏说明
+        points: b.rewardPoints,
+        exp: b.rewardExp,
+        challengerId: challenger?.students?.id,
+        challengerName: challenger?.students?.name
+      };
+    });
 
     // 组装最终结果
     const result: BigscreenData = {
