@@ -98,7 +98,7 @@ const ChallengePage: React.FC = () => {
 
     try {
       const challengeUrl = `/challenges?schoolId=${userInfo?.schoolId}`;
-      const studentUrl = `/students?schoolId=${userInfo?.schoolId}&limit=100`;
+      const studentUrl = `/students?schoolId=${userInfo?.schoolId}&limit=100&scope=ALL_SCHOOL`;
 
       // 🚀 SWR 第一阶段
       const [challengesRes, studentsRes] = await Promise.all([
