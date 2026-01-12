@@ -69,6 +69,9 @@ const ChallengePage: React.FC = () => {
     studentIds: [] as string[]
   })
   const [publishMode, setPublishMode] = useState<'PERSONAL' | 'PUBLIC'>('PERSONAL')
+  // 🆕 公开悬赏应战人选择
+  const [selectedChallengerId, setSelectedChallengerId] = useState<string>('')
+  const [showChallengerDropdown, setShowChallengerDropdown] = useState(false)
 
   // 学生选择下拉框 ref (用于点击外部关闭)
   const studentDropdownRef = useRef<HTMLDivElement>(null);
@@ -162,6 +165,8 @@ const ChallengePage: React.FC = () => {
       return;
     }
 
+    // 公开悬赏不需要预先选择应战人，发布后在卡片上添加
+
     setCreateLoading(true);
     try {
       console.log('[DEBUG CHALLENGE] Calling POST /challenges', {
@@ -197,13 +202,15 @@ const ChallengePage: React.FC = () => {
             )
           );
         }
-        // 公开悬赏模式下不添加任何学生参与者，仅作为公示作用
+
+        // 🆕 公开悬赏模式不需要预先添加应战人，待发布后在卡片上选择
 
         toast.success('挑战发布成功！');
         apiService.invalidateCache('/challenges');
         setShowCreateModal(false);
         fetchData(true);
         setNewChallenge({ title: '', description: '', type: 'PERSONAL', rewardPoints: 100, rewardExp: 50, studentIds: [] });
+        setSelectedChallengerId(''); // 🆕 重置应战人选择
       }
     } catch (error) {
       toast.error('发布失败');
@@ -236,12 +243,48 @@ const ChallengePage: React.FC = () => {
     }
   }
 
+  // 🆕 取消公开悬赏（直接将挑战状态设为 COMPLETED，从大屏消失）
+  const handleCancelBounty = async (challengeId: string) => {
+    try {
+      const res = await apiService.put(`/challenges/${challengeId}`, {
+        schoolId: userInfo?.schoolId,
+        status: 'COMPLETED'
+      });
+      if (res.success) {
+        toast.success('悬赏已取消');
+        apiService.invalidateCache('/challenges');
+        fetchData(true);
+      }
+    } catch (error) {
+      toast.error('取消失败');
+    }
+  };
+
+  // 🆕 添加应战人到公开悬赏
+  const handleAddChallenger = async (challengeId: string, studentId: string) => {
+    try {
+      const res = await apiService.post('/challenges/join', {
+        challengeId,
+        studentId,
+        schoolId: userInfo?.schoolId
+      });
+      if (res.success) {
+        toast.success('应战人已添加');
+        apiService.invalidateCache('/challenges');
+        fetchData(true);
+      }
+    } catch (error) {
+      toast.error('添加失败');
+    }
+  };
+
   // 🆕 紧凑型挑战卡片 - 直接显示参与者和成功/失败按钮
   // 🆕 iOS 极简风格挑战卡片 - 横向高密度布局
-  // 子组件：挑战参与者判定列表 (高密度 iOS 风格)
-  const ChallengeParticipants: React.FC<{ challengeId: string, rewardExp: number }> = ({ challengeId, rewardExp }) => {
+  // 子组件：挑战参与者判定列表 (高密度 iOS 风格) + 公开悬赏扩展
+  const ChallengeParticipants: React.FC<{ challengeId: string, rewardExp: number, isPublicBounty?: boolean }> = ({ challengeId, rewardExp, isPublicBounty = false }) => {
     const [cardParticipants, setCardParticipants] = useState<Participant[]>([]);
     const [loadingP, setLoadingP] = useState(false);
+    const [showAddChallenger, setShowAddChallenger] = useState(false);
 
     useEffect(() => {
       const load = async () => {
@@ -267,6 +310,49 @@ const ChallengePage: React.FC = () => {
     }, [challengeId]);
 
     if (loadingP) return <div className="text-[10px] font-bold text-slate-300 py-2 text-center">读取选手中...</div>;
+
+
+    // 🆕 公开悬赏模式：无应战人时显示添加按钮和取消按钮
+    if (isPublicBounty && cardParticipants.length === 0) {
+      return (
+        <div className="space-y-2">
+          {/* 添加应战人下拉 */}
+          <div className="relative">
+            <button
+              onClick={() => setShowAddChallenger(!showAddChallenger)}
+              className="w-full bg-cyan-50 text-cyan-600 rounded-lg p-2 text-[10px] font-bold flex items-center justify-center gap-1"
+            >
+              <Swords size={12} /> 选择应战人
+            </button>
+            {showAddChallenger && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg border shadow-lg z-20 max-h-[150px] overflow-y-auto">
+                {students.map(s => (
+                  <div
+                    key={s.id}
+                    onClick={() => {
+                      handleAddChallenger(challengeId, s.id);
+                      setShowAddChallenger(false);
+                    }}
+                    className="p-2 text-[10px] font-bold text-slate-700 hover:bg-cyan-50 cursor-pointer border-b last:border-b-0"
+                  >
+                    {s.name}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* 取消悬赏按钮 */}
+          <button
+            onClick={() => handleCancelBounty(challengeId)}
+            className="w-full bg-slate-100 text-slate-400 rounded-lg p-2 text-[10px] font-bold"
+          >
+            取消悬赏
+          </button>
+        </div>
+      );
+    }
+
+    // 个人挑战无选手
     if (cardParticipants.length === 0) return <div className="text-[10px] font-bold text-slate-300 py-2 text-center">暂无选手</div>;
 
     return (
@@ -430,26 +516,28 @@ const ChallengePage: React.FC = () => {
               </div>
             )}
 
-            {/* 奖励设置 - 紧凑横排 */}
-            <div className="flex gap-2">
-              <div className="flex-1 bg-slate-50 rounded-lg flex items-center px-3 py-2 gap-1">
-                <Star size={12} className="text-amber-400 fill-amber-400" />
-                <span className="text-[10px] text-slate-400 font-bold">经验</span>
+            {/* 公开悬赏模式 - 发布后在卡片上选择应战人，此处不再选择 */}
+
+            {/* 奖励设置 - 紧凑单行 */}
+            <div className="flex items-center gap-3 text-[10px]">
+              <div className="flex items-center gap-1 bg-slate-50 rounded-md px-2 py-1">
+                <Star size={10} className="text-amber-400 fill-amber-400" />
+                <span className="text-slate-400 font-bold">经验</span>
                 <input
                   type="number"
                   value={newChallenge.rewardExp}
                   onChange={(e) => setNewChallenge({ ...newChallenge, rewardExp: parseInt(e.target.value) || 0 })}
-                  className="w-12 bg-transparent border-none text-sm font-bold text-slate-700 text-right focus:ring-0 outline-none"
+                  className="w-10 bg-transparent border-none text-[11px] font-bold text-slate-700 text-right focus:ring-0 outline-none"
                 />
               </div>
-              <div className="flex-1 bg-slate-50 rounded-lg flex items-center px-3 py-2 gap-1">
-                <Trophy size={12} className="text-orange-500" />
-                <span className="text-[10px] text-slate-400 font-bold">积分</span>
+              <div className="flex items-center gap-1 bg-slate-50 rounded-md px-2 py-1">
+                <Trophy size={10} className="text-orange-500" />
+                <span className="text-slate-400 font-bold">积分</span>
                 <input
                   type="number"
                   value={newChallenge.rewardPoints}
                   onChange={(e) => setNewChallenge({ ...newChallenge, rewardPoints: parseInt(e.target.value) || 0 })}
-                  className="w-12 bg-transparent border-none text-sm font-bold text-slate-700 text-right focus:ring-0 outline-none"
+                  className="w-10 bg-transparent border-none text-[11px] font-bold text-slate-700 text-right focus:ring-0 outline-none"
                 />
               </div>
             </div>
@@ -465,33 +553,36 @@ const ChallengePage: React.FC = () => {
         </section>
 
         <div className="space-y-1.5">
-          {challenges.map(c => (
-            <div key={c.id} className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-50 flex flex-col gap-1.5">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center text-orange-600 text-[9px] font-bold">
-                    {c.type === 'CLASS' ? '班' : '个'}
+          {/* 🆕 根据 publishMode 过滤挑战列表：公开悬赏区只显示 CLASS，个人挑战只显示 PERSONAL */}
+          {challenges
+            .filter(c => publishMode === 'PUBLIC' ? c.type === 'CLASS' : c.type === 'PERSONAL')
+            .map(c => (
+              <div key={c.id} className="bg-white rounded-lg p-2.5 shadow-sm border border-slate-50 flex flex-col gap-1.5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center text-orange-600 text-[9px] font-bold">
+                      {c.type === 'CLASS' ? '班' : '个'}
+                    </div>
+                    <div>
+                      <h3 className="text-[11px] font-bold text-slate-800">{c.title}</h3>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-[11px] font-bold text-slate-800">{c.title}</h3>
+                  <div className="flex items-center gap-1.5">
+                    {c.description && (
+                      <span className="text-[9px] text-slate-400 max-w-[120px] truncate">{c.description}</span>
+                    )}
+                    {c.status === 'COMPLETED' && (
+                      <span className="text-[8px] font-bold text-slate-300 bg-slate-50 px-1 py-0.5 rounded">已结束</span>
+                    )}
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  {c.description && (
-                    <span className="text-[9px] text-slate-400 max-w-[120px] truncate">{c.description}</span>
-                  )}
-                  {c.status === 'COMPLETED' && (
-                    <span className="text-[8px] font-bold text-slate-300 bg-slate-50 px-1 py-0.5 rounded">已结束</span>
-                  )}
-                </div>
-              </div>
 
-              {/* 判定列表 (紧凑型) */}
-              {c.status !== 'COMPLETED' && (
-                <ChallengeParticipants challengeId={c.id} rewardExp={c.rewardExp} />
-              )}
-            </div>
-          ))}
+                {/* 判定列表 (紧凑型) */}
+                {c.status !== 'COMPLETED' && (
+                  <ChallengeParticipants challengeId={c.id} rewardExp={c.rewardExp} isPublicBounty={c.type === 'CLASS'} />
+                )}
+              </div>
+            ))}
 
           {challenges.length === 0 && !loading && (
             <div className="py-16 text-center text-slate-300">

@@ -511,39 +511,50 @@ const DataDashboard: React.FC = () => {
                                     <div className="text-[1.8vh]">暂无全班悬赏任务</div>
                                 </div>
                             ) : (
-                                <div className="absolute inset-0 overflow-y-auto pr-2 custom-scrollbar space-y-[2vh] py-[1vh]"> {/* 增加间距 */}
-                                    {data?.publicBounties.slice(0, LIMITS.BOUNTIES).map((bounty, idx) => (
-                                        <div key={idx} className={`task-card ${idx === 0 ? 'gold' : ''} p-[2vh]`}> {/* 增加卡片内边距 */}
-                                            <div className="flex items-center">
-                                                <div className="task-icon-box w-[5vh] h-[5vh] text-[2.5vh] text-blue-200 mr-[1.5vw]">
+                                <div className="absolute inset-0 overflow-hidden flex flex-col justify-start gap-[1.5vh] py-[1vh]">
+                                    {data?.publicBounties?.slice(0, 3).map((bounty, idx) => (
+                                        <div key={idx} className={`task-card ${idx === 0 ? 'gold' : ''} py-[1.5vh] px-[1.5vh]`}>
+                                            <div className="flex items-center w-full">
+                                                {/* 左侧图标 */}
+                                                <div className="task-icon-box w-[4vh] h-[4vh] text-[2vh] text-blue-200 mr-[1vw] shrink-0">
                                                     {idx === 0 ? '🏆' : '🧩'}
                                                 </div>
-                                                <div className="flex flex-col gap-0.5">
-                                                    <div className="text-[2vh] font-bold text-white tracking-wide">
+                                                {/* 中间：标题+说明（左对齐） */}
+                                                <div className="flex flex-col gap-[0.3vh] flex-1 min-w-0 text-left">
+                                                    <div className="text-[1.8vh] font-bold text-white tracking-wide">
                                                         {bounty.title}
                                                     </div>
-                                                    {idx === 0 && (
-                                                        <div className="flex items-center gap-2 text-[1.4vh] text-slate-400">
-                                                            <div className="w-[6vw] h-[0.6vh] bg-white/10 rounded-full overflow-hidden">
-                                                                <div className="h-full bg-yellow-500 w-[20%]"></div>
-                                                            </div>
-                                                            <span>进行中</span>
+                                                    {(bounty as any).description && (
+                                                        <div className="text-[1.3vh] text-slate-400 leading-snug line-clamp-1">
+                                                            <span className="text-cyan-500 font-bold">悬赏说明:</span> {(bounty as any).description}
                                                         </div>
                                                     )}
                                                 </div>
-                                            </div>
-
-                                            <div className="flex gap-[0.5vw]">
-                                                {bounty.points > 0 && (
-                                                    <div className="reward-tag reward-gold text-[1.6vh] py-[0.8vh] px-[1.2vh]">
-                                                        ⚡ +{bounty.points} 积分
-                                                    </div>
-                                                )}
-                                                {bounty.exp > 0 && (
-                                                    <div className="reward-tag reward-exp text-[1.6vh] py-[0.8vh] px-[1.2vh]">
-                                                        ⬆ +{bounty.exp} 经验
-                                                    </div>
-                                                )}
+                                                {/* 中右：应战人 */}
+                                                <div className="shrink-0 mx-[1vw]">
+                                                    {(bounty as any).challengerName ? (
+                                                        <div className="flex items-center gap-1 text-[1.4vh] text-cyan-300">
+                                                            <span>⚔️</span>
+                                                            <span className="font-bold">{(bounty as any).challengerName}</span>
+                                                            <span className="text-slate-500 text-[1.2vh]">应战中</span>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="text-[1.3vh] text-slate-500 italic">等待应战...</div>
+                                                    )}
+                                                </div>
+                                                {/* 最右侧：奖励（横排一行，右对齐） */}
+                                                <div className="flex gap-[0.5vw] shrink-0 ml-auto justify-end">
+                                                    {bounty.points > 0 && (
+                                                        <div className="reward-tag reward-gold text-[1.2vh] py-[0.4vh] px-[0.8vh]">
+                                                            ⚡ +{bounty.points} 积分
+                                                        </div>
+                                                    )}
+                                                    {bounty.exp > 0 && (
+                                                        <div className="reward-tag reward-exp text-[1.2vh] py-[0.4vh] px-[0.8vh]">
+                                                            ⬆ +{bounty.exp} 经验
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
