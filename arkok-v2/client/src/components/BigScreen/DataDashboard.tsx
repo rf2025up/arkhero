@@ -584,17 +584,18 @@ const DataDashboard: React.FC = () => {
                                         let actionText = '完成';
                                         let suffix = '';
 
-                                        if (activity.type === 'methodology' || activity.content?.includes('点亮')) {
+                                        // ✅ 只有技能升级和成就勋章才显示"点亮"，其他都是"完成"
+                                        if (activity.content?.includes('点亮技能') || activity.content?.includes('技能升级') || activity.content?.includes('勋章授予')) {
                                             actionText = '点亮';
-                                            suffix = ' 成就';
+                                            suffix = '';
                                         } else if (activity.type === 'challenge' || activity.content?.includes('PK') || activity.content?.includes('获胜')) {
                                             actionText = '在';
                                             suffix = '获胜';
                                         }
 
-                                        // 提取标签内容（如【英语单词默写】）
-                                        const labelMatch = activity.content?.match(/【[^】]+】/);
-                                        const label = labelMatch ? labelMatch[0] : activity.content;
+                                        // ✅ 显示完整内容，包含书名、时间等详细信息
+                                        // 移除标签提取，直接显示完整content
+                                        const label = activity.content;
 
                                         return (
                                             <div key={activity.id} className="flex items-center gap-[0.8vh] py-[1vh] px-[0.5vw] rounded-xl hover:bg-white/5 transition-colors">

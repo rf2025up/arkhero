@@ -166,8 +166,14 @@ export class StudentService {
 
       console.log(`[TEACHER BINDING] ✅ Found ${students.length} students for scope: ${scope}`);
 
+      // ✅ 动态计算等级，确保与 exp 一致
+      const studentsWithCalculatedLevel = students.map(student => ({
+        ...student,
+        level: this.calculateLevel(student.exp)
+      }));
+
       return {
-        students: students,
+        students: studentsWithCalculatedLevel,
         pagination: {
           page: query.page || 1,
           limit: query.limit || students.length,
@@ -723,22 +729,32 @@ export class StudentService {
 
         let label = this.getTaskCategoryLabel(category);
         let description = record.title;
+        let displayTitle: string;
 
-        // 特殊处理描述
-        if (category === 'CHALLENGE') {
-          label = '勇敢挑战';
+        // ✅ 根据 category 区分"点亮"和"完成"样式
+        if (category === 'BADGE' || category === 'SKILL') {
+          // 成就勋章、技能升级：使用"点亮"
+          displayTitle = `点亮 ${label}`;
+          if (category === 'BADGE') {
+            description = `授予 ${record.title}`;
+          } else if (category === 'SKILL') {
+            description = record.title;
+          }
+        } else if (category === 'CHALLENGE') {
+          // 挑战任务：特殊处理
+          displayTitle = '勇敢挑战';
           const result = record.status === 'COMPLETED' ? '成功' : '失败';
           description = `${record.title} (${result})`;
-        } else if (category === 'BADGE') {
-          label = '勋章授予';
-          description = `授予 ${record.title}`;
+        } else {
+          // 其他所有任务：使用"完成"
+          displayTitle = `完成 ${label}`;
         }
 
         return {
           id: `task-${record.id}`,
           date: record.createdAt,
           type: 'task',
-          title: label,
+          title: displayTitle,
           description,
           status: record.status,
           exp: record.expAwarded,

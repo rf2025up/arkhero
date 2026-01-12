@@ -947,7 +947,9 @@ const TodayTimeline: React.FC = () => {
                     </div>
                     <div className="text-center bg-white/20 rounded-2xl px-4 py-2 backdrop-blur-sm">
                         <div className="text-xs text-white/80">今日积分</div>
-                        <div className="font-bold text-white text-lg font-mono">+{data?.todayExp || 0}</div>
+                        <div className="font-bold text-white text-lg font-mono">
+                            {data?.todayExp > 0 ? '+' : ''}{data?.todayExp || 0}
+                        </div>
                     </div>
                 </div>
             </div>
