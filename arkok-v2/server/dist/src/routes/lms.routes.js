@@ -212,7 +212,17 @@ class LMSRoutes {
             }
             catch (error) {
                 console.error('❌ Error in POST /api/lms/publish:', error);
-                res.status(500).json({ success: false, message: 'Failed to publish lesson plan', error: error.message });
+                const errorMessage = error.message;
+                // ✅ 特殊处理：老师没有学生的情况
+                if (errorMessage.includes('该老师名下暂无学生')) {
+                    return res.status(400).json({
+                        success: false,
+                        message: '发布失败：您名下暂无学生',
+                        code: 'NO_STUDENTS_ASSIGNED',
+                        hint: '请先在"班级首页"中添加或转入学生，然后再发布备课内容'
+                    });
+                }
+                res.status(500).json({ success: false, message: 'Failed to publish lesson plan', error: errorMessage });
             }
         });
         // 计划列表

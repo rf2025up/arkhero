@@ -456,28 +456,33 @@ export const StudentDetailOverlay: React.FC<StudentDetailOverlayProps> = ({ stud
                             <div className="flex items-center gap-2">
                                 <BookOpen className="text-emerald-400" size={24} /> 阅读进展
                             </div>
-                            <span className="text-slate-500 text-[1.4vh] font-normal">{readingStats?.totalBooks || (readingStats?.books?.length || 0)} 本书</span>
+                            <span className="text-slate-500 text-[1.4vh] font-normal">
+                                {readingStats?.totalBooks || (readingStats?.books?.length || 0)} 本书
+                                {readingStats?.books?.length > 4 && ' (可滚动查看更多)'}
+                            </span>
                         </h3>
-                        <div className="flex-1 overflow-y-auto no-scrollbar grid grid-cols-2 gap-[1.5vh] content-start">
-                            {readingStats?.books?.slice(0, 4).map((book: any, idx: number) => (
-                                <div key={idx} className="bg-white/5 rounded-xl p-[2vh] border border-white/5 flex flex-col justify-between hover:bg-emerald-500/10 transition-colors">
-                                    <div className="flex justify-between items-start mb-3">
-                                        <div className="text-slate-200 font-bold text-[1.8vh] truncate pr-2">{book.name}</div>
-                                        <div className="text-slate-500 text-[1.2vh] whitespace-nowrap font-mono">{book.current}/{book.total}页</div>
-                                    </div>
-                                    <div className="w-full">
-                                        <div className="h-[0.8vh] bg-slate-800 rounded-full overflow-hidden">
-                                            <div
-                                                className="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full"
-                                                style={{ width: `${book.progress}%` }}
-                                            />
+                        <div className="flex-1 overflow-y-auto no-scrollbar pr-1">
+                            <div className="grid grid-cols-2 gap-[1.5vh] content-start">
+                                {readingStats?.books?.map((book: any, idx: number) => (
+                                    <div key={idx} className="bg-white/5 rounded-xl p-[2vh] border border-white/5 flex flex-col justify-between hover:bg-emerald-500/10 transition-colors">
+                                        <div className="flex justify-between items-start mb-3">
+                                            <div className="text-slate-200 font-bold text-[1.8vh] truncate pr-2">{book.name}</div>
+                                            <div className="text-slate-500 text-[1.2vh] whitespace-nowrap font-mono">{book.current}/{book.total}页</div>
+                                        </div>
+                                        <div className="w-full">
+                                            <div className="h-[0.8vh] bg-slate-800 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full"
+                                                    style={{ width: `${book.progress}%` }}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                            {(!readingStats?.books || readingStats.books.length === 0) && (
-                                <div className="col-span-2 text-center text-slate-500 py-8 text-[1.6vh]">暂无阅读数据</div>
-                            )}
+                                ))}
+                                {(!readingStats?.books || readingStats.books.length === 0) && (
+                                    <div className="col-span-2 text-center text-slate-500 py-8 text-[1.6vh]">暂无阅读数据</div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

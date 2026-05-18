@@ -1622,7 +1622,7 @@ export class StudentService {
       }),
       this.prisma.reading_logs.findMany({
         where: { studentId, schoolId },
-        select: { bookId: true, currentPage: true, duration: true }
+        select: { id: true, bookId: true, currentPage: true, duration: true, recordedAt: true }
       })
     ]);
 

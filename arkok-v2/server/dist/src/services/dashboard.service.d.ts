@@ -133,9 +133,12 @@ export interface BigscreenData {
     recentBadges: BadgeItem[];
     recentSkillUps: any[];
     publicBounties: {
+        id: string;
         title: string;
         points: number;
         exp: number;
+        challengerId?: string;
+        challengerName?: string;
     }[];
 }
 export default class DashboardService {

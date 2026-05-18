@@ -114,16 +114,34 @@ class DashboardService {
                 orderBy: { completedAt: 'desc' },
                 take: 10,
             }),
-            // 4. 获取当前选课中的“公开悬赏”（CLASS 类型的 ACTIVE 挑战）
-            this.prisma.challenges.findMany({
-                where: {
-                    schoolId,
-                    type: 'CLASS',
-                    status: 'ACTIVE'
-                },
-                orderBy: { startDate: 'desc' },
-                take: 5
-            }),
+            // 4. 获取当前选课中的“公开悬赏”（CLASS 类型的 ACTIVE 挑战，本周内有效）
+            (() => {
+                // 计算本周一和本周日
+                const now = new Date();
+                const dayOfWeek = now.getDay();
+                const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+                const weekStart = new Date(now);
+                weekStart.setDate(now.getDate() + diffToMonday);
+                weekStart.setHours(0, 0, 0, 0);
+                return this.prisma.challenges.findMany({
+                    where: {
+                        schoolId,
+                        type: 'CLASS',
+                        status: 'ACTIVE',
+                        startDate: { gte: weekStart } // 只返回本周内创建的悬赏
+                    },
+                    include: {
+                        challenge_participants: {
+                            include: {
+                                students: { select: { id: true, name: true } }
+                            },
+                            take: 1 // 公开悬赏只有一个应战人
+                        }
+                    },
+                    orderBy: { startDate: 'desc' },
+                    take: 5
+                });
+            })(),
             // 5. 最近获得的勋章
             this.prisma.student_badges.findMany({
                 where: { students: { schoolId } },
@@ -141,7 +159,19 @@ class DashboardService {
                         in: ['HABIT', 'BADGE', 'CHALLENGE', 'PK', 'PROGRESS', 'METHODOLOGY', 'GROWTH', 'PERSONALIZED', 'SPECIAL', 'TASK']
                     },
                     NOT: {
-                        title: { in: ['手动加分', '移入班级'] }
+                        title: {
+                            in: [
+                                '手动加分',
+                                '手动扣分',
+                                '积分奖励',
+                                '积分扣除',
+                                '移入班级',
+                                '移出班级',
+                                '老师手动调整进度',
+                                '进度修正',
+                                '经验调整'
+                            ]
+                        }
                     }
                 },
                 orderBy: { updatedAt: 'desc' },
@@ -253,10 +283,24 @@ class DashboardService {
         }));
         // 处理实时动态
         const tasksData = recentTasksResult.status === 'fulfilled' ? recentTasksResult.value : [];
+        // 🆕 二次过滤：排除系统操作记录（确保不会显示在实时动态中）
+        const SYSTEM_OPERATION_TITLES = [
+            '手动加分', '手动扣分', '积分奖励', '积分扣除',
+            '移入班级', '移出班级',
+            '老师手动调整进度', '进度修正', '经验调整'
+        ];
+        // 🔍 调试日志：显示过滤前的数据
+        console.log(`🔍 [大屏调试] 过滤前任务数量: ${tasksData.length}`);
+        const systemOperations = tasksData.filter(t => SYSTEM_OPERATION_TITLES.includes(t.title));
+        if (systemOperations.length > 0) {
+            console.log(`⚠️  [大屏调试] 发现${systemOperations.length}条系统操作:`, systemOperations.map(t => t.title));
+        }
+        const filteredTasksData = tasksData.filter(t => !SYSTEM_OPERATION_TITLES.includes(t.title));
+        console.log(`✅ [大屏调试] 过滤后任务数量: ${filteredTasksData.length}`);
         // 获取习惯打卡数据
         const habitLogsData = habitLogsResult.status === 'fulfilled' ? habitLogsResult.value : [];
         // 将 task_records 转换为 activities，带上类型标签
-        const taskActivities = tasksData.map(t => {
+        const taskActivities = filteredTasksData.map(t => {
             const categoryMap = {
                 'HABIT': 'habit', 'BADGE': 'badge', 'CHALLENGE': 'challenge', 'PK': 'pk',
                 'PROGRESS': 'progress', 'METHODOLOGY': 'methodology', 'GROWTH': 'growth',
@@ -283,9 +327,10 @@ class DashboardService {
                 if (normalizedTitle.includes('勋章') || taskCategory === 'BADGE') {
                     return '【成就勋章】';
                 }
-                // 语文类
+                // 语文类（排除方法论类的任务）
                 if (normalizedTitle.includes('生字') || normalizedTitle.includes('课文') || normalizedTitle.includes('背诵') ||
-                    normalizedTitle.includes('听写') || normalizedTitle.includes('古诗') || normalizedTitle.includes('阅读')) {
+                    normalizedTitle.includes('听写') || normalizedTitle.includes('古诗') ||
+                    (normalizedTitle.includes('阅读') && !normalizedTitle.includes('策略') && !normalizedTitle.includes('方法'))) {
                     return '【语文基础】';
                 }
                 // 数学类
@@ -369,10 +414,19 @@ class DashboardService {
             expAwarded: Math.floor(r.duration / 5) * 5,
             timestamp: r.recordedAt.toISOString()
         }));
-        // 合并并按时间排序
+        // 合并并按时间排序，限制最多20条
         const activities = [...taskActivities, ...habitActivities, ...readingActivities]
             .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
             .slice(0, 20);
+        // 🔍 调试日志：打印最终返回的activities
+        console.log(`📊 [大屏调试] 最终activities数量: ${activities.length}`);
+        if (activities.length > 0) {
+            console.log(`📋 [大屏调试] Activities列表:`, activities.map(a => ({
+                title: a.content.substring(0, 30), // 只显示前30个字符
+                type: a.type,
+                student: a.studentName
+            })));
+        }
         // 处理勋章数据
         const badgesData = recentBadgesResult.status === 'fulfilled' ? recentBadgesResult.value : [];
         const recentBadgesList = badgesData.map(b => ({
@@ -404,11 +458,18 @@ class DashboardService {
         });
         // 4. 处理公开悬赏
         const bountiesData = activeBountiesResult.status === 'fulfilled' ? activeBountiesResult.value : [];
-        const publicBounties = bountiesData.map(b => ({
-            title: b.title,
-            points: b.rewardPoints,
-            exp: b.rewardExp
-        }));
+        const publicBounties = bountiesData.map((b) => {
+            const challenger = b.challenge_participants?.[0];
+            return {
+                id: b.id,
+                title: b.title,
+                description: b.description, // 🆕 返回悬赏说明
+                points: b.rewardPoints,
+                exp: b.rewardExp,
+                challengerId: challenger?.students?.id,
+                challengerName: challenger?.students?.name
+            };
+        });
         // 组装最终结果
         const result = {
             schoolName: '星途成长方舟', // Placeholder or fetch from DB

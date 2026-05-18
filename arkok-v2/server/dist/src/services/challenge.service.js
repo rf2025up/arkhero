@@ -448,6 +448,21 @@ class ChallengeService {
             });
             results.push(res);
         }
+        // 🆕 公开悬赏（CLASS 类型）自动结束逻辑：当所有参与者都有结果时，将挑战设为 COMPLETED
+        const challenge = await this.prisma.challenges.findUnique({
+            where: { id: challengeId },
+            include: { challenge_participants: true }
+        });
+        if (challenge && challenge.type === 'CLASS') {
+            const allHaveResult = challenge.challenge_participants.every(p => p.result === 'COMPLETED' || p.result === 'FAILED');
+            if (allHaveResult && challenge.challenge_participants.length > 0) {
+                await this.prisma.challenges.update({
+                    where: { id: challengeId },
+                    data: { status: 'COMPLETED' }
+                });
+                console.log(`🏁 [PUBLIC_BOUNTY] Challenge ${challengeId} auto-completed, will disappear from big screen.`);
+            }
+        }
         return results;
     }
     /**

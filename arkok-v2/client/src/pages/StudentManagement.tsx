@@ -137,11 +137,12 @@ const StudentManagement: React.FC = () => {
         setIsSubmitting(true);
         try {
             if (editingStudent) {
-                // 更新学生
+                // 更新学生 - 保留原有师生关系,只修改姓名和班级信息
                 const response = await apiService.put(`/students/${editingStudent.id}`, {
                     name: formData.name,
                     className: formData.className,
-                    grade: formData.grade
+                    grade: formData.grade,
+                    teacherId: editingStudent.teacherId  // 🆕 保持原有师生关系不变
                 });
                 if (response.success) {
                     setStudents(prev => prev.map(s =>
@@ -160,7 +161,8 @@ const StudentManagement: React.FC = () => {
                     name: formData.name,
                     className: formData.className,
                     grade: formData.grade,
-                    schoolId: user?.schoolId
+                    schoolId: user?.schoolId,
+                    teacherId: user?.userId || user?.id  // 🆕 师生绑定:必须指定归属老师
                 });
                 if (response.success && response.data) {
                     setStudents(prev => [...prev, response.data as Student]);

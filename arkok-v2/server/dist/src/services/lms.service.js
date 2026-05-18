@@ -276,11 +276,11 @@ class LMSService {
             else {
                 // 如果是 Date 对象，使用本地时间格式化
                 const d = dateValue;
-                dateStr = `${d.getFullYear()} -${String(d.getMonth() + 1).padStart(2, '0')} -${String(d.getDate()).padStart(2, '0')} `;
+                dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
             }
-            console.log(`📅[LMS_PUBLISH] 使用日期: ${dateStr} `);
-            const startOfDay = new Date(`${dateStr} T00:00:00 +08:00`);
-            const endOfDay = new Date(`${dateStr} T23: 59: 59 +08:00`);
+            console.log(`📅[LMS_PUBLISH] 使用日期: ${dateStr}`);
+            const startOfDay = new Date(`${dateStr}T00:00:00+08:00`);
+            const endOfDay = new Date(`${dateStr}T23:59:59+08:00`);
             // 🆕 从 courseInfo 中提取单元和课，用于注入任务记录（学期地图汇总关键数据）
             const courseInfo = content?.courseInfo || {};
             let newTaskCount = 0;

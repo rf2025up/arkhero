@@ -2831,3 +2831,3783 @@ Request query params: { schoolId: '625e503b-aa7e-44fe-9982-237d828af717', limit:
   { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
   { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
 ]
+2026-01-12T07:50:45.152Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:51:00.044Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:51:02.602Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.604Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.695Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.696Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.774Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.776Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:02.824Z - GET /avatar.jpg
+2026-01-12T07:51:03.242Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.244Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.295Z - GET /avatar.jpg
+2026-01-12T07:51:03.443Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.445Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.494Z - GET /avatar.jpg
+2026-01-12T07:51:03.911Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.913Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.990Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:03.991Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.016Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.018Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.027Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.028Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.127Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.128Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.173Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.176Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.227Z - GET /avatar.jpg
+2026-01-12T07:51:04.248Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.252Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.316Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.321Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:04.370Z - GET /avatar.jpg
+2026-01-12T07:51:05.427Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.429Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.480Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.482Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.527Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.528Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.578Z - GET /avatar.jpg
+2026-01-12T07:51:05.657Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.659Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.719Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.721Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.770Z - GET /avatar.jpg
+2026-01-12T07:51:05.837Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.839Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.943Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.944Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:05.994Z - GET /avatar.jpg
+2026-01-12T07:51:06.061Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.063Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.113Z - GET /avatar.jpg
+2026-01-12T07:51:06.359Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.361Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.411Z - GET /avatar.jpg
+2026-01-12T07:51:06.500Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.502Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.561Z - GET /avatar.jpg
+2026-01-12T07:51:06.958Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:06.960Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.017Z - GET /avatar.jpg
+2026-01-12T07:51:07.141Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.143Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.197Z - GET /avatar.jpg
+2026-01-12T07:51:07.229Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.231Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.283Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.285Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.374Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.376Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.464Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.466Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.542Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.543Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.571Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.572Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.621Z - GET /avatar.jpg
+2026-01-12T07:51:07.681Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.683Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:07.734Z - GET /avatar.jpg
+2026-01-12T07:51:08.338Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:08.339Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:08.396Z - GET /avatar.jpg
+2026-01-12T07:51:11.100Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.102Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.161Z - GET /avatar.jpg
+2026-01-12T07:51:11.222Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.225Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.272Z - GET /avatar.jpg
+2026-01-12T07:51:11.461Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.463Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.516Z - GET /avatar.jpg
+2026-01-12T07:51:11.556Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.558Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.607Z - GET /avatar.jpg
+2026-01-12T07:51:11.642Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.644Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.721Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.722Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.764Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.766Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.815Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.817Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.866Z - GET /avatar.jpg
+2026-01-12T07:51:11.906Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.908Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:11.957Z - GET /avatar.jpg
+2026-01-12T07:51:12.011Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:12.013Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:12.061Z - GET /avatar.jpg
+2026-01-12T07:51:15.000Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.002Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.074Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.081Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+2026-01-12T07:51:15.082Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:51:15.137Z - GET /avatar.jpg
+2026-01-12T07:51:15.204Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.205Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.244Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.246Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.294Z - GET /avatar.jpg
+2026-01-12T07:51:15.345Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.346Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.420Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.422Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.471Z - GET /avatar.jpg
+2026-01-12T07:51:15.855Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.857Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:15.906Z - GET /avatar.jpg
+2026-01-12T07:51:16.164Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.166Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.226Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.228Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.264Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.265Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.319Z - GET /avatar.jpg
+2026-01-12T07:51:16.473Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.475Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.510Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.511Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.533Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.535Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.586Z - GET /avatar.jpg
+2026-01-12T07:51:16.629Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.639Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.687Z - GET /avatar.jpg
+2026-01-12T07:51:16.767Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.769Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:16.819Z - GET /avatar.jpg
+2026-01-12T07:51:17.514Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.515Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.582Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.584Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.628Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.629Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.677Z - GET /avatar.jpg
+2026-01-12T07:51:17.719Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.721Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.817Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.819Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.852Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.854Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.903Z - GET /avatar.jpg
+2026-01-12T07:51:17.969Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:17.970Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.018Z - GET /avatar.jpg
+2026-01-12T07:51:18.052Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.054Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.104Z - GET /avatar.jpg
+2026-01-12T07:51:18.322Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.324Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.375Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.376Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.467Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.468Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.516Z - GET /avatar.jpg
+2026-01-12T07:51:18.581Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.583Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.633Z - GET /avatar.jpg
+2026-01-12T07:51:18.660Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.662Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.710Z - GET /avatar.jpg
+2026-01-12T07:51:18.776Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.777Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.828Z - GET /avatar.jpg
+2026-01-12T07:51:18.945Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.947Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:18.996Z - GET /avatar.jpg
+2026-01-12T07:51:19.195Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:19.197Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:19.246Z - GET /avatar.jpg
+2026-01-12T07:51:19.325Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:19.327Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:19.386Z - GET /avatar.jpg
+2026-01-12T07:51:20.006Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.007Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.251Z - GET /avatar.jpg
+2026-01-12T07:51:20.368Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.370Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.427Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.470Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.472Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.473Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.524Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.533Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.615Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.616Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.665Z - GET /avatar.jpg
+2026-01-12T07:51:20.718Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.720Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.803Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.805Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:20.855Z - GET /avatar.jpg
+2026-01-12T07:51:21.019Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.020Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.071Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.072Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.122Z - GET /avatar.jpg
+2026-01-12T07:51:21.207Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.208Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.256Z - GET /avatar.jpg
+2026-01-12T07:51:21.811Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.813Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.864Z - GET /avatar.jpg
+2026-01-12T07:51:21.961Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:21.967Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.029Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.031Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.079Z - GET /avatar.jpg
+2026-01-12T07:51:22.285Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.287Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.335Z - GET /avatar.jpg
+2026-01-12T07:51:22.359Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.360Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.408Z - GET /avatar.jpg
+2026-01-12T07:51:22.467Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.469Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.537Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.538Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.576Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.577Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.625Z - GET /avatar.jpg
+2026-01-12T07:51:22.785Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.786Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.862Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.863Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.919Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.921Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:22.969Z - GET /avatar.jpg
+2026-01-12T07:51:23.030Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.032Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.077Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.078Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.116Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.118Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.174Z - GET /avatar.jpg
+2026-01-12T07:51:23.213Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.215Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.231Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.232Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.280Z - GET /avatar.jpg
+2026-01-12T07:51:23.327Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.328Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.377Z - GET /avatar.jpg
+2026-01-12T07:51:23.571Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.572Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.624Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.627Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.677Z - GET /avatar.jpg
+2026-01-12T07:51:23.745Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.747Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.809Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.810Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.871Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.872Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:23.931Z - GET /avatar.jpg
+2026-01-12T07:51:24.010Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.015Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.051Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.053Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.101Z - GET /avatar.jpg
+2026-01-12T07:51:24.150Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.151Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.198Z - GET /avatar.jpg
+2026-01-12T07:51:24.265Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.267Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.315Z - GET /avatar.jpg
+2026-01-12T07:51:24.349Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.351Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.399Z - GET /avatar.jpg
+2026-01-12T07:51:24.593Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.595Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.644Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.645Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.695Z - GET /avatar.jpg
+2026-01-12T07:51:24.737Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.738Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.786Z - GET /avatar.jpg
+2026-01-12T07:51:24.899Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.901Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.932Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.934Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.952Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:24.954Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.000Z - GET /avatar.jpg
+2026-01-12T07:51:25.045Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.047Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.095Z - GET /avatar.jpg
+2026-01-12T07:51:25.688Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.689Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.737Z - GET /avatar.jpg
+2026-01-12T07:51:25.946Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.947Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.966Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:25.968Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.046Z - GET /avatar.jpg
+2026-01-12T07:51:26.078Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.080Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.147Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.149Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.179Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.180Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.228Z - GET /avatar.jpg
+2026-01-12T07:51:26.311Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.313Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.362Z - GET /avatar.jpg
+2026-01-12T07:51:26.377Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.378Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.425Z - GET /avatar.jpg
+2026-01-12T07:51:26.598Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.600Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.648Z - GET /avatar.jpg
+2026-01-12T07:51:26.757Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.758Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.808Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.809Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.897Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.898Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.969Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:26.970Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.009Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.010Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.095Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.096Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.144Z - GET /avatar.jpg
+2026-01-12T07:51:27.418Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.419Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.503Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.505Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.595Z - GET /avatar.jpg
+2026-01-12T07:51:27.596Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.597Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.645Z - GET /avatar.jpg
+2026-01-12T07:51:27.794Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.796Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.797Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.798Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.852Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.865Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.866Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.867Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:27.916Z - GET /avatar.jpg
+2026-01-12T07:51:28.002Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.003Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.061Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.062Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.109Z - GET /avatar.jpg
+2026-01-12T07:51:28.149Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.151Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.202Z - GET /avatar.jpg
+2026-01-12T07:51:28.218Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.220Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.270Z - GET /avatar.jpg
+2026-01-12T07:51:28.731Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.732Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.781Z - GET /avatar.jpg
+2026-01-12T07:51:28.852Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.855Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:28.930Z - GET /avatar.jpg
+2026-01-12T07:51:29.034Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.036Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.084Z - GET /avatar.jpg
+2026-01-12T07:51:29.661Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.678Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.709Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.710Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.800Z - GET /avatar.jpg
+2026-01-12T07:51:29.819Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.820Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.903Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.904Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.953Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:29.954Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.003Z - GET /avatar.jpg
+2026-01-12T07:51:30.053Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.055Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.056Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:51:30.105Z - GET /avatar.jpg
+2026-01-12T07:51:30.142Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.144Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.194Z - GET /avatar.jpg
+2026-01-12T07:51:30.295Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.296Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.303Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.304Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.352Z - GET /avatar.jpg
+2026-01-12T07:51:30.461Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.463Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.464Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.465Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:30.516Z - GET /avatar.jpg
+2026-01-12T07:51:33.418Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:33.420Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:33.478Z - GET /avatar.jpg
+2026-01-12T07:51:35.293Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:35.294Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:35.343Z - GET /avatar.jpg
+2026-01-12T07:51:35.560Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:35.561Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:35.619Z - GET /avatar.jpg
+2026-01-12T07:51:36.950Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:36.951Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:37.000Z - GET /avatar.jpg
+2026-01-12T07:51:37.155Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:37.156Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:37.204Z - GET /avatar.jpg
+2026-01-12T07:51:37.881Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:37.883Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:37.932Z - GET /avatar.jpg
+2026-01-12T07:51:39.568Z - POST /api/challenges
+🔐 [AUTH_MIDDLEWARE] Processing POST /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.569Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.571Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+📡 Broadcasted to school 625e503b-aa7e-44fe-9982-237d828af717: CHALLENGE_CREATED
+2026-01-12T07:51:39.628Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  username: 'long',
+  name: '龙老师',
+  displayName: '龙老师',
+  email: null,
+  role: 'TEACHER',
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  schoolName: '星途与伴',
+  primaryClassName: '六年级1班'
+}
+School ID from user: 625e503b-aa7e-44fe-9982-237d828af717
+Request query params: { schoolId: '625e503b-aa7e-44fe-9982-237d828af717', limit: '100' }
+[DEBUG] Query object sent to service: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: 100,
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: undefined,
+  userRole: 'TEACHER',
+  requesterId: '5ca64703-c978-4d01-bf44-a7568f34f556'
+}
+[DEBUG] ✅ teacherId is present: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: undefined,
+  userRole: 'TEACHER'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+2026-01-12T07:51:39.630Z - GET /api/challenges
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.632Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+[DEBUG] 📊 TeacherId distribution: {
+  '5ca64703-c978-4d01-bf44-a7568f34f556': 8,
+  '10a89d3e-7b40-461c-a6dd-b71c00111fbf': 9,
+  '5d26104b-58a4-4c38-90d6-d03ff7fa76de': 12
+}
+[DEBUG] 📊 Total students in DB: 29
+[TEACHER BINDING] Default: querying students for teachers: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+2026-01-12T07:51:39.634Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+[TEACHER BINDING] ✅ Found 8 students for scope: undefined
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+      name: '龙卓豫',
+      className: '六年级1班',
+      avatarUrl: '/avatar.jpg',
+      points: 3620,
+      exp: 14170,
+      level: 21,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '1896c410-1a91-4281-ac02-797756c638cc',
+      name: '宁可歆',
+      className: null,
+      avatarUrl: null,
+      points: 1460,
+      exp: 330,
+      level: 2,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: '47938c35-a307-4191-84a8-bf798d599505',
+      name: '廖潇然',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 186,
+      exp: 250,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '83147758-d2d7-4541-a7c1-5892b809ccc8',
+      name: '彭斯晟',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 333,
+      exp: 150,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '31895b6e-8fb0-4eb8-838c-3c0d3d71bbcb',
+      name: '曾欣媛',
+      className: null,
+      avatarUrl: null,
+      points: 362,
+      exp: 75,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: 'a3a72793-7c76-4f14-b18c-d786db55ff26',
+      name: '樊牧宸',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 329,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: 'b043aea7-874b-4505-8274-50526192fde8',
+      name: '肖浩轩',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 318,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '65697759-b4ba-49ae-9f18-101730f7bf47',
+      name: '刘梓萌',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 731,
+      exp: 25,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '六年级',
+      semester: '上册'
+    }
+  ],
+  pagination: { page: 1, limit: 100, total: 8, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 8
+[DEBUG] Students data preview: [
+  {
+    id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+    name: '龙卓豫',
+    className: '六年级1班',
+    avatarUrl: '/avatar.jpg',
+    points: 3620,
+    exp: 14170,
+    level: 21,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '二年级',
+    semester: '上册'
+  },
+  {
+    id: '1896c410-1a91-4281-ac02-797756c638cc',
+    name: '宁可歆',
+    className: null,
+    avatarUrl: null,
+    points: 1460,
+    exp: 330,
+    level: 2,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '五年级',
+    semester: '上册'
+  }
+]
+[DEBUG] Response sent to frontend successfully
+2026-01-12T07:51:39.734Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.736Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.737Z - GET /api/challenges/3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:39.786Z - GET /avatar.jpg
+2026-01-12T07:51:45.048Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:51:47.871Z - POST /api/challenges/join
+🔐 [AUTH_MIDDLEWARE] Processing POST /join
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+📡 Broadcasted to school 625e503b-aa7e-44fe-9982-237d828af717: CHALLENGE_JOINED
+2026-01-12T07:51:48.024Z - GET /api/challenges
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:48.025Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  username: 'long',
+  name: '龙老师',
+  displayName: '龙老师',
+  email: null,
+  role: 'TEACHER',
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  schoolName: '星途与伴',
+  primaryClassName: '六年级1班'
+}
+School ID from user: 625e503b-aa7e-44fe-9982-237d828af717
+Request query params: { schoolId: '625e503b-aa7e-44fe-9982-237d828af717', limit: '100' }
+[DEBUG] Query object sent to service: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: 100,
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: undefined,
+  userRole: 'TEACHER',
+  requesterId: '5ca64703-c978-4d01-bf44-a7568f34f556'
+}
+[DEBUG] ✅ teacherId is present: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: undefined,
+  userRole: 'TEACHER'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+[DEBUG] 📊 TeacherId distribution: {
+  '5ca64703-c978-4d01-bf44-a7568f34f556': 8,
+  '10a89d3e-7b40-461c-a6dd-b71c00111fbf': 9,
+  '5d26104b-58a4-4c38-90d6-d03ff7fa76de': 12
+}
+[DEBUG] 📊 Total students in DB: 29
+[TEACHER BINDING] Default: querying students for teachers: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+[TEACHER BINDING] ✅ Found 8 students for scope: undefined
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+      name: '龙卓豫',
+      className: '六年级1班',
+      avatarUrl: '/avatar.jpg',
+      points: 3620,
+      exp: 14170,
+      level: 21,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '1896c410-1a91-4281-ac02-797756c638cc',
+      name: '宁可歆',
+      className: null,
+      avatarUrl: null,
+      points: 1460,
+      exp: 330,
+      level: 2,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: '47938c35-a307-4191-84a8-bf798d599505',
+      name: '廖潇然',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 186,
+      exp: 250,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '83147758-d2d7-4541-a7c1-5892b809ccc8',
+      name: '彭斯晟',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 333,
+      exp: 150,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '31895b6e-8fb0-4eb8-838c-3c0d3d71bbcb',
+      name: '曾欣媛',
+      className: null,
+      avatarUrl: null,
+      points: 362,
+      exp: 75,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: 'a3a72793-7c76-4f14-b18c-d786db55ff26',
+      name: '樊牧宸',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 329,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: 'b043aea7-874b-4505-8274-50526192fde8',
+      name: '肖浩轩',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 318,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '65697759-b4ba-49ae-9f18-101730f7bf47',
+      name: '刘梓萌',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 731,
+      exp: 25,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '六年级',
+      semester: '上册'
+    }
+  ],
+  pagination: { page: 1, limit: 100, total: 8, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 8
+[DEBUG] Students data preview: [
+  {
+    id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+    name: '龙卓豫',
+    className: '六年级1班',
+    avatarUrl: '/avatar.jpg',
+    points: 3620,
+    exp: 14170,
+    level: 21,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '二年级',
+    semester: '上册'
+  },
+  {
+    id: '1896c410-1a91-4281-ac02-797756c638cc',
+    name: '宁可歆',
+    className: null,
+    avatarUrl: null,
+    points: 1460,
+    exp: 330,
+    level: 2,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '五年级',
+    semester: '上册'
+  }
+]
+[DEBUG] Response sent to frontend successfully
+2026-01-12T07:51:48.133Z - GET /api/challenges/3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:48.135Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:48.138Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:48.191Z - GET /avatar.jpg
+2026-01-12T07:51:51.633Z - GET /challenges
+2026-01-12T07:51:51.868Z - GET /assets/index-CWkM6sy5.js
+2026-01-12T07:51:51.868Z - GET /assets/index-LC03ls95.css
+2026-01-12T07:51:53.530Z - GET /api/auth/me
+🔐 [AUTH_MIDDLEWARE] Processing GET /me
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.665Z - GET /vite.svg
+2026-01-12T07:51:53.693Z - GET /api/challenges
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.698Z - GET /api/students/classes
+🔐 [AUTH_MIDDLEWARE] Processing GET /classes
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+[DEBUG] getClasses - User: {
+  userId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  username: 'long',
+  name: '龙老师',
+  displayName: '龙老师',
+  email: null,
+  role: 'TEACHER',
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  schoolName: '星途与伴',
+  primaryClassName: '六年级1班'
+}
+[DEBUG] getClasses - SchoolId: 625e503b-aa7e-44fe-9982-237d828af717
+2026-01-12T07:51:53.699Z - GET /api/students
+🔐 [AUTH_MIDDLEWARE] Processing GET /
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+--- [DEBUG] GET /api/students endpoint hit ---
+Authenticated User: {
+  userId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  username: 'long',
+  name: '龙老师',
+  displayName: '龙老师',
+  email: null,
+  role: 'TEACHER',
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  schoolName: '星途与伴',
+  primaryClassName: '六年级1班'
+}
+School ID from user: 625e503b-aa7e-44fe-9982-237d828af717
+Request query params: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  limit: '100',
+  scope: 'ALL_SCHOOL'
+}
+[DEBUG] Query object sent to service: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  className: undefined,
+  search: undefined,
+  page: undefined,
+  limit: 100,
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: 'ALL_SCHOOL',
+  userRole: 'TEACHER',
+  requesterId: '5ca64703-c978-4d01-bf44-a7568f34f556'
+}
+[DEBUG] ✅ teacherId is present: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] Fetching students with query: {
+  schoolId: '625e503b-aa7e-44fe-9982-237d828af717',
+  teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+  scope: 'ALL_SCHOOL',
+  userRole: 'TEACHER'
+}
+[DEBUG] 🔍 Checking teacherId distribution before query...
+[DEBUG] 📊 TeacherId distribution: {
+  '5ca64703-c978-4d01-bf44-a7568f34f556': 8,
+  '10a89d3e-7b40-461c-a6dd-b71c00111fbf': 9,
+  '5d26104b-58a4-4c38-90d6-d03ff7fa76de': 12
+}
+[DEBUG] 📊 Total students in DB: 29
+[TEACHER BINDING] Querying ALL_SCHOOL for TEACHER: 5ca64703-c978-4d01-bf44-a7568f34f556
+[TEACHER BINDING] ⚠️ Using teacherId only for student filtering (className filter removed)
+[TEACHER BINDING] ✅ Found 29 students for scope: ALL_SCHOOL
+[DEBUG] Service returned: {
+  students: [
+    {
+      id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+      name: '龙卓豫',
+      className: '六年级1班',
+      avatarUrl: '/avatar.jpg',
+      points: 3620,
+      exp: 14170,
+      level: 21,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '1896c410-1a91-4281-ac02-797756c638cc',
+      name: '宁可歆',
+      className: null,
+      avatarUrl: null,
+      points: 1460,
+      exp: 330,
+      level: 2,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: '1dd13004-95e4-4643-947f-eac9e198f465',
+      name: '徐汇洋',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 918,
+      exp: 277,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '456bb6e1-6a12-40d9-978f-8dacf78508ed',
+      name: '吴逸桐',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 4445,
+      exp: 267,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '47938c35-a307-4191-84a8-bf798d599505',
+      name: '廖潇然',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 186,
+      exp: 250,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: 'bb61ac5c-9bee-4ff9-95ef-1d9e25728f76',
+      name: '肖雨虹',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 3236,
+      exp: 200,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: '570e41be-681d-4892-bb57-d4bad7e40985',
+      name: '唐艺馨',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 10915,
+      exp: 199,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'fb3e1095-1edb-4b42-81b8-3d5f5744f4a8',
+      name: '肖正楠',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 4170,
+      exp: 177,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '83147758-d2d7-4541-a7c1-5892b809ccc8',
+      name: '彭斯晟',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 333,
+      exp: 150,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: 'a0c083ed-3dbb-4b19-83e3-fe3136e56da4',
+      name: '宋子晨',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 753,
+      exp: 90,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'f3b26359-2347-44a0-a991-780c87adacbb',
+      name: '王彦舒',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 880,
+      exp: 84,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '31895b6e-8fb0-4eb8-838c-3c0d3d71bbcb',
+      name: '曾欣媛',
+      className: null,
+      avatarUrl: null,
+      points: 362,
+      exp: 75,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: '56451443-918f-4784-a759-7a010457312f',
+      name: '彭柏成',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 190,
+      exp: 63,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'ec2b8cff-ab40-48ce-aad6-21d58c81c980',
+      name: '何泽昕',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 95,
+      exp: 51,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'c1b7becf-7c22-4901-bf4b-dddfbe4f845c',
+      name: '廖研曦',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 130,
+      exp: 50,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'a3a72793-7c76-4f14-b18c-d786db55ff26',
+      name: '樊牧宸',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 329,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '五年级',
+      semester: '上册'
+    },
+    {
+      id: 'b043aea7-874b-4505-8274-50526192fde8',
+      name: '肖浩轩',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 318,
+      exp: 50,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '577a615e-0ec0-40c7-b7ea-d274fc6eb142',
+      name: '黄衍恺',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 860,
+      exp: 47,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '8a629a26-84df-414a-8541-6f543ae84ef2',
+      name: '方景怡',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 655,
+      exp: 44,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '55978b8f-9467-48f1-8bcd-f95224e044d3',
+      name: '舒昱恺',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 840,
+      exp: 26,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '6fcc0c5f-912b-48e4-ba1b-c17e7f226d6a',
+      name: '陈金锐',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 105,
+      exp: 26,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '65697759-b4ba-49ae-9f18-101730f7bf47',
+      name: '刘梓萌',
+      className: '六年级1班',
+      avatarUrl: null,
+      points: 731,
+      exp: 25,
+      level: 1,
+      teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+      isActive: true,
+      grade: '六年级',
+      semester: '上册'
+    },
+    {
+      id: 'a151595d-26a6-42a4-97fc-0988220b0e65',
+      name: '谌雨涵',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 780,
+      exp: 24,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: '9ebb1630-0692-4d37-81f9-01c89f1f602f',
+      name: '余沁妍',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 5285,
+      exp: 22,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: 'be503d07-18a9-4c5b-8836-7f6b943ae051',
+      name: '陈笑妍',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: -85,
+      exp: 14,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    },
+    {
+      id: 'd4d0d812-d0cf-4477-bce3-b6a8684971b7',
+      name: '庞子玥',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 2780,
+      exp: 7,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: 'f35c8b56-4200-4dcf-8950-eb72832214fe',
+      name: '刘凡兮',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 1500,
+      exp: 5,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '40a3cf36-1ccb-40fe-b34e-f9c49c91c6ed',
+      name: '刘润霖',
+      className: '黄老师班',
+      avatarUrl: null,
+      points: 1430,
+      exp: 3,
+      level: 1,
+      teacherId: '10a89d3e-7b40-461c-a6dd-b71c00111fbf',
+      isActive: true,
+      grade: null,
+      semester: null
+    },
+    {
+      id: '62b956ae-2baa-465c-a3af-80fbd740b6a7',
+      name: '廖一凡',
+      className: '姜老师班',
+      avatarUrl: null,
+      points: 1710,
+      exp: 0,
+      level: 1,
+      teacherId: '5d26104b-58a4-4c38-90d6-d03ff7fa76de',
+      isActive: true,
+      grade: '二年级',
+      semester: '上册'
+    }
+  ],
+  pagination: { page: 1, limit: 100, total: 29, totalPages: 1 }
+}
+[DEBUG] Number of students in result: 29
+[DEBUG] Students data preview: [
+  {
+    id: '68e8a25d-1ad1-4aec-b9f6-916544b62b54',
+    name: '龙卓豫',
+    className: '六年级1班',
+    avatarUrl: '/avatar.jpg',
+    points: 3620,
+    exp: 14170,
+    level: 21,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '二年级',
+    semester: '上册'
+  },
+  {
+    id: '1896c410-1a91-4281-ac02-797756c638cc',
+    name: '宁可歆',
+    className: null,
+    avatarUrl: null,
+    points: 1460,
+    exp: 330,
+    level: 2,
+    teacherId: '5ca64703-c978-4d01-bf44-a7568f34f556',
+    isActive: true,
+    grade: '五年级',
+    semester: '上册'
+  }
+]
+[DEBUG] Response sent to frontend successfully
+2026-01-12T07:51:53.771Z - GET /api/challenges/e6319751-1105-4a03-ba3c-5af779930d45/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e6319751-1105-4a03-ba3c-5af779930d45/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.772Z - GET /api/challenges/dc215397-6e3e-4229-b74e-6da1be0529f4/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /dc215397-6e3e-4229-b74e-6da1be0529f4/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.773Z - GET /api/challenges/c12262d8-c29b-48f4-8b60-310f305f19e2/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /c12262d8-c29b-48f4-8b60-310f305f19e2/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.774Z - GET /api/challenges/6e185c14-fd95-41d5-a311-c3da62c19a99/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /6e185c14-fd95-41d5-a311-c3da62c19a99/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.777Z - GET /api/challenges/d2a3ae15-c91c-4fcb-aa89-c62eaeded2eb/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /d2a3ae15-c91c-4fcb-aa89-c62eaeded2eb/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.779Z - GET /api/challenges/3645f00e-e64c-4a51-a889-cf7069440ae5/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /3645f00e-e64c-4a51-a889-cf7069440ae5/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.781Z - GET /api/challenges/56e6e647-d396-41b1-9df9-bfa45d78fa6f/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /56e6e647-d396-41b1-9df9-bfa45d78fa6f/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.783Z - GET /api/challenges/6b462187-78d3-41d0-8911-e61241e512c2/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /6b462187-78d3-41d0-8911-e61241e512c2/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.785Z - GET /api/challenges/a6a66b78-f599-4cd8-aa09-d4e2746e0a73/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /a6a66b78-f599-4cd8-aa09-d4e2746e0a73/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.787Z - GET /api/challenges/0c7021e2-2007-423f-bfcc-00a685871ac1/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /0c7021e2-2007-423f-bfcc-00a685871ac1/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.790Z - GET /api/challenges/7227ee9d-faae-43b2-934d-c56f8bbcb8d3/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /7227ee9d-faae-43b2-934d-c56f8bbcb8d3/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.791Z - GET /api/challenges/be7bca9c-8c74-4962-b40e-71b7afe8c5e6/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /be7bca9c-8c74-4962-b40e-71b7afe8c5e6/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:51:53.838Z - GET /avatar.jpg
+2026-01-12T07:51:59.848Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:52:04.734Z - GET /api/challenges/3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /3490b676-0710-4511-9222-66d21212c59b/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:52:04.735Z - GET /api/challenges/e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /e18c6e4f-7de7-4cf3-b3a6-f4a622047068/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:52:04.736Z - GET /api/challenges/fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Processing GET /fa35545b-9b8e-4858-b599-1ae99f19c2c7/participants
+🔐 [AUTH_MIDDLEWARE] Token found: true, Length: 467
+🔐 [AUTH_MIDDLEWARE] Token verification result: true
+✅ [AUTH_MIDDLEWARE] User authenticated: long (TEACHER)
+2026-01-12T07:52:04.796Z - GET /avatar.jpg
+2026-01-12T07:52:14.854Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:52:30.242Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:52:45.089Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:52:59.852Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:53:15.034Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:53:30.051Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:53:37.814Z - GET /
+2026-01-12T07:53:45.038Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
+2026-01-12T07:54:00.052Z - GET /api/dashboard/bigscreen
+📺 [BIGSCREEN] Loading data for school: 625e503b-aa7e-44fe-9982-237d828af717
+📺 [BIGSCREEN] Fetching data for school: 625e503b-aa7e-44fe-9982-237d828af717
+🔍 [大屏调试] 过滤前任务数量: 8
+✅ [大屏调试] 过滤后任务数量: 8
+📊 [大屏调试] 最终activities数量: 20
+📋 [大屏调试] Activities列表: [
+  {
+    title: '【阅读记录】《神探狗狗球为谁而滚》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《你真好》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《谁在做鬼脸》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸双猫传奇》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【阅读记录】《逻辑推理游戏》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《太空邮递员3》 120分钟', type: 'progress', student: '肖雨虹' },
+  { title: '【阅读记录】《成为猴子的日子》 120分钟', type: 'progress', student: '肖雨虹' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯史上最强的女对手》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯四个神秘的签名》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  {
+    title: '【阅读记录】《科学大爆炸智能的进化》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【综合成长】作业的自主检查', type: 'growth', student: '龙卓豫' },
+  {
+    title: '【阅读记录】《大侦探福尔摩斯追凶20年》 120分钟',
+    type: 'progress',
+    student: '肖雨虹'
+  },
+  { title: '【核心教学法】阅读理解策略练习', type: 'methodology', student: '龙卓豫' },
+  { title: '【核心教学法】时间管理练习', type: 'methodology', student: '龙卓豫' }
+]
