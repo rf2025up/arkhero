@@ -1690,18 +1690,13 @@ export class StudentService {
    * 🆕 获取学生积分操作历史记录（最近N条）
    */
   async getScoreHistory(studentId: string, schoolId: string, limit: number = 7): Promise<any[]> {
+    // 🆕 不再靠 title 关键词匹配，改为匹配 type (SPECIAL=加分, CHALLENGE=减分)
+    // 这样所有手动积分操作都能查到，不依赖 reason 文字内容
     const records = await this.prisma.task_records.findMany({
       where: {
         studentId,
         schoolId,
-        OR: [
-          { title: { contains: '手动' } },
-          { title: { contains: '加分' } },
-          { title: { contains: '扣分' } },
-          { title: { contains: '减分' } },
-          { title: { contains: '经验调整' } },
-          { title: { contains: '兑换' } }
-        ]
+        type: { in: ['SPECIAL', 'CHALLENGE'] }
       },
       orderBy: { createdAt: 'desc' },
       take: limit,
