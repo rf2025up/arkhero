@@ -193,6 +193,9 @@ export class StudentRoutes {
     // 🆕 获取学生最近一次积分操作记录
     this.router.get('/:id/last-score', this.getLastScoreRecord.bind(this));
 
+    // 🆕 获取学生积分操作历史记录（最近N条）
+    this.router.get('/:id/score-history', this.getScoreHistory.bind(this));
+
     // 🆕 获取学生等级进度信息（用于展示进度条）
     this.router.get('/:id/level-progress', this.getLevelProgress.bind(this));
 
@@ -877,9 +880,14 @@ export class StudentRoutes {
    */
   private async addScore(req: Request, res: Response): Promise<void> {
     try {
+      // 🆕 提取 reasonType 从 metadata 或顶层
+      const reasonType = req.body.reasonType || req.body.metadata?.reasonType || null;
+      const metadata = { ...(req.body.metadata || {}), reasonType };
+
       const data: AddScoreRequest = {
         ...req.body,
-        schoolId: req.schoolId!
+        schoolId: req.schoolId!,
+        metadata
       };
 
       const updatedStudents = await this.studentService.addScore(data, req.user!.username);
@@ -956,6 +964,27 @@ export class StudentRoutes {
       res.status(500).json({
         success: false,
         message: '获取积分记录失败'
+      });
+    }
+  }
+
+  /**
+   * 🆕 获取学生积分操作历史记录（最近N条）
+   */
+  private async getScoreHistory(req: Request, res: Response): Promise<void> {
+    try {
+      const { id: studentId } = req.params;
+      const schoolId = req.schoolId!;
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : 7;
+
+      const history = await this.studentService.getScoreHistory(studentId, schoolId, limit);
+
+      res.status(200).json({ success: true, data: history });
+    } catch (error) {
+      console.error('Get score history error:', error);
+      res.status(500).json({
+        success: false,
+        message: '获取积分历史记录失败'
       });
     }
   }

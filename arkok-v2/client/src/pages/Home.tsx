@@ -21,13 +21,16 @@ const Home = () => {
   const [scoringStudent, setScoringStudent] = useState<Student | null>(null);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
-  const [lastScoreRecord, setLastScoreRecord] = useState<{
+  // 🆕 最近7条积分操作历史
+  const [scoreHistory, setScoreHistory] = useState<Array<{
+    id: string;
     points: number;
     exp: number;
     reason?: string;
+    reasonType?: string;
     operatorName?: string;
     operatedAt: string;
-  } | null>(null);
+  }>>([]);
 
   // --- 加载和错误状态 ---
   const [isLoading, setIsLoading] = useState(true);
@@ -190,17 +193,17 @@ const Home = () => {
         setIsSheetOpen(true);
         if (navigator.vibrate) navigator.vibrate(50);
 
-        // 🆕 获取该学生最近一次积分操作记录
+        // 🆕 获取该学生最近7条积分操作历史
         try {
-          const res = await apiService.get(`/students/${student.id}/last-score`);
+          const res = await apiService.get(`/students/${student.id}/score-history?limit=7`);
           if (res.success && res.data) {
-            setLastScoreRecord(res.data as any);
+            setScoreHistory(res.data as any);
           } else {
-            setLastScoreRecord(null);
+            setScoreHistory([]);
           }
         } catch (err) {
-          console.error('[Home] 获取积分记录失败:', err);
-          setLastScoreRecord(null);
+          console.error('[Home] 获取积分历史失败:', err);
+          setScoreHistory([]);
         }
       }
     }, 600);
@@ -241,7 +244,7 @@ const Home = () => {
     }
   };
 
-  const handleConfirmScore = async (points: number, reason: string, exp?: number) => {
+  const handleConfirmScore = async (points: number, reason: string, exp?: number, reasonType?: string) => {
     if (!token) return;
     let idsToUpdate = scoringStudent ? [scoringStudent.id] : Array.from(selectedIds);
     try {
@@ -249,7 +252,8 @@ const Home = () => {
         studentIds: idsToUpdate,
         points: points,
         exp: exp || 0,
-        reason: reason
+        reason: reason,
+        reasonType: reasonType || null  // 🆕 传入减分理由类型
       });
       if (data.success) {
         apiService.invalidateCache('/students');
@@ -478,12 +482,12 @@ const Home = () => {
 
       <ActionSheet
         isOpen={isSheetOpen}
-        onClose={() => { setIsSheetOpen(false); setScoringStudent(null); setLastScoreRecord(null); }}
+        onClose={() => { setIsSheetOpen(false); setScoringStudent(null); setScoreHistory([]); }}
         selectedStudents={scoringStudent ? [scoringStudent] : visibleStudents.filter(s => selectedIds.has(s.id))}
         onConfirm={handleConfirmScore}
         onTransfer={user?.role === 'TEACHER' ? handleTransferStudents : undefined}
         onCheckin={user?.role === 'TEACHER' ? handleBatchCheckin : undefined}
-        lastScoreRecord={lastScoreRecord || undefined}
+        scoreHistory={scoreHistory}
       />
 
       {toastMsg && (

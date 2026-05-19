@@ -298,6 +298,7 @@ model task_records {
   subject       String?
   isOverridden  Boolean       @default(false)
   settledAt     DateTime?
+  reason_type   String?       // 🆕 减分类型：DEDUCT(减分惩罚) / EXCHANGE(积分兑换)
   lesson_plans  lesson_plans? @relation(fields: [lessonPlanId], references: [id])
   schools       schools       @relation(fields: [schoolId], references: [id], onDelete: Cascade)
   students      students      @relation(fields: [studentId], references: [id], onDelete: Cascade)

@@ -1234,6 +1234,9 @@ export class StudentService {
       })
     );
 
+    // 提取 reasonType
+    const reasonType = (metadata as any)?.reasonType || null;
+
     // 创建任务记录
     await this.prisma.$transaction(
       studentIds.map(studentId =>
@@ -1244,6 +1247,7 @@ export class StudentService {
             schoolId,
             type: points > 0 ? 'SPECIAL' : 'CHALLENGE', // 使用 TaskType 枚举值
             title: reason,
+            reason_type: reasonType, // 🆕 DEDUCT / EXCHANGE
             content: {
               score: points,
               exp,
@@ -1272,12 +1276,21 @@ export class StudentService {
         reason,
         timestamp: new Date().toISOString(),
         updatedBy,
-        metadata
+        metadata: { ...metadata, reasonType }
       }
     };
 
     // 广播到学校房间
     this.broadcastToSchool(schoolId, broadcastData);
+
+    // 🆕 事务验证日志：确认积分确实写入数据库
+    const verifyStudent = await this.prisma.students.findFirst({
+      where: { id: studentIds[0], schoolId },
+      select: { id: true, name: true, points: true, exp: true }
+    });
+    console.log(`[SCORE] ✅ Transaction committed: ${studentIds.length} students, points=${points}, exp=${exp}, reasonType=${reasonType}, reason="${reason}"`);
+    console.log(`[SCORE] ✅ Verification: student=${verifyStudent?.name}, points=${verifyStudent?.points}, exp=${verifyStudent?.exp}`);
+    console.log(`[SCORE] 📡 Broadcast sent to school: ${schoolId}`);
 
     return studentsWithLevel;
   }
@@ -1671,6 +1684,49 @@ export class StudentService {
       select: { settings: true }
     });
     return (school?.settings as any)?.expMultiplier || 1.0;
+  }
+
+  /**
+   * 🆕 获取学生积分操作历史记录（最近N条）
+   */
+  async getScoreHistory(studentId: string, schoolId: string, limit: number = 7): Promise<any[]> {
+    const records = await this.prisma.task_records.findMany({
+      where: {
+        studentId,
+        schoolId,
+        OR: [
+          { title: { contains: '手动' } },
+          { title: { contains: '加分' } },
+          { title: { contains: '扣分' } },
+          { title: { contains: '减分' } },
+          { title: { contains: '经验调整' } },
+          { title: { contains: '兑换' } }
+        ]
+      },
+      orderBy: { createdAt: 'desc' },
+      take: limit,
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        expAwarded: true,
+        reason_type: true,
+        createdAt: true
+      }
+    });
+
+    return records.map(record => {
+      const content = (record.content || {}) as any;
+      return {
+        id: record.id,
+        points: content.score || 0,
+        exp: record.expAwarded || content.exp || 0,
+        reason: record.title,
+        reasonType: record.reason_type || null,
+        operatorName: content.metadata?.updatedBy || '老师',
+        operatedAt: record.createdAt.toISOString()
+      };
+    });
   }
 }
 
